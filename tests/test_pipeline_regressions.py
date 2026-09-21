@@ -164,9 +164,30 @@ class ReferenceTests(unittest.TestCase):
 
     def test_reference_argument_parsed(self):
         ns = extract('ICP/ICP.py', ['parse_args'], dict(argparse=argparse, OUTPUT_VOXELS=128, MAX_GW_ITERATIONS=20, GW_TOLERANCE=.001,
-             PAIRWISE_ITERATIONS=100, PAIRWISE_TOLERANCE=.001, PAIRWISE_LANDMARKS=200, INTERPOLATION_MODE='nn'))
+             PAIRWISE_ITERATIONS=100, PAIRWISE_TOLERANCE=.001, PAIRWISE_LANDMARKS=200, INTERPOLATION_MODE='nn', os=os))
         with patch.object(sys, 'argv', ['ICP.py', '--reference_template', 'ref.ply']):
             self.assertEqual(ns['parse_args']().reference_template, 'ref.ply')
+
+    def test_exploratory_groupwise_requires_explicit_opt_in(self):
+        ns = extract('ICP/ICP.py', ['parse_args'], dict(argparse=argparse, OUTPUT_VOXELS=128, MAX_GW_ITERATIONS=20, GW_TOLERANCE=.001,
+             PAIRWISE_ITERATIONS=100, PAIRWISE_TOLERANCE=.001, PAIRWISE_LANDMARKS=200, INTERPOLATION_MODE='nn', os=os))
+        with patch.object(sys, 'argv', ['ICP.py']):
+            with self.assertRaises(SystemExit):
+                ns['parse_args']()
+        with patch.object(sys, 'argv', ['ICP.py', '--exploratory_groupwise']):
+            self.assertTrue(ns['parse_args']().exploratory_groupwise)
+
+    def test_single_file_input_requires_existing_volume_and_output(self):
+        ns = extract('ICP/ICP.py', ['parse_args'], dict(argparse=argparse, OUTPUT_VOXELS=128, MAX_GW_ITERATIONS=20, GW_TOLERANCE=.001,
+             PAIRWISE_ITERATIONS=100, PAIRWISE_TOLERANCE=.001, PAIRWISE_LANDMARKS=200, INTERPOLATION_MODE='nn', os=os))
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir, 'one_left_mask.nii.gz')
+            path.write_bytes(b'test')
+            args = ['ICP.py', '--reference_template', 'ref.ply', '--input_file', str(path),
+                    '--output_dir', str(Path(temp_dir, 'output'))]
+            with patch.object(sys, 'argv', args):
+                parsed = ns['parse_args']()
+            self.assertEqual(parsed.input_file, str(path))
 
     def test_fixed_alignment_not_affected_by_other_subjects(self):
         class Mesh:

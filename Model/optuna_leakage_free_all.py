@@ -270,13 +270,14 @@ def train_pointnet_full(x, y, device, seed, epochs, params):
     return model
 
 
-def load_data(protocol, cohort, side):
+def load_data(protocol, cohort, side, data_root=None):
+    data_root = Path(data_root).resolve() if data_root else Path(__file__).resolve().parent
     if protocol in ('coef_raw', 'coef_plsda', 'plsda_direct'):
-        train_df, test_df = load_raw_cohort(cohort, side, kind='coef')
+        train_df, test_df = load_raw_cohort(cohort, side, kind='coef', root=data_root)
         x, y, groups, columns = matrix(train_df)
         test_x, test_y, test_groups, _ = matrix(test_df)
     else:
-        train_df, test_df = load_raw_xyz_cohort(cohort, side)
+        train_df, test_df = load_raw_xyz_cohort(cohort, side, root=data_root)
         x, y, groups = xyz_matrix(train_df)
         test_x, test_y, test_groups = xyz_matrix(test_df)
         columns = ['normalized_xyz_3x1002']
@@ -356,6 +357,7 @@ def fit_final_and_test(protocol, model_name, params, train_df, test_df, x, y, gr
         'optuna_trials': args.n_trials, 'folds': len(splits), 'seed': int(seed),
         'test_evaluation': 'single_final_model_no_fold_ensemble',
         'train_rows': len(train_df), 'test_rows': len(test_df), 'features': columns,
+        'data_root': str(args.data_root),
         'train_feature_sha256': digest_frame(train_df), 'test_feature_sha256': digest_frame(test_df),
         'patient_overlap': False, 'device': str(args.device_obj),
         'elapsed_seconds': round(time.time() - started, 2),
@@ -376,7 +378,7 @@ def fit_final_and_test(protocol, model_name, params, train_df, test_df, x, y, gr
 
 def study_one(protocol, model_name, cohort, side, args, output_root):
     train_df, test_df, x, y, groups, columns, test_x, test_y, test_groups = load_data(
-        protocol, cohort, side)
+        protocol, cohort, side, data_root=args.data_root)
     splits = grouped_splits(y, groups, args.folds, args.seed)
     study_dir = output_root / 'studies' / protocol / cohort / side / model_name
     study_dir.mkdir(parents=True, exist_ok=True)
@@ -468,9 +470,12 @@ def main():
     parser.add_argument('--children_per_pair', type=int, default=8)
     parser.add_argument('--noise_scale', type=float, default=0.02)
     parser.add_argument('--pls_components', type=int, default=8)
+    parser.add_argument('--data_root', default=str(Path(__file__).resolve().parent),
+                        help='Root containing cohort-specific coefficient files and Output_Dataset XYZ files')
     parser.add_argument('--output_root', default=str(
         Path(__file__).resolve().parent / 'optuna_runs_10fold'))
     args = parser.parse_args()
+    args.data_root = str(Path(args.data_root).resolve())
     args.eval_seeds = tuple(int(item.strip()) for item in str(args.eval_seeds).split(',') if item.strip())
     args.device_obj = torch.device(args.device if args.device != 'auto' else
                                    ('cuda' if torch.cuda.is_available() else 'cpu'))
@@ -523,6 +528,7 @@ def main():
     pd.DataFrame(winner_rows).to_csv(output_root / 'OPTUNA_WINNERS_BY_COHORT_SIDE.csv', index=False)
     (output_root / 'RUN_MANIFEST.json').write_text(json.dumps({
         'protocols': protocols, 'cohorts': cohorts, 'sides': sides,
+        'data_root': args.data_root,
         'folds_requested': args.folds, 'trials_per_study': args.n_trials,
         'tuning_objective': 'grouped out-of-fold balanced accuracy',
         'test_used_during_tuning': False, 'test_evaluation': 'single model per seed',

@@ -1,0 +1,13 @@
+﻿DatasetVariant,Side,Split,Healthy,TLE,Total
+All_coef,left,train,191,104,295
+All_coef,left,test,48,26,74
+All_coef,right,train,220,82,302
+All_coef,right,test,55,20,75
+All_coef_Ds004469,left,train,37,17,54
+All_coef_Ds004469,left,test,10,2,12
+All_coef_Ds004469,right,train,42,11,53
+All_coef_Ds004469,right,test,11,1,12
+All_coef_Ds005602,left,train,154,87,241
+All_coef_Ds005602,left,test,38,24,62
+All_coef_Ds005602,right,train,178,71,249
+All_coef_Ds005602,right,test,44,19,63

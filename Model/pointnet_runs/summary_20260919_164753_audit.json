@@ -1,7 +1,0 @@
-{
-  "summary": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\pointnet_runs\\summary_20260919_164753.csv",
-  "runs": 6,
-  "protocol": "original-xyz-pointnet-no-pls-v1",
-  "test_balanced_accuracy_mean": 0.6759593006084234,
-  "test_accuracy_mean": 0.8302645502645504
-}

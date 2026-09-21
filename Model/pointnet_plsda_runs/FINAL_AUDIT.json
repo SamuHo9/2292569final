@@ -1,7 +1,0 @@
-{
-  "summary": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\pointnet_plsda_runs\\FINAL_SUMMARY.csv",
-  "runs": 6,
-  "protocol": "fold-local-plsda-pointnet-augmentation-v1",
-  "test_balanced_accuracy_mean": 0.661973204264871,
-  "test_accuracy_mean": 0.8355820105820105
-}

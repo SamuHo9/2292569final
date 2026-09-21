@@ -193,11 +193,13 @@ def parse_args():
     return args
 
 def init_logging(output_base_dir, input_dir, output_root, mode_tag, num_iter, subdiv, degree, shard_index=0, num_shards=1):
+    log_dir = os.path.join(output_root, "logs")
+    os.makedirs(log_dir, exist_ok=True)
     if num_shards > 1:
         log_filename = f"spharm_debug_log_shard{shard_index}of{num_shards}.txt"
     else:
         log_filename = "spharm_debug_log.txt"
-    log_file = os.path.join(SCRIPT_DIR, log_filename)
+    log_file = os.path.join(log_dir, log_filename)
     with open(log_file, 'w', encoding='utf-8') as f:
         f.write(f"--- SPHARM Batch Mode Start: {datetime.now()} ---\n")
         if num_shards > 1:

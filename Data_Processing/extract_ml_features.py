@@ -11,7 +11,9 @@ except ImportError:  # SlicerSALT's headless Python has no Tk runtime.
 import vtk
 from vtk.util import numpy_support
 import numpy as np
-from feature_metadata import write_geometry_manifest
+from feature_metadata import (load_labels, load_dataset_labels,
+                              validate_mesh_processing_contracts,
+                              write_geometry_manifest)
 
 
 # =============================================================================
@@ -63,7 +65,12 @@ def main():
                         help="Path to spharm_results folder. ถ้าไม่ระบุจะเด้ง dialog")
     parser.add_argument('--mesh_variant', choices=('ellalign', 'realigned', 'procalign', 'auto'), default='ellalign',
                         help='Mesh variant to extract. Use the same variant for train/test; default is SPHARM_ellalign.')
+    parser.add_argument('--labels_csv', help='Explicit labels keyed by the output Subject name; columns Subject,BinaryClass[,Class,Group,Dataset]')
+    parser.add_argument('--require-fixed-reference', action='store_true',
+                        help='Require matching ICP/SPHARM processing sidecars and fixed_reference mode for every mesh')
     args = parser.parse_args()
+    labels = load_labels(args.labels_csv)
+    dataset_labels = load_dataset_labels(args.labels_csv)
 
     spharm_dir = args.spharm_dir
     if not spharm_dir:
@@ -109,6 +116,21 @@ def main():
         raise FileNotFoundError(f"No {args.mesh_variant} SPHARM mesh files found in {spharm_dir}")
 
     print(f"Found {len(vtk_files)} aligned meshes (source type: '{source}'). Processing...")
+    processing_contract = None
+    try:
+        processing_contract = validate_mesh_processing_contracts(vtk_files)
+    except ValueError as exc:
+        if args.require_fixed_reference:
+            raise
+        print(f"WARNING: {exc}")
+        print("WARNING: XYZ output will be marked without verified ICP/SPHARM provenance.")
+    if args.require_fixed_reference:
+        if source != 'ellalign':
+            raise ValueError('--require-fixed-reference currently requires the ellalign mesh variant')
+        if not processing_contract or processing_contract.get('icp_mode') != 'fixed_reference':
+            raise ValueError('Fixed-reference extraction requires icp_mode=fixed_reference in every mesh sidecar')
+        if not processing_contract.get('icp_reference_sha256') or not processing_contract.get('spharm_template_sha256'):
+            raise ValueError('Fixed-reference extraction requires ICP and SPHARM template hashes')
 
     # ตั้งค่าโฟลเดอร์สำหรับผลลัพธ์ ML
     ml_output_dir = os.path.join(os.path.dirname(spharm_dir), "ml_features")
@@ -155,7 +177,9 @@ def main():
     print("Extracting coordinates and classifications...")
     
     # สร้างหัวตาราง (Header)
-    header = ["Subject", "Group_Name", "Group_Label"]
+    header = ["Subject", "Group_Name", "Group_Label", "BinaryClass"]
+    if dataset_labels is not None:
+        header.append("Dataset")
     for idx in range(num_points):
         header.extend([f"x_{idx}", f"y_{idx}", f"z_{idx}"])
 
@@ -173,6 +197,13 @@ def main():
 
             # จัดกลุ่ม
             group_name, group_label = classify_subject(subject_name)
+            binary_class = -1 if group_label < 0 else int(group_label == 1)
+            if labels is not None:
+                if subject_name not in labels:
+                    raise ValueError(f'Missing explicit label for {subject_name}')
+                group_name, group_label, binary_class = labels[subject_name]
+            if dataset_labels is not None and subject_name not in dataset_labels:
+                raise ValueError(f'Missing explicit Dataset membership for {subject_name}')
 
             # โหลดพิกัด
             mesh_reader = vtk.vtkPolyDataReader()
@@ -187,14 +218,18 @@ def main():
             flat_pts = pts.flatten() # ขนาด (3N,)
 
             # ประกอบข้อมูลแถว
-            row = [subject_name, group_name, group_label]
+            row = [subject_name, group_name, group_label, binary_class]
+            if dataset_labels is not None:
+                row.append(dataset_labels[subject_name])
             row.extend(["{:.8f}".format(val) for val in flat_pts])
             writer.writerow(row)
             rows_written += 1
 
     if rows_written != len(vtk_files):
         raise RuntimeError(f"XYZ row count mismatch: wrote {rows_written}, expected {len(vtk_files)}")
-    write_geometry_manifest(coords_csv_path, vtk_files, source, num_points)
+    write_geometry_manifest(coords_csv_path, vtk_files, source, num_points,
+                            label_path=args.labels_csv,
+                            processing_contract=processing_contract)
     print(f"Successfully saved features for {rows_written} subjects to: {coords_csv_path}")
     print("=" * 60)
     print("Done! You can use these two CSV files directly in your GNN model.")

@@ -305,11 +305,12 @@ def main():
         print(f"  shard {i}: {status}")
 
     # รวม log จากทุก shard เป็นไฟล์เดียว เรียงตามเวลา
-    script_dir = os.path.dirname(os.path.abspath(args.script))
-    merged_path = os.path.join(script_dir, "spharm_debug_log_merged.txt")
+    log_dir = os.path.join(args.output_dir, "logs")
+    os.makedirs(log_dir, exist_ok=True)
+    merged_path = os.path.join(log_dir, "spharm_debug_log_merged.txt")
     log_lines = []
     for i in range(n):
-        shard_log = os.path.join(script_dir, f"spharm_debug_log_shard{i}of{n}.txt")
+        shard_log = os.path.join(log_dir, f"spharm_debug_log_shard{i}of{n}.txt")
         if os.path.isfile(shard_log):
             with open(shard_log, encoding="utf-8", errors="replace") as f:
                 log_lines.extend(f.readlines())

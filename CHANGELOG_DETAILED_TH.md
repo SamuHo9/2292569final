@@ -7,6 +7,8 @@
 วันที่จัดทำ: 19 กันยายน 2026  
 โฟลเดอร์โปรเจกต์: `C:\Users\IHCK\Desktop\17-9-2569\Hippocampal-Shape-Analysis-for-Epilepsy-Detection`
 
+> ขั้นตอนที่ใช้งานปัจจุบันและตัวอย่างคำสั่งอยู่ใน [RERUN_GUIDE_TH.md](RERUN_GUIDE_TH.md); Sections 0–18 ด้านล่างเป็นบันทึกการตรวจ/แก้รอบก่อน ส่วน Section 19 เป็น cleanup และ ICP reference update ล่าสุดวันที่ 21 กันยายน 2026
+
 ## 0. รายงานตรวจบัคตั้งต้นก่อนการแก้ไข
 
 ส่วนนี้คือจุดเริ่มต้นของงานทั้งหมด ก่อนแก้ code, dataset และ runner ใด ๆ โดยตรวจตั้งแต่ MRI
@@ -571,7 +573,7 @@ Manifest final ทุกไฟล์ตรวจว่า:
 
 1. FastSurfer/segmentation และ hippocampus extraction
 2. ICP ด้วย fixed reference แยก left/right
-3. SPHARM ผ่าน `SPHARM\run_spharm.bat left|right`
+3. SPHARM ผ่าน `SPHARM\run_spharm_parallel.py` โดยระบุ input/output/reference ตาม `RERUN_GUIDE_TH.md`
 4. ตรวจ bilateral outputs และ split manifest
 5. extract coefficient/XYZ features
 6. สร้าง `All_coef` cohort และ manifest
@@ -599,9 +601,23 @@ $PythonSlicer = "C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe"
 
 ## 18. สรุปสถานะปัจจุบัน
 
-ปัจจุบัน pipeline ใช้ dataset ใหม่, fixed left/right reference, grouped 10-fold OOF, fold-local
+โค้ดปัจจุบันรองรับ dataset ใหม่, fixed left/right reference, grouped 10-fold OOF, fold-local
 augmentation/PLS-DA, Optuna tuning ที่ไม่ใช้ test, final single-model evaluation หลาย seed,
 audit manifest และ regression tests ที่ผ่านแล้ว คู่มือและ README ชี้ไปยังคำสั่งเดียวกัน และไฟล์ legacy
 ที่ไม่อยู่ใน pipeline ถูกลบออกโดยยังรักษา data, runtime และผล final ที่จำเป็นต่อการวิจัยไว้
 
 รายละเอียดหน้าที่ของแต่ละโฟลเดอร์อยู่ที่ [FOLDER_GUIDE_TH.md](FOLDER_GUIDE_TH.md)
+
+## 19. กู้ ICP reference เดิมและ cleanup สำหรับ rerun — 2026-09-21
+
+- สร้าง `ICP/references/legacy_groupwise_all_381_v1/` จาก `mean_shape.ply` ของการรัน groupwise เดิม ตรวจสถานะสำเร็จ, 381 subject names, 381 transform matrices และ aligned NIfTI grid ครบทุกไฟล์ทั้งสองข้างก่อนคัดลอก
+- กู้ scale จากค่าเฉลี่ย singular values ของ linear transform ทุก subject; ได้ซ้าย `0.030540622985912882`, ขวา `0.03180055903090514`; output grid ทั้งคู่ `128×128×128`, spacing `0.015625`
+- สร้าง sidecar `fixed-legacy-groupwise-reference-v1` พร้อม hash/provenance และ `independent_test_reference=false`; reference รวมข้อมูลทั้ง 381 คน ใช้ทำซ้ำเดิมเท่านั้น ไม่ใช่ held-out test reference
+- เพิ่ม `ICP/run_icp_with_reference.ps1` สำหรับ batch กับ single-file; เพิ่ม `--input_file` และระบุโหมด alignment ให้ชัดใน `ICP/ICP.py`; status ใหม่บันทึก version/provenance/reference hash/parameters
+- เพิ่ม `ICP/run_icp_with_reference.py` ให้เรียก fixed-reference ICP ทีละข้าง/ทีละไฟล์จาก Python พร้อม preflight และ output verification; ปรับ PowerShell wrappers ให้รอ Slicer จบก่อนตรวจ status
+- ตรวจรอบซ้ายที่เริ่มจาก terminal แล้วพบว่า Slicer ทำงานต่อหลัง PowerShell โยน error; status สำเร็จและ aligned NIfTI ครบ 381/381 แต่ runner เดิมออกก่อนเขียน `run_summary.json`
+- fixed-reference job ไม่สร้าง batch mean ชื่อ `mean_shape.ply` อีก เพื่อไม่ให้สับสนกับ template ที่ใช้ align
+- อัปเดต README, rerun guide, folder guide, ICP README และ improvements note; ลบ ICP/SPHARM outputs ที่สร้างซ้ำได้, launcher/path เก่า และ post-SPHARM copy/split helpers ที่ไม่อยู่ใน rerun ปัจจุบัน หลังเก็บ reference bundle
+- cleanup ลบ 49,609 ไฟล์ รวมประมาณ 3.816 GiB; รายชื่อ path/จำนวนไฟล์/ขนาดและรายการที่เก็บไว้บันทึกใน `CLEANUP_MANIFEST_20260921.json`
+- คง `SPHARM/split_data/current_split_manifest.json`, ALL left/right status CSV, source code, Templates/SPHARM, raw data และ historical model outputs ไว้; ไม่ได้รัน ICP/SPHARM ใหม่หรือฝึกโมเดลในขั้น cleanup นี้
+- ตรวจหลัง cleanup ด้วย `verify_changes.py`: 32 tests ผ่าน, syntax 7,945 Python files ผ่าน ไม่มี syntax errors; การทดสอบนี้ไม่ใช่การรัน MRI/ICP/SPHARM/model เต็มชุดใหม่

@@ -1,0 +1,38 @@
+{
+  "total": 4,
+  "failed": 4,
+  "subjects": [
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\spharm_failed_retry_20260921_225951\\right\\input\\right_Healthy_sub-37149_hippocampus_rh_aligned.nii.gz",
+      "success": false
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\spharm_failed_retry_20260921_225951\\right\\input\\right_TLE_sub-203_hippocampus_rh_aligned.nii.gz",
+      "success": false
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\spharm_failed_retry_20260921_225951\\right\\input\\right_TLE_sub-405_hippocampus_rh_aligned.nii.gz",
+      "success": false
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\spharm_failed_retry_20260921_225951\\right\\input\\right_TLE_sub-419_hippocampus_rh_aligned.nii.gz",
+      "success": false
+    }
+  ],
+  "input_dir": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\spharm_failed_retry_20260921_225951\\right\\input",
+  "output_dir": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\spharm_failed_retry_20260921_225951\\right\\output",
+  "mode": "PRODUCTION",
+  "config": {
+    "num_iter": 1000,
+    "subdiv": 10,
+    "degree": 12
+  },
+  "reference_template": "C:/Users/IHCK/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection/Templates/SPHARM/template_spharm_right.vtk",
+  "reference_sha256": "efc2252d5b08ab26fdc5c4084d46828c86ad153081ef398673af69126f0cb1d0",
+  "required_outputs": [
+    "_SPHARM.coef",
+    "_SPHARM.vtk",
+    "_SPHARM_grid.vtk",
+    "_SPHARM_ellalign.coef"
+  ]
+}

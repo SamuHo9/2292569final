@@ -1,0 +1,6 @@
+﻿DatasetVariant,SourceDataset,Side,Split,Healthy,TLE,Total
+All_coef,All,left,train,191,104,295
+All_coef,All,left,test,48,26,74
+All_coef,All,right,train,220,82,302
+All_coef,All,right,test,55,20,75
+

@@ -1,2 +1,0 @@
-Cohort,Side,Model,CV_BalancedAccuracy,Test_Accuracy,Test_BalancedAccuracy,Test_Sensitivity,Test_Specificity,Test_F1_Macro,Test_ROC_AUC,RunDir
-All_coef,left,PointNet,0.5186915887850467,0.64,0.5,0.0,1.0,0.39024390243902435,0.8387345679012346,C:\Users\IHCK\Desktop\17-9-2569\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\Model\pointnet_runs\All_coef\left\20260919_164429

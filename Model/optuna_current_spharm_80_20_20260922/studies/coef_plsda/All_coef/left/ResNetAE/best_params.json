@@ -1,0 +1,19 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "All_coef",
+  "side": "left",
+  "model": "ResNetAE",
+  "folds": 10,
+  "seed": 42,
+  "n_trials_requested": 10,
+  "n_trials_completed": 6,
+  "best_trial": 3,
+  "best_oof_balanced_accuracy": 0.6535189287152638,
+  "best_params": {
+    "lr": 0.000160712385120399,
+    "weight_decay": 1.4742753159914662e-05,
+    "batch_size": 32,
+    "dropout": 0.1798695128633439,
+    "recon_weight": 0.04666963767236924
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "All_coef",
+  "side": "left",
+  "model": "SVM",
+  "folds": 10,
+  "seed": 42,
+  "n_trials_requested": 10,
+  "n_trials_completed": 4,
+  "best_trial": 6,
+  "best_oof_balanced_accuracy": 0.8068868304470398,
+  "best_params": {
+    "gamma_mode": "auto",
+    "C": 1.1400863701127328
+  }
+}

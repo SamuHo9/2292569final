@@ -1,0 +1,205 @@
+{
+    "schema":  "rerun_cleanup_manifest_v1",
+    "created_at_local":  "2026-09-21T12:38:22.0509369+07:00",
+    "project_root":  "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection",
+    "removed":  [
+                    {
+                        "Path":  "ICP/output_left_hippocampus",
+                        "Kind":  "directory",
+                        "Files":  6003,
+                        "Bytes":  553267710
+                    },
+                    {
+                        "Path":  "ICP/output_right_hippocampus",
+                        "Kind":  "directory",
+                        "Files":  6056,
+                        "Bytes":  583646696
+                    },
+                    {
+                        "Path":  "SPHARM/output_left_new",
+                        "Kind":  "directory",
+                        "Files":  27,
+                        "Bytes":  1899259
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/ALL_Left",
+                        "Kind":  "directory",
+                        "Files":  9040,
+                        "Bytes":  706448506
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/ALL_Right",
+                        "Kind":  "directory",
+                        "Files":  9692,
+                        "Bytes":  772565320
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/Ds004469_Left",
+                        "Kind":  "directory",
+                        "Files":  1665,
+                        "Bytes":  128719577
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/Ds004469_Right",
+                        "Kind":  "directory",
+                        "Files":  1767,
+                        "Bytes":  138944521
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/Ds005602_Left",
+                        "Kind":  "directory",
+                        "Files":  7395,
+                        "Bytes":  577885137
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/Ds005602_Right",
+                        "Kind":  "directory",
+                        "Files":  7945,
+                        "Bytes":  633774534
+                    },
+                    {
+                        "Path":  "SPHARM/split_data_current",
+                        "Kind":  "directory",
+                        "Files":  0,
+                        "Bytes":  0
+                    },
+                    {
+                        "Path":  "SPHARM/split_data_train_test_current",
+                        "Kind":  "directory",
+                        "Files":  0,
+                        "Bytes":  0
+                    },
+                    {
+                        "Path":  "ICP/icp_debug_log.txt",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  268407
+                    },
+                    {
+                        "Path":  "bilateral_spharm_verification.json",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  29913
+                    },
+                    {
+                        "Path":  "icp_diff.txt",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  29118
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/current_split_completeness.json",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  814
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/dataset_subsets_manifest.json",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  2623
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/dataset_train_test_manifest.json",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  4848
+                    },
+                    {
+                        "Path":  "SPHARM/split_data/spharm_processing_summary.csv",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  50730
+                    },
+                    {
+                        "Path":  "run_everything.bat",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  9107
+                    },
+                    {
+                        "Path":  "run_spharm_parallel_left.bat",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  280
+                    },
+                    {
+                        "Path":  "run_spharm_parallel_right.bat",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  282
+                    },
+                    {
+                        "Path":  "start_salt_batch.bat",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  837
+                    },
+                    {
+                        "Path":  "ICP/run_icp_only.bat",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  2882
+                    },
+                    {
+                        "Path":  "SPHARM/run_spharm.bat",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  1512
+                    },
+                    {
+                        "Path":  "SPHARM/start_spharm_with_picker.bat",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  2797
+                    },
+                    {
+                        "Path":  "SPHARM/split_current_dataset.py",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  10266
+                    },
+                    {
+                        "Path":  "SPHARM/verify_current_split.py",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  4222
+                    },
+                    {
+                        "Path":  "SPHARM/create_dataset_subsets.py",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  7709
+                    },
+                    {
+                        "Path":  "SPHARM/create_dataset_train_test.py",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  9526
+                    },
+                    {
+                        "Path":  "SPHARM/create_split_status_tables.py",
+                        "Kind":  "file_or_script",
+                        "Files":  1,
+                        "Bytes":  2690
+                    }
+                ],
+    "removed_total_files":  49609,
+    "removed_total_bytes":  4097589823,
+    "removed_total_gib":  3.816,
+    "preserved":  [
+                      "ICP\\references\\legacy_groupwise_all_381_v1\\reference_manifest.json",
+                      "ICP\\references\\legacy_groupwise_all_381_v1\\left\\mean_shape.ply",
+                      "ICP\\references\\legacy_groupwise_all_381_v1\\left\\mean_shape.ply.json",
+                      "ICP\\references\\legacy_groupwise_all_381_v1\\right\\mean_shape.ply",
+                      "ICP\\references\\legacy_groupwise_all_381_v1\\right\\mean_shape.ply.json",
+                      "SPHARM\\split_data\\ALL_Left_file_status.csv",
+                      "SPHARM\\split_data\\ALL_Right_file_status.csv",
+                      "SPHARM\\split_data\\current_split_manifest.json",
+                      "Model\\Output_Dataset",
+                      "Model\\optuna_runs_10fold_all",
+                      "Model\\_training_site",
+                      "Model\\_training_cuda_site"
+                  ],
+    "reason":  "Retired prior ICP/SPHARM run outputs, obsolete output-bound launchers, and post-SPHARM copy/split artifacts before rerun. Kept the verified ICP reference bundle and the three manifests/status inputs required by the train-only rerun path."
+}

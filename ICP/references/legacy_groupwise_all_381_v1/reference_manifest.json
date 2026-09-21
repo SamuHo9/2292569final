@@ -1,0 +1,114 @@
+{
+    "schema":  "legacy_groupwise_icp_reference_bundle_v1",
+    "created_at_utc":  "2026-09-21T05:16:07.279737+00:00",
+    "reference_version":  "fixed-legacy-groupwise-reference-v1",
+    "source_method":  "Completed exploratory groupwise ICP, then frozen mean_shape.ply",
+    "source_scope":  "All subjects in each old side-specific groupwise run",
+    "independent_test_reference":  false,
+    "allowed_use":  [
+                        "repeat the previous ICP coordinate convention",
+                        "operational rerun/inference compatibility"
+                    ],
+    "disallowed_use":  [
+                           "claiming independent held-out test evaluation from this reference"
+                       ],
+    "parameter_note":  "Old icp_status.json did not preserve the full parameter set. Geometry/scale are recovered from stored transforms and all aligned NIfTI headers; new executions must use the explicit parameters in run_icp_with_reference.ps1 and will record them in icp_status.json.",
+    "sides":  {
+                  "left":  {
+                               "side":  "left",
+                               "run_dir":  "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\ICP\\output_left_hippocampus",
+                               "status_sha256":  "44bd6627d0a66e57417e9b588ca36721f74dd7b912de4139b31281c21ad39934",
+                               "history_sha256":  "5755bff739fb9cad6187aacab33eb6f25a775af4e78ec4b9ea096d08c70feec7",
+                               "history_rounds":  [
+                                                      1,
+                                                      2,
+                                                      3
+                                                  ],
+                               "subject_count":  381,
+                               "subject_list_sha256":  "b7b43f01f660be0c0e8cbb35c25aeafbb8e43a8c270e1f18eee28629f0933954",
+                               "transform_sha256":  "70012fcfbe1171defda357b8c1b802781146c8847cc0394af0393f1a43d14051",
+                               "template_sha256":  "e5db3de875fed2b774ef297526ba8f600742695e35415b1ebbca9d8f0063a94d",
+                               "physical_to_normalized_scale":  0.030540622985912882,
+                               "max_relative_scale_error":  4.7865255171176892E-08,
+                               "max_relative_anisotropy":  6.59935337626957E-08,
+                               "output_voxels":  128,
+                               "output_spacing":  0.015625,
+                               "output_grid":  [
+                                                   128,
+                                                   128,
+                                                   128
+                                               ],
+                               "output_spacing_xyz":  [
+                                                          0.015625,
+                                                          0.015625,
+                                                          0.015625
+                                                      ],
+                               "nifti_spatial_units_code":  10,
+                               "aligned_nifti_count":  381,
+                               "aligned_nifti_sample":  "left_Healthy_sub-00373_hippocampus_lh_aligned.nii.gz",
+                               "aligned_nifti_sample_sha256":  "fa3962b63828b488285a6cb16524df403e641a59948b341f206cc01add463d41",
+                               "reference_template":  "left\\mean_shape.ply",
+                               "reference_metadata":  "left\\mean_shape.ply.json",
+                               "reference_sha256":  "e5db3de875fed2b774ef297526ba8f600742695e35415b1ebbca9d8f0063a94d"
+                           },
+                  "right":  {
+                                "side":  "right",
+                                "run_dir":  "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\ICP\\output_right_hippocampus",
+                                "status_sha256":  "44bd6627d0a66e57417e9b588ca36721f74dd7b912de4139b31281c21ad39934",
+                                "history_sha256":  "210efb683366df0fd2cd62ae36a75f6e4cdac721e3770f3737a65becaf0eb849",
+                                "history_rounds":  [
+                                                       1,
+                                                       2,
+                                                       3
+                                                   ],
+                                "subject_count":  381,
+                                "subject_list_sha256":  "3ce646047a87ceaf8f13ee4502441acb8a5fa419cbe1a61c80c276c09e545263",
+                                "transform_sha256":  "d7ca4e5f3c51555df75bc376550a303df7b75b771b986aa64668d2e9f78b78a9",
+                                "template_sha256":  "3f8c7896bca197a48955824eb37e90c91a3c48a6fc26b2ba893af7f216deb461",
+                                "physical_to_normalized_scale":  0.03180055903090514,
+                                "max_relative_scale_error":  3.9745069775656E-08,
+                                "max_relative_anisotropy":  6.5516641435521907E-08,
+                                "output_voxels":  128,
+                                "output_spacing":  0.015625,
+                                "output_grid":  [
+                                                    128,
+                                                    128,
+                                                    128
+                                                ],
+                                "output_spacing_xyz":  [
+                                                           0.015625,
+                                                           0.015625,
+                                                           0.015625
+                                                       ],
+                                "nifti_spatial_units_code":  10,
+                                "aligned_nifti_count":  381,
+                                "aligned_nifti_sample":  "right_Healthy_sub-00373_hippocampus_rh_aligned.nii.gz",
+                                "aligned_nifti_sample_sha256":  "9abe214ebc222baefc6610da4012a3da48f5b2ebbe3c81891ef7f57eb10a73c6",
+                                "reference_template":  "right\\mean_shape.ply",
+                                "reference_metadata":  "right\\mean_shape.ply.json",
+                                "reference_sha256":  "3f8c7896bca197a48955824eb37e90c91a3c48a6fc26b2ba893af7f216deb461"
+                            }
+              },
+    "current_dataset_overlap":  {
+                                    "left":  {
+                                                 "status_file":  "SPHARM/split_data/ALL_Left_file_status.csv",
+                                                 "status_file_sha256":  "2a42f1531a4f35a0d2bd684fd0df4087581b36670cd56c95b9632a606dce9662",
+                                                 "current_status_rows":  373,
+                                                 "current_unique_subjects":  373,
+                                                 "legacy_reference_subjects":  381,
+                                                 "current_subjects_in_legacy_reference":  373,
+                                                 "all_current_subjects_are_in_legacy_reference":  true,
+                                                 "train_test_overlap_implication":  "Every subject in this current side status table was included in the old groupwise ICP reference."
+                                             },
+                                    "right":  {
+                                                  "status_file":  "SPHARM/split_data/ALL_Right_file_status.csv",
+                                                  "status_file_sha256":  "4dfd2b8c203541cf2461597924824c15028c8bf3a46fc9988d0350cd2906fe40",
+                                                  "current_status_rows":  377,
+                                                  "current_unique_subjects":  377,
+                                                  "legacy_reference_subjects":  381,
+                                                  "current_subjects_in_legacy_reference":  377,
+                                                  "all_current_subjects_are_in_legacy_reference":  true,
+                                                  "train_test_overlap_implication":  "Every subject in this current side status table was included in the old groupwise ICP reference."
+                                              }
+                                }
+}

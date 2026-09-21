@@ -1,0 +1,134 @@
+{
+  "schema": "spharm_split_model_inputs_v1",
+  "created_at_local": "2026-09-22T00:38:12.583073+07:00",
+  "source_split_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\SPHARM\\split_data\\current_spharm_80_20_20260922",
+  "source_split_manifest_sha256": "361184da0f0c68503b5d2638f29f64581ff63717a927770862bb87c0b1cd621b",
+  "output_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922",
+  "feature_variant": "ellalign",
+  "model_input_protocol": "original-coef-no-pls-v1",
+  "pls_da_applied_before_training": false,
+  "training_note": "Use optuna_leakage_free_all.py with --protocol coef_plsda for fold-local PLS-DA augmentation, or coef_raw for the no-PLS baseline.",
+  "test_policy": "Original-only; never augment or use for tuning/early stopping.",
+  "records": [
+    {
+      "Dataset": "All_coef",
+      "Side": "left",
+      "Split": "train",
+      "Rows": 295,
+      "Features": 507,
+      "File": "All_coef\\left\\All_coef_Left_train_coef_features.csv",
+      "CSV_SHA256": "b694532ea97ade96416b25e0fb193f4cc8f26bf3776dca87b8f93f6c18ba0008",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef",
+      "Side": "left",
+      "Split": "test",
+      "Rows": 74,
+      "Features": 507,
+      "File": "All_coef\\left\\All_coef_Left_test_coef_features.csv",
+      "CSV_SHA256": "9f9710363efc5c45ddf9fca112182c81533329257e345d47321f358645565c89",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef",
+      "Side": "right",
+      "Split": "train",
+      "Rows": 302,
+      "Features": 507,
+      "File": "All_coef\\right\\All_coef_Right_train_coef_features.csv",
+      "CSV_SHA256": "57b888e265798b781dd37edaf5ad11935ccb1fdcba513992e3906fd74d9a08ea",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef",
+      "Side": "right",
+      "Split": "test",
+      "Rows": 75,
+      "Features": 507,
+      "File": "All_coef\\right\\All_coef_Right_test_coef_features.csv",
+      "CSV_SHA256": "a86165839ac3cfcdf31f06267e02f8117e33ad7e8d06ab322aebfb70a99751e1",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef_Ds004469",
+      "Side": "left",
+      "Split": "train",
+      "Rows": 54,
+      "Features": 507,
+      "File": "All_coef_Ds004469\\left\\All_coef_Ds004469_Left_train_coef_features.csv",
+      "CSV_SHA256": "b7f4b68de9258b5f749392b6dd737557d0af92f6bb6b43755cc578b5a89b5639",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef_Ds004469",
+      "Side": "left",
+      "Split": "test",
+      "Rows": 12,
+      "Features": 507,
+      "File": "All_coef_Ds004469\\left\\All_coef_Ds004469_Left_test_coef_features.csv",
+      "CSV_SHA256": "405c373f43974e7c1410301f59609661715728b8fae280dbfc9bf9750caa17a3",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef_Ds004469",
+      "Side": "right",
+      "Split": "train",
+      "Rows": 53,
+      "Features": 507,
+      "File": "All_coef_Ds004469\\right\\All_coef_Ds004469_Right_train_coef_features.csv",
+      "CSV_SHA256": "fa1b7a33b8b52753f74c71ce9e91c87f4840f63454878a43c7c6194886965886",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef_Ds004469",
+      "Side": "right",
+      "Split": "test",
+      "Rows": 12,
+      "Features": 507,
+      "File": "All_coef_Ds004469\\right\\All_coef_Ds004469_Right_test_coef_features.csv",
+      "CSV_SHA256": "a07182aaeaf6445dd1577b0f05dff4fa223eea72ab51a3ccedfb5fae9bde88cf",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef_Ds005602",
+      "Side": "left",
+      "Split": "train",
+      "Rows": 241,
+      "Features": 507,
+      "File": "All_coef_Ds005602\\left\\All_coef_Ds005602_Left_train_coef_features.csv",
+      "CSV_SHA256": "70bf103497628fb365fdbee958c830fd0dd6af91ee11498e35238b8a56d70794",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef_Ds005602",
+      "Side": "left",
+      "Split": "test",
+      "Rows": 62,
+      "Features": 507,
+      "File": "All_coef_Ds005602\\left\\All_coef_Ds005602_Left_test_coef_features.csv",
+      "CSV_SHA256": "ab1a41e5730837c7229a641585345477a212eed0cc5fc10311265d8a325e2d17",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef_Ds005602",
+      "Side": "right",
+      "Split": "train",
+      "Rows": 249,
+      "Features": 507,
+      "File": "All_coef_Ds005602\\right\\All_coef_Ds005602_Right_train_coef_features.csv",
+      "CSV_SHA256": "75a90e9d7d7498c8fd98b354de3719220abf13ddb6d3668ad1d23cf8a0d68f9e",
+      "FeatureVariant": "ellalign"
+    },
+    {
+      "Dataset": "All_coef_Ds005602",
+      "Side": "right",
+      "Split": "test",
+      "Rows": 63,
+      "Features": 507,
+      "File": "All_coef_Ds005602\\right\\All_coef_Ds005602_Right_test_coef_features.csv",
+      "CSV_SHA256": "9d010b2339d9fbeb051baad60e872500d1b4cf229b19581d632ded9a0147d891",
+      "FeatureVariant": "ellalign"
+    }
+  ]
+}

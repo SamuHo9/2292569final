@@ -4,7 +4,9 @@
 
 วันที่ตรวจ: 18 กันยายน 2026
 
-รายงานนี้เป็นผลตรวจ baseline ก่อนรอบแก้ไข ตั้งแต่ MRI → image preprocessing → segmentation → extraction → mask preprocessing → ICP → SPHARM → features และเส้นทาง augmentation/training/evaluation กับ Desktop inference พบ 11 ประเด็นที่ควรแก้ เรียงตามผลกระทบด้านล่าง ผลการแก้และผลรันจริงรอบล่าสุดอยู่ใน `IMPROVEMENTS_TH.md` และ `bilateral_spharm_verification.json`
+> **สถานะปัจจุบัน (21 กันยายน 2026):** เนื้อหาและคำสั่งในรายงานนี้เป็น baseline ก่อนแก้ โดยเฉพาะผล `exploratory_groupwise` และ launcher ที่ระบุไว้ไม่ได้เป็น entry point ปัจจุบัน ผล ICP/SPHARM เก่าและ launcher ที่ชี้ไปยัง output เหล่านั้นถูกลบหลังตรวจและเก็บ legacy reference bundle แล้ว ดูคำสั่งปัจจุบันที่ [RERUN_GUIDE_TH.md](RERUN_GUIDE_TH.md) และรายการแก้ไขที่ [IMPROVEMENTS_TH.md](IMPROVEMENTS_TH.md)
+
+รายงานนี้เป็นผลตรวจ baseline ก่อนรอบแก้ไข ตั้งแต่ MRI → image preprocessing → segmentation → extraction → mask preprocessing → ICP → SPHARM → features และเส้นทาง augmentation/training/evaluation กับ Desktop inference พบ 11 ประเด็นที่ควรแก้ เรียงตามผลกระทบด้านล่าง ผลการแก้และสถานะล่าสุดอยู่ใน `IMPROVEMENTS_TH.md`; คำสั่ง rerun ที่ยังใช้ได้อยู่ใน `RERUN_GUIDE_TH.md`
 
 ## สรุปว่าระบบทำอะไรบ้าง
 

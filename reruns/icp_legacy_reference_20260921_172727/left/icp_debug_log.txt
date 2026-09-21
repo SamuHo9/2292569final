@@ -1,0 +1,1545 @@
+--- LOG START: 2026-09-21 17:28:52.138733 ---
+[17:28:52] [ICP-LOG] --- ICP.py STARTING (rigid ICP) ---
+[17:28:52] [ICP-LOG] Input  dir: C:/Users/IHCK/Desktop/17-9-2569/merged_ds005602_ds004469/left_hippocampus
+[17:28:52] [ICP-LOG] Output dir: C:/Users/IHCK/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection/reruns/icp_legacy_reference_20260921_172727/left
+[17:28:52] [ICP-LOG] Total files to process: 381
+[17:28:52] [ICP-LOG] Step A: Loading and meshing label volumes...
+[17:28:52] [ICP-LOG]   Loading [1/381]: left_Healthy_sub-00373_hippocampus_lh.nii.gz
+[17:28:52] [ICP-LOG]   Loading [2/381]: left_Healthy_sub-04001_hippocampus_lh.nii.gz
+[17:28:52] [ICP-LOG]   Loading [3/381]: left_Healthy_sub-04004_hippocampus_lh.nii.gz
+[17:28:52] [ICP-LOG]   Loading [4/381]: left_Healthy_sub-04005_hippocampus_lh.nii.gz
+[17:28:52] [ICP-LOG]   Loading [5/381]: left_Healthy_sub-04009_hippocampus_lh.nii.gz
+[17:28:52] [ICP-LOG]   Loading [6/381]: left_Healthy_sub-04013_hippocampus_lh.nii.gz
+[17:28:52] [ICP-LOG]   Loading [7/381]: left_Healthy_sub-04015_hippocampus_lh.nii.gz
+[17:28:53] [ICP-LOG]   Loading [8/381]: left_Healthy_sub-04018_hippocampus_lh.nii.gz
+[17:28:53] [ICP-LOG]   Loading [9/381]: left_Healthy_sub-04027_hippocampus_lh.nii.gz
+[17:28:53] [ICP-LOG]   Loading [10/381]: left_Healthy_sub-04028_hippocampus_lh.nii.gz
+[17:28:53] [ICP-LOG]   Loading [11/381]: left_Healthy_sub-04164_hippocampus_lh.nii.gz
+[17:28:53] [ICP-LOG]   Loading [12/381]: left_Healthy_sub-04165_hippocampus_lh.nii.gz
+[17:28:53] [ICP-LOG]   Loading [13/381]: left_Healthy_sub-04166_hippocampus_lh.nii.gz
+[17:28:53] [ICP-LOG]   Loading [14/381]: left_Healthy_sub-04169_hippocampus_lh.nii.gz
+[17:28:54] [ICP-LOG]   Loading [15/381]: left_Healthy_sub-04170_hippocampus_lh.nii.gz
+[17:28:54] [ICP-LOG]   Loading [16/381]: left_Healthy_sub-04171_hippocampus_lh.nii.gz
+[17:28:54] [ICP-LOG]   Loading [17/381]: left_Healthy_sub-04173_hippocampus_lh.nii.gz
+[17:28:54] [ICP-LOG]   Loading [18/381]: left_Healthy_sub-04178_hippocampus_lh.nii.gz
+[17:28:54] [ICP-LOG]   Loading [19/381]: left_Healthy_sub-04181_hippocampus_lh.nii.gz
+[17:28:54] [ICP-LOG]   Loading [20/381]: left_Healthy_sub-04201_hippocampus_lh.nii.gz
+[17:28:54] [ICP-LOG]   Loading [21/381]: left_Healthy_sub-04202_hippocampus_lh.nii.gz
+[17:28:55] [ICP-LOG]   Loading [22/381]: left_Healthy_sub-04204_hippocampus_lh.nii.gz
+[17:28:55] [ICP-LOG]   Loading [23/381]: left_Healthy_sub-04209_hippocampus_lh.nii.gz
+[17:28:55] [ICP-LOG]   Loading [24/381]: left_Healthy_sub-04210_hippocampus_lh.nii.gz
+[17:28:55] [ICP-LOG]   Loading [25/381]: left_Healthy_sub-04211_hippocampus_lh.nii.gz
+[17:28:55] [ICP-LOG]   Loading [26/381]: left_Healthy_sub-04215_hippocampus_lh.nii.gz
+[17:28:55] [ICP-LOG]   Loading [27/381]: left_Healthy_sub-04216_hippocampus_lh.nii.gz
+[17:28:55] [ICP-LOG]   Loading [28/381]: left_Healthy_sub-04217_hippocampus_lh.nii.gz
+[17:28:55] [ICP-LOG]   Loading [29/381]: left_Healthy_sub-04221_hippocampus_lh.nii.gz
+[17:28:56] [ICP-LOG]   Loading [30/381]: left_Healthy_sub-04245_hippocampus_lh.nii.gz
+[17:28:56] [ICP-LOG]   Loading [31/381]: left_Healthy_sub-101_hippocampus_lh.nii.gz
+[17:28:56] [ICP-LOG]   Loading [32/381]: left_Healthy_sub-105_hippocampus_lh.nii.gz
+[17:28:56] [ICP-LOG]   Loading [33/381]: left_Healthy_sub-114_hippocampus_lh.nii.gz
+[17:28:56] [ICP-LOG]   Loading [34/381]: left_Healthy_sub-115_hippocampus_lh.nii.gz
+[17:28:56] [ICP-LOG]   Loading [35/381]: left_Healthy_sub-11_hippocampus_lh.nii.gz
+[17:28:56] [ICP-LOG]   Loading [36/381]: left_Healthy_sub-126_hippocampus_lh.nii.gz
+[17:28:57] [ICP-LOG]   Loading [37/381]: left_Healthy_sub-135_hippocampus_lh.nii.gz
+[17:28:57] [ICP-LOG]   Loading [38/381]: left_Healthy_sub-144_hippocampus_lh.nii.gz
+[17:28:57] [ICP-LOG]   Loading [39/381]: left_Healthy_sub-147_hippocampus_lh.nii.gz
+[17:28:57] [ICP-LOG]   Loading [40/381]: left_Healthy_sub-152_hippocampus_lh.nii.gz
+[17:28:57] [ICP-LOG]   Loading [41/381]: left_Healthy_sub-153_hippocampus_lh.nii.gz
+[17:28:57] [ICP-LOG]   Loading [42/381]: left_Healthy_sub-155_hippocampus_lh.nii.gz
+[17:28:57] [ICP-LOG]   Loading [43/381]: left_Healthy_sub-161_hippocampus_lh.nii.gz
+[17:28:58] [ICP-LOG]   Loading [44/381]: left_Healthy_sub-16_hippocampus_lh.nii.gz
+[17:28:58] [ICP-LOG]   Loading [45/381]: left_Healthy_sub-175_hippocampus_lh.nii.gz
+[17:28:58] [ICP-LOG]   Loading [46/381]: left_Healthy_sub-193_hippocampus_lh.nii.gz
+[17:28:58] [ICP-LOG]   Loading [47/381]: left_Healthy_sub-197_hippocampus_lh.nii.gz
+[17:28:58] [ICP-LOG]   Loading [48/381]: left_Healthy_sub-201_hippocampus_lh.nii.gz
+[17:28:58] [ICP-LOG]   Loading [49/381]: left_Healthy_sub-203_hippocampus_lh.nii.gz
+[17:28:58] [ICP-LOG]   Loading [50/381]: left_Healthy_sub-207_hippocampus_lh.nii.gz
+[17:28:59] [ICP-LOG]   Loading [51/381]: left_Healthy_sub-219_hippocampus_lh.nii.gz
+[17:28:59] [ICP-LOG]   Loading [52/381]: left_Healthy_sub-222_hippocampus_lh.nii.gz
+[17:28:59] [ICP-LOG]   Loading [53/381]: left_Healthy_sub-233_hippocampus_lh.nii.gz
+[17:28:59] [ICP-LOG]   Loading [54/381]: left_Healthy_sub-237_hippocampus_lh.nii.gz
+[17:28:59] [ICP-LOG]   Loading [55/381]: left_Healthy_sub-238_hippocampus_lh.nii.gz
+[17:28:59] [ICP-LOG]   Loading [56/381]: left_Healthy_sub-246_hippocampus_lh.nii.gz
+[17:28:59] [ICP-LOG]   Loading [57/381]: left_Healthy_sub-247_hippocampus_lh.nii.gz
+[17:29:00] [ICP-LOG]   Loading [58/381]: left_Healthy_sub-250_hippocampus_lh.nii.gz
+[17:29:00] [ICP-LOG]   Loading [59/381]: left_Healthy_sub-255_hippocampus_lh.nii.gz
+[17:29:00] [ICP-LOG]   Loading [60/381]: left_Healthy_sub-269_hippocampus_lh.nii.gz
+[17:29:00] [ICP-LOG]   Loading [61/381]: left_Healthy_sub-271_hippocampus_lh.nii.gz
+[17:29:00] [ICP-LOG]   Loading [62/381]: left_Healthy_sub-28620_hippocampus_lh.nii.gz
+[17:29:00] [ICP-LOG]   Loading [63/381]: left_Healthy_sub-292_hippocampus_lh.nii.gz
+[17:29:00] [ICP-LOG]   Loading [64/381]: left_Healthy_sub-29332_hippocampus_lh.nii.gz
+[17:29:00] [ICP-LOG]   Loading [65/381]: left_Healthy_sub-296_hippocampus_lh.nii.gz
+[17:29:01] [ICP-LOG]   Loading [66/381]: left_Healthy_sub-2_hippocampus_lh.nii.gz
+[17:29:01] [ICP-LOG]   Loading [67/381]: left_Healthy_sub-300_hippocampus_lh.nii.gz
+[17:29:01] [ICP-LOG]   Loading [68/381]: left_Healthy_sub-301_hippocampus_lh.nii.gz
+[17:29:01] [ICP-LOG]   Loading [69/381]: left_Healthy_sub-305_hippocampus_lh.nii.gz
+[17:29:01] [ICP-LOG]   Loading [70/381]: left_Healthy_sub-31730_hippocampus_lh.nii.gz
+[17:29:01] [ICP-LOG]   Loading [71/381]: left_Healthy_sub-317_hippocampus_lh.nii.gz
+[17:29:01] [ICP-LOG]   Loading [72/381]: left_Healthy_sub-31_hippocampus_lh.nii.gz
+[17:29:02] [ICP-LOG]   Loading [73/381]: left_Healthy_sub-32231_hippocampus_lh.nii.gz
+[17:29:02] [ICP-LOG]   Loading [74/381]: left_Healthy_sub-32310_hippocampus_lh.nii.gz
+[17:29:02] [ICP-LOG]   Loading [75/381]: left_Healthy_sub-32436_hippocampus_lh.nii.gz
+[17:29:02] [ICP-LOG]   Loading [76/381]: left_Healthy_sub-324_hippocampus_lh.nii.gz
+[17:29:02] [ICP-LOG]   Loading [77/381]: left_Healthy_sub-325_hippocampus_lh.nii.gz
+[17:29:02] [ICP-LOG]   Loading [78/381]: left_Healthy_sub-327_hippocampus_lh.nii.gz
+[17:29:02] [ICP-LOG]   Loading [79/381]: left_Healthy_sub-330_hippocampus_lh.nii.gz
+[17:29:02] [ICP-LOG]   Loading [80/381]: left_Healthy_sub-332_hippocampus_lh.nii.gz
+[17:29:03] [ICP-LOG]   Loading [81/381]: left_Healthy_sub-334_hippocampus_lh.nii.gz
+[17:29:03] [ICP-LOG]   Loading [82/381]: left_Healthy_sub-340_hippocampus_lh.nii.gz
+[17:29:03] [ICP-LOG]   Loading [83/381]: left_Healthy_sub-343_hippocampus_lh.nii.gz
+[17:29:03] [ICP-LOG]   Loading [84/381]: left_Healthy_sub-34437_hippocampus_lh.nii.gz
+[17:29:03] [ICP-LOG]   Loading [85/381]: left_Healthy_sub-344_hippocampus_lh.nii.gz
+[17:29:03] [ICP-LOG]   Loading [86/381]: left_Healthy_sub-346_hippocampus_lh.nii.gz
+[17:29:03] [ICP-LOG]   Loading [87/381]: left_Healthy_sub-35232_hippocampus_lh.nii.gz
+[17:29:04] [ICP-LOG]   Loading [88/381]: left_Healthy_sub-352_hippocampus_lh.nii.gz
+[17:29:04] [ICP-LOG]   Loading [89/381]: left_Healthy_sub-35538_hippocampus_lh.nii.gz
+[17:29:04] [ICP-LOG]   Loading [90/381]: left_Healthy_sub-35557_hippocampus_lh.nii.gz
+[17:29:04] [ICP-LOG]   Loading [91/381]: left_Healthy_sub-356_hippocampus_lh.nii.gz
+[17:29:04] [ICP-LOG]   Loading [92/381]: left_Healthy_sub-362_hippocampus_lh.nii.gz
+[17:29:04] [ICP-LOG]   Loading [93/381]: left_Healthy_sub-36387_hippocampus_lh.nii.gz
+[17:29:04] [ICP-LOG]   Loading [94/381]: left_Healthy_sub-365_hippocampus_lh.nii.gz
+[17:29:05] [ICP-LOG]   Loading [95/381]: left_Healthy_sub-36664_hippocampus_lh.nii.gz
+[17:29:05] [ICP-LOG]   Loading [96/381]: left_Healthy_sub-36966_hippocampus_lh.nii.gz
+[17:29:05] [ICP-LOG]   Loading [97/381]: left_Healthy_sub-37117_hippocampus_lh.nii.gz
+[17:29:05] [ICP-LOG]   Loading [98/381]: left_Healthy_sub-37130_hippocampus_lh.nii.gz
+[17:29:05] [ICP-LOG]   Loading [99/381]: left_Healthy_sub-37149_hippocampus_lh.nii.gz
+[17:29:05] [ICP-LOG]   Loading [100/381]: left_Healthy_sub-37289_hippocampus_lh.nii.gz
+[17:29:05] [ICP-LOG]   Loading [101/381]: left_Healthy_sub-374_hippocampus_lh.nii.gz
+[17:29:06] [ICP-LOG]   Loading [102/381]: left_Healthy_sub-376_hippocampus_lh.nii.gz
+[17:29:06] [ICP-LOG]   Loading [103/381]: left_Healthy_sub-377_hippocampus_lh.nii.gz
+[17:29:06] [ICP-LOG]   Loading [104/381]: left_Healthy_sub-380_hippocampus_lh.nii.gz
+[17:29:06] [ICP-LOG]   Loading [105/381]: left_Healthy_sub-382_hippocampus_lh.nii.gz
+[17:29:06] [ICP-LOG]   Loading [106/381]: left_Healthy_sub-385_hippocampus_lh.nii.gz
+[17:29:06] [ICP-LOG]   Loading [107/381]: left_Healthy_sub-38_hippocampus_lh.nii.gz
+[17:29:06] [ICP-LOG]   Loading [108/381]: left_Healthy_sub-394_hippocampus_lh.nii.gz
+[17:29:06] [ICP-LOG]   Loading [109/381]: left_Healthy_sub-399_hippocampus_lh.nii.gz
+[17:29:07] [ICP-LOG]   Loading [110/381]: left_Healthy_sub-4001_hippocampus_lh.nii.gz
+[17:29:07] [ICP-LOG]   Loading [111/381]: left_Healthy_sub-4002_hippocampus_lh.nii.gz
+[17:29:07] [ICP-LOG]   Loading [112/381]: left_Healthy_sub-4003_hippocampus_lh.nii.gz
+[17:29:07] [ICP-LOG]   Loading [113/381]: left_Healthy_sub-4004_hippocampus_lh.nii.gz
+[17:29:07] [ICP-LOG]   Loading [114/381]: left_Healthy_sub-4005_hippocampus_lh.nii.gz
+[17:29:07] [ICP-LOG]   Loading [115/381]: left_Healthy_sub-4006_hippocampus_lh.nii.gz
+[17:29:07] [ICP-LOG]   Loading [116/381]: left_Healthy_sub-4007_hippocampus_lh.nii.gz
+[17:29:08] [ICP-LOG]   Loading [117/381]: left_Healthy_sub-4008_hippocampus_lh.nii.gz
+[17:29:08] [ICP-LOG]   Loading [118/381]: left_Healthy_sub-4009_hippocampus_lh.nii.gz
+[17:29:08] [ICP-LOG]   Loading [119/381]: left_Healthy_sub-400_hippocampus_lh.nii.gz
+[17:29:08] [ICP-LOG]   Loading [120/381]: left_Healthy_sub-4010_hippocampus_lh.nii.gz
+[17:29:08] [ICP-LOG]   Loading [121/381]: left_Healthy_sub-4011_hippocampus_lh.nii.gz
+[17:29:08] [ICP-LOG]   Loading [122/381]: left_Healthy_sub-4012_hippocampus_lh.nii.gz
+[17:29:08] [ICP-LOG]   Loading [123/381]: left_Healthy_sub-4013_hippocampus_lh.nii.gz
+[17:29:09] [ICP-LOG]   Loading [124/381]: left_Healthy_sub-4014_hippocampus_lh.nii.gz
+[17:29:09] [ICP-LOG]   Loading [125/381]: left_Healthy_sub-4015_hippocampus_lh.nii.gz
+[17:29:09] [ICP-LOG]   Loading [126/381]: left_Healthy_sub-4016_hippocampus_lh.nii.gz
+[17:29:09] [ICP-LOG]   Loading [127/381]: left_Healthy_sub-4017_hippocampus_lh.nii.gz
+[17:29:09] [ICP-LOG]   Loading [128/381]: left_Healthy_sub-4018_hippocampus_lh.nii.gz
+[17:29:09] [ICP-LOG]   Loading [129/381]: left_Healthy_sub-4019_hippocampus_lh.nii.gz
+[17:29:09] [ICP-LOG]   Loading [130/381]: left_Healthy_sub-4020_hippocampus_lh.nii.gz
+[17:29:10] [ICP-LOG]   Loading [131/381]: left_Healthy_sub-4021_hippocampus_lh.nii.gz
+[17:29:10] [ICP-LOG]   Loading [132/381]: left_Healthy_sub-4022_hippocampus_lh.nii.gz
+[17:29:10] [ICP-LOG]   Loading [133/381]: left_Healthy_sub-4023_hippocampus_lh.nii.gz
+[17:29:10] [ICP-LOG]   Loading [134/381]: left_Healthy_sub-4024_hippocampus_lh.nii.gz
+[17:29:10] [ICP-LOG]   Loading [135/381]: left_Healthy_sub-4025_hippocampus_lh.nii.gz
+[17:29:10] [ICP-LOG]   Loading [136/381]: left_Healthy_sub-4026_hippocampus_lh.nii.gz
+[17:29:10] [ICP-LOG]   Loading [137/381]: left_Healthy_sub-4027_hippocampus_lh.nii.gz
+[17:29:10] [ICP-LOG]   Loading [138/381]: left_Healthy_sub-4028_hippocampus_lh.nii.gz
+[17:29:11] [ICP-LOG]   Loading [139/381]: left_Healthy_sub-4029_hippocampus_lh.nii.gz
+[17:29:11] [ICP-LOG]   Loading [140/381]: left_Healthy_sub-402_hippocampus_lh.nii.gz
+[17:29:11] [ICP-LOG]   Loading [141/381]: left_Healthy_sub-4030_hippocampus_lh.nii.gz
+[17:29:11] [ICP-LOG]   Loading [142/381]: left_Healthy_sub-4031_hippocampus_lh.nii.gz
+[17:29:11] [ICP-LOG]   Loading [143/381]: left_Healthy_sub-4032_hippocampus_lh.nii.gz
+[17:29:11] [ICP-LOG]   Loading [144/381]: left_Healthy_sub-4033_hippocampus_lh.nii.gz
+[17:29:11] [ICP-LOG]   Loading [145/381]: left_Healthy_sub-4034_hippocampus_lh.nii.gz
+[17:29:12] [ICP-LOG]   Loading [146/381]: left_Healthy_sub-4035_hippocampus_lh.nii.gz
+[17:29:12] [ICP-LOG]   Loading [147/381]: left_Healthy_sub-4036_hippocampus_lh.nii.gz
+[17:29:12] [ICP-LOG]   Loading [148/381]: left_Healthy_sub-4037_hippocampus_lh.nii.gz
+[17:29:12] [ICP-LOG]   Loading [149/381]: left_Healthy_sub-4038_hippocampus_lh.nii.gz
+[17:29:12] [ICP-LOG]   Loading [150/381]: left_Healthy_sub-4039_hippocampus_lh.nii.gz
+[17:29:12] [ICP-LOG]   Loading [151/381]: left_Healthy_sub-4040_hippocampus_lh.nii.gz
+[17:29:12] [ICP-LOG]   Loading [152/381]: left_Healthy_sub-4041_hippocampus_lh.nii.gz
+[17:29:13] [ICP-LOG]   Loading [153/381]: left_Healthy_sub-4042_hippocampus_lh.nii.gz
+[17:29:13] [ICP-LOG]   Loading [154/381]: left_Healthy_sub-4043_hippocampus_lh.nii.gz
+[17:29:13] [ICP-LOG]   Loading [155/381]: left_Healthy_sub-4044_hippocampus_lh.nii.gz
+[17:29:13] [ICP-LOG]   Loading [156/381]: left_Healthy_sub-4045_hippocampus_lh.nii.gz
+[17:29:13] [ICP-LOG]   Loading [157/381]: left_Healthy_sub-4046_hippocampus_lh.nii.gz
+[17:29:13] [ICP-LOG]   Loading [158/381]: left_Healthy_sub-4047_hippocampus_lh.nii.gz
+[17:29:13] [ICP-LOG]   Loading [159/381]: left_Healthy_sub-4048_hippocampus_lh.nii.gz
+[17:29:13] [ICP-LOG]   Loading [160/381]: left_Healthy_sub-4049_hippocampus_lh.nii.gz
+[17:29:14] [ICP-LOG]   Loading [161/381]: left_Healthy_sub-404_hippocampus_lh.nii.gz
+[17:29:14] [ICP-LOG]   Loading [162/381]: left_Healthy_sub-4050_hippocampus_lh.nii.gz
+[17:29:14] [ICP-LOG]   Loading [163/381]: left_Healthy_sub-4051_hippocampus_lh.nii.gz
+[17:29:14] [ICP-LOG]   Loading [164/381]: left_Healthy_sub-4052_hippocampus_lh.nii.gz
+[17:29:14] [ICP-LOG]   Loading [165/381]: left_Healthy_sub-4053_hippocampus_lh.nii.gz
+[17:29:14] [ICP-LOG]   Loading [166/381]: left_Healthy_sub-4054_hippocampus_lh.nii.gz
+[17:29:14] [ICP-LOG]   Loading [167/381]: left_Healthy_sub-4055_hippocampus_lh.nii.gz
+[17:29:15] [ICP-LOG]   Loading [168/381]: left_Healthy_sub-4056_hippocampus_lh.nii.gz
+[17:29:15] [ICP-LOG]   Loading [169/381]: left_Healthy_sub-4057_hippocampus_lh.nii.gz
+[17:29:15] [ICP-LOG]   Loading [170/381]: left_Healthy_sub-4058_hippocampus_lh.nii.gz
+[17:29:15] [ICP-LOG]   Loading [171/381]: left_Healthy_sub-4059_hippocampus_lh.nii.gz
+[17:29:15] [ICP-LOG]   Loading [172/381]: left_Healthy_sub-405_hippocampus_lh.nii.gz
+[17:29:15] [ICP-LOG]   Loading [173/381]: left_Healthy_sub-4060_hippocampus_lh.nii.gz
+[17:29:15] [ICP-LOG]   Loading [174/381]: left_Healthy_sub-4061_hippocampus_lh.nii.gz
+[17:29:16] [ICP-LOG]   Loading [175/381]: left_Healthy_sub-4062_hippocampus_lh.nii.gz
+[17:29:16] [ICP-LOG]   Loading [176/381]: left_Healthy_sub-4063_hippocampus_lh.nii.gz
+[17:29:16] [ICP-LOG]   Loading [177/381]: left_Healthy_sub-4064_hippocampus_lh.nii.gz
+[17:29:16] [ICP-LOG]   Loading [178/381]: left_Healthy_sub-4065_hippocampus_lh.nii.gz
+[17:29:16] [ICP-LOG]   Loading [179/381]: left_Healthy_sub-4066_hippocampus_lh.nii.gz
+[17:29:16] [ICP-LOG]   Loading [180/381]: left_Healthy_sub-4067_hippocampus_lh.nii.gz
+[17:29:16] [ICP-LOG]   Loading [181/381]: left_Healthy_sub-4068_hippocampus_lh.nii.gz
+[17:29:17] [ICP-LOG]   Loading [182/381]: left_Healthy_sub-4069_hippocampus_lh.nii.gz
+[17:29:17] [ICP-LOG]   Loading [183/381]: left_Healthy_sub-406_hippocampus_lh.nii.gz
+[17:29:17] [ICP-LOG]   Loading [184/381]: left_Healthy_sub-4070_hippocampus_lh.nii.gz
+[17:29:17] [ICP-LOG]   Loading [185/381]: left_Healthy_sub-4071_hippocampus_lh.nii.gz
+[17:29:17] [ICP-LOG]   Loading [186/381]: left_Healthy_sub-4072_hippocampus_lh.nii.gz
+[17:29:17] [ICP-LOG]   Loading [187/381]: left_Healthy_sub-4073_hippocampus_lh.nii.gz
+[17:29:17] [ICP-LOG]   Loading [188/381]: left_Healthy_sub-4074_hippocampus_lh.nii.gz
+[17:29:17] [ICP-LOG]   Loading [189/381]: left_Healthy_sub-4075_hippocampus_lh.nii.gz
+[17:29:18] [ICP-LOG]   Loading [190/381]: left_Healthy_sub-4076_hippocampus_lh.nii.gz
+[17:29:18] [ICP-LOG]   Loading [191/381]: left_Healthy_sub-4077_hippocampus_lh.nii.gz
+[17:29:18] [ICP-LOG]   Loading [192/381]: left_Healthy_sub-4078_hippocampus_lh.nii.gz
+[17:29:18] [ICP-LOG]   Loading [193/381]: left_Healthy_sub-4079_hippocampus_lh.nii.gz
+[17:29:18] [ICP-LOG]   Loading [194/381]: left_Healthy_sub-4080_hippocampus_lh.nii.gz
+[17:29:18] [ICP-LOG]   Loading [195/381]: left_Healthy_sub-4081_hippocampus_lh.nii.gz
+[17:29:18] [ICP-LOG]   Loading [196/381]: left_Healthy_sub-4082_hippocampus_lh.nii.gz
+[17:29:19] [ICP-LOG]   Loading [197/381]: left_Healthy_sub-4083_hippocampus_lh.nii.gz
+[17:29:19] [ICP-LOG]   Loading [198/381]: left_Healthy_sub-4084_hippocampus_lh.nii.gz
+[17:29:19] [ICP-LOG]   Loading [199/381]: left_Healthy_sub-4085_hippocampus_lh.nii.gz
+[17:29:19] [ICP-LOG]   Loading [200/381]: left_Healthy_sub-4086_hippocampus_lh.nii.gz
+[17:29:19] [ICP-LOG]   Loading [201/381]: left_Healthy_sub-4087_hippocampus_lh.nii.gz
+[17:29:19] [ICP-LOG]   Loading [202/381]: left_Healthy_sub-4088_hippocampus_lh.nii.gz
+[17:29:19] [ICP-LOG]   Loading [203/381]: left_Healthy_sub-4089_hippocampus_lh.nii.gz
+[17:29:20] [ICP-LOG]   Loading [204/381]: left_Healthy_sub-4090_hippocampus_lh.nii.gz
+[17:29:20] [ICP-LOG]   Loading [205/381]: left_Healthy_sub-4091_hippocampus_lh.nii.gz
+[17:29:20] [ICP-LOG]   Loading [206/381]: left_Healthy_sub-4092_hippocampus_lh.nii.gz
+[17:29:20] [ICP-LOG]   Loading [207/381]: left_Healthy_sub-4093_hippocampus_lh.nii.gz
+[17:29:20] [ICP-LOG]   Loading [208/381]: left_Healthy_sub-4094_hippocampus_lh.nii.gz
+[17:29:20] [ICP-LOG]   Loading [209/381]: left_Healthy_sub-4095_hippocampus_lh.nii.gz
+[17:29:20] [ICP-LOG]   Loading [210/381]: left_Healthy_sub-4096_hippocampus_lh.nii.gz
+[17:29:20] [ICP-LOG]   Loading [211/381]: left_Healthy_sub-4097_hippocampus_lh.nii.gz
+[17:29:21] [ICP-LOG]   Loading [212/381]: left_Healthy_sub-4098_hippocampus_lh.nii.gz
+[17:29:21] [ICP-LOG]   Loading [213/381]: left_Healthy_sub-4099_hippocampus_lh.nii.gz
+[17:29:21] [ICP-LOG]   Loading [214/381]: left_Healthy_sub-40_hippocampus_lh.nii.gz
+[17:29:21] [ICP-LOG]   Loading [215/381]: left_Healthy_sub-4100_hippocampus_lh.nii.gz
+[17:29:21] [ICP-LOG]   Loading [216/381]: left_Healthy_sub-413_hippocampus_lh.nii.gz
+[17:29:21] [ICP-LOG]   Loading [217/381]: left_Healthy_sub-417_hippocampus_lh.nii.gz
+[17:29:21] [ICP-LOG]   Loading [218/381]: left_Healthy_sub-419_hippocampus_lh.nii.gz
+[17:29:22] [ICP-LOG]   Loading [219/381]: left_Healthy_sub-41_hippocampus_lh.nii.gz
+[17:29:22] [ICP-LOG]   Loading [220/381]: left_Healthy_sub-427_hippocampus_lh.nii.gz
+[17:29:22] [ICP-LOG]   Loading [221/381]: left_Healthy_sub-432_hippocampus_lh.nii.gz
+[17:29:22] [ICP-LOG]   Loading [222/381]: left_Healthy_sub-437_hippocampus_lh.nii.gz
+[17:29:22] [ICP-LOG]   Loading [223/381]: left_Healthy_sub-442_hippocampus_lh.nii.gz
+[17:29:22] [ICP-LOG]   Loading [224/381]: left_Healthy_sub-447_hippocampus_lh.nii.gz
+[17:29:22] [ICP-LOG]   Loading [225/381]: left_Healthy_sub-451_hippocampus_lh.nii.gz
+[17:29:23] [ICP-LOG]   Loading [226/381]: left_Healthy_sub-455_hippocampus_lh.nii.gz
+[17:29:23] [ICP-LOG]   Loading [227/381]: left_Healthy_sub-45_hippocampus_lh.nii.gz
+[17:29:23] [ICP-LOG]   Loading [228/381]: left_Healthy_sub-49_hippocampus_lh.nii.gz
+[17:29:23] [ICP-LOG]   Loading [229/381]: left_Healthy_sub-57_hippocampus_lh.nii.gz
+[17:29:23] [ICP-LOG]   Loading [230/381]: left_Healthy_sub-61_hippocampus_lh.nii.gz
+[17:29:23] [ICP-LOG]   Loading [231/381]: left_Healthy_sub-64_hippocampus_lh.nii.gz
+[17:29:23] [ICP-LOG]   Loading [232/381]: left_Healthy_sub-70_hippocampus_lh.nii.gz
+[17:29:23] [ICP-LOG]   Loading [233/381]: left_Healthy_sub-75_hippocampus_lh.nii.gz
+[17:29:24] [ICP-LOG]   Loading [234/381]: left_Healthy_sub-76_hippocampus_lh.nii.gz
+[17:29:24] [ICP-LOG]   Loading [235/381]: left_Healthy_sub-7_hippocampus_lh.nii.gz
+[17:29:24] [ICP-LOG]   Loading [236/381]: left_Healthy_sub-82_hippocampus_lh.nii.gz
+[17:29:24] [ICP-LOG]   Loading [237/381]: left_Healthy_sub-84_hippocampus_lh.nii.gz
+[17:29:24] [ICP-LOG]   Loading [238/381]: left_Healthy_sub-94_hippocampus_lh.nii.gz
+[17:29:24] [ICP-LOG]   Loading [239/381]: left_Healthy_sub-95_hippocampus_lh.nii.gz
+[17:29:24] [ICP-LOG]   Loading [240/381]: left_Healthy_sub-97_hippocampus_lh.nii.gz
+[17:29:25] [ICP-LOG]   Loading [241/381]: left_TLE_sub-106_hippocampus_lh.nii.gz
+[17:29:25] [ICP-LOG]   Loading [242/381]: left_TLE_sub-109_hippocampus_lh.nii.gz
+[17:29:25] [ICP-LOG]   Loading [243/381]: left_TLE_sub-118_hippocampus_lh.nii.gz
+[17:29:25] [ICP-LOG]   Loading [244/381]: left_TLE_sub-120_hippocampus_lh.nii.gz
+[17:29:25] [ICP-LOG]   Loading [245/381]: left_TLE_sub-125_hippocampus_lh.nii.gz
+[17:29:25] [ICP-LOG]   Loading [246/381]: left_TLE_sub-127_hippocampus_lh.nii.gz
+[17:29:26] [ICP-LOG]   Loading [247/381]: left_TLE_sub-143_hippocampus_lh.nii.gz
+[17:29:26] [ICP-LOG]   Loading [248/381]: left_TLE_sub-149_hippocampus_lh.nii.gz
+[17:29:26] [ICP-LOG]   Loading [249/381]: left_TLE_sub-154_hippocampus_lh.nii.gz
+[17:29:26] [ICP-LOG]   Loading [250/381]: left_TLE_sub-156_hippocampus_lh.nii.gz
+[17:29:26] [ICP-LOG]   Loading [251/381]: left_TLE_sub-162_hippocampus_lh.nii.gz
+[17:29:26] [ICP-LOG]   Loading [252/381]: left_TLE_sub-164_hippocampus_lh.nii.gz
+[17:29:26] [ICP-LOG]   Loading [253/381]: left_TLE_sub-165_hippocampus_lh.nii.gz
+[17:29:26] [ICP-LOG]   Loading [254/381]: left_TLE_sub-167_hippocampus_lh.nii.gz
+[17:29:27] [ICP-LOG]   Loading [255/381]: left_TLE_sub-168_hippocampus_lh.nii.gz
+[17:29:27] [ICP-LOG]   Loading [256/381]: left_TLE_sub-174_hippocampus_lh.nii.gz
+[17:29:27] [ICP-LOG]   Loading [257/381]: left_TLE_sub-176_hippocampus_lh.nii.gz
+[17:29:27] [ICP-LOG]   Loading [258/381]: left_TLE_sub-183_hippocampus_lh.nii.gz
+[17:29:27] [ICP-LOG]   Loading [259/381]: left_TLE_sub-186_hippocampus_lh.nii.gz
+[17:29:27] [ICP-LOG]   Loading [260/381]: left_TLE_sub-188_hippocampus_lh.nii.gz
+[17:29:27] [ICP-LOG]   Loading [261/381]: left_TLE_sub-191_hippocampus_lh.nii.gz
+[17:29:28] [ICP-LOG]   Loading [262/381]: left_TLE_sub-196_hippocampus_lh.nii.gz
+[17:29:29] [ICP-LOG]   Loading [263/381]: left_TLE_sub-199_hippocampus_lh.nii.gz
+[17:29:29] [ICP-LOG]   Loading [264/381]: left_TLE_sub-202_hippocampus_lh.nii.gz
+[17:29:29] [ICP-LOG]   Loading [265/381]: left_TLE_sub-205_hippocampus_lh.nii.gz
+[17:29:29] [ICP-LOG]   Loading [266/381]: left_TLE_sub-208_hippocampus_lh.nii.gz
+[17:29:30] [ICP-LOG]   Loading [267/381]: left_TLE_sub-215_hippocampus_lh.nii.gz
+[17:29:30] [ICP-LOG]   Loading [268/381]: left_TLE_sub-217_hippocampus_lh.nii.gz
+[17:29:30] [ICP-LOG]   Loading [269/381]: left_TLE_sub-218_hippocampus_lh.nii.gz
+[17:29:30] [ICP-LOG]   Loading [270/381]: left_TLE_sub-220_hippocampus_lh.nii.gz
+[17:29:31] [ICP-LOG]   Loading [271/381]: left_TLE_sub-227_hippocampus_lh.nii.gz
+[17:29:31] [ICP-LOG]   Loading [272/381]: left_TLE_sub-229_hippocampus_lh.nii.gz
+[17:29:31] [ICP-LOG]   Loading [273/381]: left_TLE_sub-235_hippocampus_lh.nii.gz
+[17:29:31] [ICP-LOG]   Loading [274/381]: left_TLE_sub-236_hippocampus_lh.nii.gz
+[17:29:31] [ICP-LOG]   Loading [275/381]: left_TLE_sub-23_hippocampus_lh.nii.gz
+[17:29:31] [ICP-LOG]   Loading [276/381]: left_TLE_sub-240_hippocampus_lh.nii.gz
+[17:29:31] [ICP-LOG]   Loading [277/381]: left_TLE_sub-251_hippocampus_lh.nii.gz
+[17:29:31] [ICP-LOG]   Loading [278/381]: left_TLE_sub-259_hippocampus_lh.nii.gz
+[17:29:32] [ICP-LOG]   Loading [279/381]: left_TLE_sub-25_hippocampus_lh.nii.gz
+[17:29:32] [ICP-LOG]   Loading [280/381]: left_TLE_sub-263_hippocampus_lh.nii.gz
+[17:29:32] [ICP-LOG]   Loading [281/381]: left_TLE_sub-264_hippocampus_lh.nii.gz
+[17:29:32] [ICP-LOG]   Loading [282/381]: left_TLE_sub-265_hippocampus_lh.nii.gz
+[17:29:32] [ICP-LOG]   Loading [283/381]: left_TLE_sub-266_hippocampus_lh.nii.gz
+[17:29:32] [ICP-LOG]   Loading [284/381]: left_TLE_sub-267_hippocampus_lh.nii.gz
+[17:29:32] [ICP-LOG]   Loading [285/381]: left_TLE_sub-26896_hippocampus_lh.nii.gz
+[17:29:33] [ICP-LOG]   Loading [286/381]: left_TLE_sub-270_hippocampus_lh.nii.gz
+[17:29:33] [ICP-LOG]   Loading [287/381]: left_TLE_sub-273_hippocampus_lh.nii.gz
+[17:29:33] [ICP-LOG]   Loading [288/381]: left_TLE_sub-275_hippocampus_lh.nii.gz
+[17:29:33] [ICP-LOG]   Loading [289/381]: left_TLE_sub-27872_hippocampus_lh.nii.gz
+[17:29:33] [ICP-LOG]   Loading [290/381]: left_TLE_sub-27934_hippocampus_lh.nii.gz
+[17:29:33] [ICP-LOG]   Loading [291/381]: left_TLE_sub-27960_hippocampus_lh.nii.gz
+[17:29:33] [ICP-LOG]   Loading [292/381]: left_TLE_sub-27974_hippocampus_lh.nii.gz
+[17:29:33] [ICP-LOG]   Loading [293/381]: left_TLE_sub-279_hippocampus_lh.nii.gz
+[17:29:34] [ICP-LOG]   Loading [294/381]: left_TLE_sub-27_hippocampus_lh.nii.gz
+[17:29:34] [ICP-LOG]   Loading [295/381]: left_TLE_sub-282_hippocampus_lh.nii.gz
+[17:29:34] [ICP-LOG]   Loading [296/381]: left_TLE_sub-29073_hippocampus_lh.nii.gz
+[17:29:34] [ICP-LOG]   Loading [297/381]: left_TLE_sub-29096_hippocampus_lh.nii.gz
+[17:29:34] [ICP-LOG]   Loading [298/381]: left_TLE_sub-290_hippocampus_lh.nii.gz
+[17:29:34] [ICP-LOG]   Loading [299/381]: left_TLE_sub-293_hippocampus_lh.nii.gz
+[17:29:34] [ICP-LOG]   Loading [300/381]: left_TLE_sub-294_hippocampus_lh.nii.gz
+[17:29:35] [ICP-LOG]   Loading [301/381]: left_TLE_sub-297_hippocampus_lh.nii.gz
+[17:29:35] [ICP-LOG]   Loading [302/381]: left_TLE_sub-29_hippocampus_lh.nii.gz
+[17:29:35] [ICP-LOG]   Loading [303/381]: left_TLE_sub-302_hippocampus_lh.nii.gz
+[17:29:35] [ICP-LOG]   Loading [304/381]: left_TLE_sub-310_hippocampus_lh.nii.gz
+[17:29:35] [ICP-LOG]   Loading [305/381]: left_TLE_sub-314_hippocampus_lh.nii.gz
+[17:29:35] [ICP-LOG]   Loading [306/381]: left_TLE_sub-316_hippocampus_lh.nii.gz
+[17:29:35] [ICP-LOG]   Loading [307/381]: left_TLE_sub-320_hippocampus_lh.nii.gz
+[17:29:36] [ICP-LOG]   Loading [308/381]: left_TLE_sub-32159_hippocampus_lh.nii.gz
+[17:29:36] [ICP-LOG]   Loading [309/381]: left_TLE_sub-32907_hippocampus_lh.nii.gz
+[17:29:36] [ICP-LOG]   Loading [310/381]: left_TLE_sub-329_hippocampus_lh.nii.gz
+[17:29:36] [ICP-LOG]   Loading [311/381]: left_TLE_sub-336_hippocampus_lh.nii.gz
+[17:29:36] [ICP-LOG]   Loading [312/381]: left_TLE_sub-337_hippocampus_lh.nii.gz
+[17:29:36] [ICP-LOG]   Loading [313/381]: left_TLE_sub-33_hippocampus_lh.nii.gz
+[17:29:36] [ICP-LOG]   Loading [314/381]: left_TLE_sub-34273_hippocampus_lh.nii.gz
+[17:29:37] [ICP-LOG]   Loading [315/381]: left_TLE_sub-34359_hippocampus_lh.nii.gz
+[17:29:37] [ICP-LOG]   Loading [316/381]: left_TLE_sub-34736_hippocampus_lh.nii.gz
+[17:29:37] [ICP-LOG]   Loading [317/381]: left_TLE_sub-347_hippocampus_lh.nii.gz
+[17:29:37] [ICP-LOG]   Loading [318/381]: left_TLE_sub-34826_hippocampus_lh.nii.gz
+[17:29:37] [ICP-LOG]   Loading [319/381]: left_TLE_sub-348_hippocampus_lh.nii.gz
+[17:29:37] [ICP-LOG]   Loading [320/381]: left_TLE_sub-349_hippocampus_lh.nii.gz
+[17:29:37] [ICP-LOG]   Loading [321/381]: left_TLE_sub-351_hippocampus_lh.nii.gz
+[17:29:37] [ICP-LOG]   Loading [322/381]: left_TLE_sub-35272_hippocampus_lh.nii.gz
+[17:29:38] [ICP-LOG]   Loading [323/381]: left_TLE_sub-35353_hippocampus_lh.nii.gz
+[17:29:38] [ICP-LOG]   Loading [324/381]: left_TLE_sub-353_hippocampus_lh.nii.gz
+[17:29:39] [ICP-LOG]   Loading [325/381]: left_TLE_sub-354_hippocampus_lh.nii.gz
+[17:29:39] [ICP-LOG]   Loading [326/381]: left_TLE_sub-358_hippocampus_lh.nii.gz
+[17:29:39] [ICP-LOG]   Loading [327/381]: left_TLE_sub-361_hippocampus_lh.nii.gz
+[17:29:39] [ICP-LOG]   Loading [328/381]: left_TLE_sub-36487_hippocampus_lh.nii.gz
+[17:29:39] [ICP-LOG]   Loading [329/381]: left_TLE_sub-364_hippocampus_lh.nii.gz
+[17:29:39] [ICP-LOG]   Loading [330/381]: left_TLE_sub-366_hippocampus_lh.nii.gz
+[17:29:39] [ICP-LOG]   Loading [331/381]: left_TLE_sub-36737_hippocampus_lh.nii.gz
+[17:29:40] [ICP-LOG]   Loading [332/381]: left_TLE_sub-36866_hippocampus_lh.nii.gz
+[17:29:40] [ICP-LOG]   Loading [333/381]: left_TLE_sub-368_hippocampus_lh.nii.gz
+[17:29:40] [ICP-LOG]   Loading [334/381]: left_TLE_sub-372_hippocampus_lh.nii.gz
+[17:29:40] [ICP-LOG]   Loading [335/381]: left_TLE_sub-37348_hippocampus_lh.nii.gz
+[17:29:40] [ICP-LOG]   Loading [336/381]: left_TLE_sub-375_hippocampus_lh.nii.gz
+[17:29:40] [ICP-LOG]   Loading [337/381]: left_TLE_sub-379_hippocampus_lh.nii.gz
+[17:29:40] [ICP-LOG]   Loading [338/381]: left_TLE_sub-37_hippocampus_lh.nii.gz
+[17:29:41] [ICP-LOG]   Loading [339/381]: left_TLE_sub-387_hippocampus_lh.nii.gz
+[17:29:42] [ICP-LOG]   Loading [340/381]: left_TLE_sub-388_hippocampus_lh.nii.gz
+[17:29:42] [ICP-LOG]   Loading [341/381]: left_TLE_sub-389_hippocampus_lh.nii.gz
+[17:29:42] [ICP-LOG]   Loading [342/381]: left_TLE_sub-390_hippocampus_lh.nii.gz
+[17:29:42] [ICP-LOG]   Loading [343/381]: left_TLE_sub-397_hippocampus_lh.nii.gz
+[17:29:42] [ICP-LOG]   Loading [344/381]: left_TLE_sub-39_hippocampus_lh.nii.gz
+[17:29:42] [ICP-LOG]   Loading [345/381]: left_TLE_sub-401_hippocampus_lh.nii.gz
+[17:29:42] [ICP-LOG]   Loading [346/381]: left_TLE_sub-407_hippocampus_lh.nii.gz
+[17:29:42] [ICP-LOG]   Loading [347/381]: left_TLE_sub-408_hippocampus_lh.nii.gz
+[17:29:43] [ICP-LOG]   Loading [348/381]: left_TLE_sub-416_hippocampus_lh.nii.gz
+[17:29:43] [ICP-LOG]   Loading [349/381]: left_TLE_sub-418_hippocampus_lh.nii.gz
+[17:29:43] [ICP-LOG]   Loading [350/381]: left_TLE_sub-420_hippocampus_lh.nii.gz
+[17:29:43] [ICP-LOG]   Loading [351/381]: left_TLE_sub-421_hippocampus_lh.nii.gz
+[17:29:43] [ICP-LOG]   Loading [352/381]: left_TLE_sub-423_hippocampus_lh.nii.gz
+[17:29:43] [ICP-LOG]   Loading [353/381]: left_TLE_sub-425_hippocampus_lh.nii.gz
+[17:29:43] [ICP-LOG]   Loading [354/381]: left_TLE_sub-426_hippocampus_lh.nii.gz
+[17:29:44] [ICP-LOG]   Loading [355/381]: left_TLE_sub-430_hippocampus_lh.nii.gz
+[17:29:44] [ICP-LOG]   Loading [356/381]: left_TLE_sub-433_hippocampus_lh.nii.gz
+[17:29:44] [ICP-LOG]   Loading [357/381]: left_TLE_sub-43_hippocampus_lh.nii.gz
+[17:29:44] [ICP-LOG]   Loading [358/381]: left_TLE_sub-441_hippocampus_lh.nii.gz
+[17:29:44] [ICP-LOG]   Loading [359/381]: left_TLE_sub-444_hippocampus_lh.nii.gz
+[17:29:44] [ICP-LOG]   Loading [360/381]: left_TLE_sub-445_hippocampus_lh.nii.gz
+[17:29:44] [ICP-LOG]   Loading [361/381]: left_TLE_sub-446_hippocampus_lh.nii.gz
+[17:29:45] [ICP-LOG]   Loading [362/381]: left_TLE_sub-450_hippocampus_lh.nii.gz
+[17:29:45] [ICP-LOG]   Loading [363/381]: left_TLE_sub-452_hippocampus_lh.nii.gz
+[17:29:45] [ICP-LOG]   Loading [364/381]: left_TLE_sub-454_hippocampus_lh.nii.gz
+[17:29:45] [ICP-LOG]   Loading [365/381]: left_TLE_sub-460_hippocampus_lh.nii.gz
+[17:29:45] [ICP-LOG]   Loading [366/381]: left_TLE_sub-461_hippocampus_lh.nii.gz
+[17:29:45] [ICP-LOG]   Loading [367/381]: left_TLE_sub-46_hippocampus_lh.nii.gz
+[17:29:45] [ICP-LOG]   Loading [368/381]: left_TLE_sub-55_hippocampus_lh.nii.gz
+[17:29:45] [ICP-LOG]   Loading [369/381]: left_TLE_sub-56_hippocampus_lh.nii.gz
+[17:29:46] [ICP-LOG]   Loading [370/381]: left_TLE_sub-5_hippocampus_lh.nii.gz
+[17:29:46] [ICP-LOG]   Loading [371/381]: left_TLE_sub-67_hippocampus_lh.nii.gz
+[17:29:46] [ICP-LOG]   Loading [372/381]: left_TLE_sub-68_hippocampus_lh.nii.gz
+[17:29:46] [ICP-LOG]   Loading [373/381]: left_TLE_sub-71_hippocampus_lh.nii.gz
+[17:29:46] [ICP-LOG]   Loading [374/381]: left_TLE_sub-74_hippocampus_lh.nii.gz
+[17:29:46] [ICP-LOG]   Loading [375/381]: left_TLE_sub-77_hippocampus_lh.nii.gz
+[17:29:46] [ICP-LOG]   Loading [376/381]: left_TLE_sub-78_hippocampus_lh.nii.gz
+[17:29:47] [ICP-LOG]   Loading [377/381]: left_TLE_sub-85_hippocampus_lh.nii.gz
+[17:29:47] [ICP-LOG]   Loading [378/381]: left_TLE_sub-87_hippocampus_lh.nii.gz
+[17:29:47] [ICP-LOG]   Loading [379/381]: left_TLE_sub-90_hippocampus_lh.nii.gz
+[17:29:47] [ICP-LOG]   Loading [380/381]: left_TLE_sub-92_hippocampus_lh.nii.gz
+[17:29:48] [ICP-LOG]   Loading [381/381]: left_TLE_sub-93_hippocampus_lh.nii.gz
+[17:29:48] [ICP-LOG]   Loaded 381 meshes successfully.
+[17:29:48] [ICP-LOG]     Pole check: dists=[0.08088, 0.07358, 0.03637, 0.04997] -> rotY180
+[17:29:48] [ICP-LOG]     Pole check: dists=[0.04198, 0.06117, 0.08468, 0.07383] -> identity
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.03746, 0.05212, 0.08053, 0.06984] -> identity
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.03765, 0.04914, 0.08701, 0.07812] -> identity
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.04094, 0.05538, 0.08959, 0.07778] -> identity
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.03699, 0.04713, 0.08849, 0.07427] -> identity
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.03744, 0.05555, 0.07869, 0.06711] -> identity
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.03814, 0.05107, 0.08298, 0.07453] -> identity
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.08727, 0.07429, 0.04047, 0.05200] -> rotY180
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.03645, 0.05521, 0.08239, 0.07579] -> identity
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.08417, 0.07308, 0.04080, 0.04856] -> rotY180
+[17:29:49] [ICP-LOG]     Pole check: dists=[0.07998, 0.09132, 0.05494, 0.04672] -> rotZ180
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.03944, 0.05033, 0.08414, 0.07046] -> identity
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.08468, 0.07339, 0.03875, 0.05051] -> rotY180
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.03921, 0.05229, 0.08790, 0.07452] -> identity
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.04865, 0.06046, 0.09825, 0.08813] -> identity
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.08710, 0.07598, 0.03766, 0.05038] -> rotY180
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.04134, 0.05743, 0.08299, 0.07619] -> identity
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.08741, 0.07445, 0.03872, 0.04872] -> rotY180
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.05285, 0.03954, 0.06709, 0.07788] -> rotX180
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.07584, 0.06858, 0.03880, 0.05641] -> rotY180
+[17:29:50] [ICP-LOG]     Pole check: dists=[0.04178, 0.05373, 0.08335, 0.07191] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.03563, 0.04437, 0.08138, 0.07152] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.04382, 0.05925, 0.08929, 0.08215] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.09000, 0.07702, 0.03704, 0.04802] -> rotY180
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.04317, 0.05854, 0.09127, 0.07840] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.04527, 0.05821, 0.08963, 0.08329] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.05339, 0.03997, 0.07437, 0.08285] -> rotX180
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.03811, 0.05116, 0.08203, 0.07498] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.03463, 0.04945, 0.07849, 0.07007] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.04110, 0.05418, 0.08151, 0.07636] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.03930, 0.04979, 0.08542, 0.07685] -> identity
+[17:29:51] [ICP-LOG]     Pole check: dists=[0.04340, 0.05780, 0.08653, 0.07602] -> identity
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.04382, 0.05458, 0.08641, 0.07968] -> identity
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.04057, 0.05724, 0.07463, 0.06788] -> identity
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.04272, 0.05249, 0.08063, 0.07173] -> identity
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.03863, 0.05786, 0.08303, 0.07575] -> identity
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.08378, 0.06801, 0.03739, 0.05346] -> rotY180
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.04349, 0.05961, 0.08461, 0.07556] -> identity
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.04273, 0.05237, 0.08430, 0.07681] -> identity
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.04177, 0.05024, 0.08627, 0.07706] -> identity
+[17:29:52] [ICP-LOG]     Pole check: dists=[0.04409, 0.05489, 0.08263, 0.07431] -> identity
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.04089, 0.05157, 0.08948, 0.08047] -> identity
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.03940, 0.05539, 0.08396, 0.07357] -> identity
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.09160, 0.08337, 0.04761, 0.05878] -> rotY180
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.04066, 0.04799, 0.08570, 0.07272] -> identity
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.03799, 0.04856, 0.08536, 0.07113] -> identity
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.05864, 0.04783, 0.07760, 0.09179] -> rotX180
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.03967, 0.05068, 0.08021, 0.07090] -> identity
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.03963, 0.06012, 0.08009, 0.07207] -> identity
+[17:29:53] [ICP-LOG]     Pole check: dists=[0.04892, 0.05757, 0.09084, 0.08267] -> identity
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.04353, 0.05651, 0.08144, 0.06819] -> identity
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.08288, 0.07304, 0.04196, 0.05500] -> rotY180
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.04252, 0.05576, 0.08070, 0.07425] -> identity
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.07673, 0.08723, 0.05734, 0.04447] -> rotZ180
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.08716, 0.08294, 0.04762, 0.05731] -> rotY180
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.05449, 0.03912, 0.07328, 0.08432] -> rotX180
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.08631, 0.07538, 0.04198, 0.05220] -> rotY180
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.03887, 0.05411, 0.07933, 0.06933] -> identity
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.04225, 0.05679, 0.08428, 0.07198] -> identity
+[17:29:54] [ICP-LOG]     Pole check: dists=[0.04320, 0.05644, 0.08471, 0.07215] -> identity
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.04238, 0.05174, 0.08713, 0.07637] -> identity
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.09222, 0.08468, 0.04667, 0.05958] -> rotY180
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.04028, 0.05729, 0.08766, 0.07761] -> identity
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.07728, 0.07001, 0.03850, 0.04996] -> rotY180
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.04151, 0.05669, 0.08260, 0.07069] -> identity
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.04864, 0.05766, 0.08743, 0.07764] -> identity
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.05234, 0.06600, 0.09104, 0.08368] -> identity
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.04523, 0.05719, 0.08660, 0.07611] -> identity
+[17:29:55] [ICP-LOG]     Pole check: dists=[0.08899, 0.08070, 0.04006, 0.04804] -> rotY180
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.08909, 0.07819, 0.04498, 0.05300] -> rotY180
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.05697, 0.04523, 0.08037, 0.08686] -> rotX180
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.09038, 0.08194, 0.04000, 0.05456] -> rotY180
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.03737, 0.05001, 0.08457, 0.07159] -> identity
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.07880, 0.06977, 0.03984, 0.05570] -> rotY180
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.04612, 0.06175, 0.09196, 0.08254] -> identity
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.03938, 0.05712, 0.08028, 0.06850] -> identity
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.08387, 0.07687, 0.03686, 0.04837] -> rotY180
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.03847, 0.05539, 0.08096, 0.07583] -> identity
+[17:29:56] [ICP-LOG]     Pole check: dists=[0.03750, 0.04904, 0.07947, 0.06984] -> identity
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.04880, 0.06379, 0.09240, 0.08477] -> identity
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.04444, 0.05146, 0.08061, 0.07656] -> identity
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.04646, 0.06094, 0.09010, 0.08411] -> identity
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.04697, 0.06400, 0.09642, 0.08479] -> identity
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.05029, 0.06105, 0.09231, 0.08231] -> identity
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.09216, 0.08195, 0.04315, 0.06140] -> rotY180
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.03783, 0.04992, 0.08683, 0.07403] -> identity
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.03611, 0.04704, 0.08635, 0.07453] -> identity
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.05122, 0.03893, 0.08227, 0.09242] -> rotX180
+[17:29:57] [ICP-LOG]     Pole check: dists=[0.04059, 0.05365, 0.08537, 0.07095] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.04448, 0.05051, 0.08664, 0.07551] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.04451, 0.06069, 0.08958, 0.08472] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.04086, 0.05516, 0.08010, 0.06625] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.03698, 0.04694, 0.08547, 0.07718] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.03840, 0.05117, 0.08520, 0.07696] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.08317, 0.07430, 0.04056, 0.05504] -> rotY180
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.03916, 0.04946, 0.08883, 0.07630] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.03996, 0.05297, 0.08104, 0.07081] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.03829, 0.05392, 0.08794, 0.07895] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.03867, 0.05229, 0.09004, 0.08171] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.03967, 0.05503, 0.08308, 0.07656] -> identity
+[17:29:58] [ICP-LOG]     Pole check: dists=[0.03938, 0.04771, 0.08358, 0.07268] -> identity
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.03967, 0.04988, 0.08727, 0.07580] -> identity
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.04856, 0.06593, 0.09329, 0.08301] -> identity
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.08557, 0.07734, 0.03827, 0.05063] -> rotY180
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.03708, 0.05100, 0.08204, 0.07261] -> identity
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.04243, 0.06007, 0.08616, 0.07863] -> identity
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.08375, 0.07409, 0.03798, 0.04893] -> rotY180
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.04309, 0.05632, 0.07877, 0.06773] -> identity
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.04377, 0.05514, 0.08208, 0.07037] -> identity
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.04693, 0.05785, 0.09197, 0.08114] -> identity
+[17:29:59] [ICP-LOG]     Pole check: dists=[0.08398, 0.07074, 0.03934, 0.04842] -> rotY180
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.04026, 0.05568, 0.08110, 0.07287] -> identity
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.04322, 0.05760, 0.09267, 0.08330] -> identity
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.04207, 0.05898, 0.08243, 0.07109] -> identity
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.03724, 0.04833, 0.08413, 0.07435] -> identity
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.04899, 0.04132, 0.07505, 0.08670] -> rotX180
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.08855, 0.07692, 0.04159, 0.05893] -> rotY180
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.03975, 0.05006, 0.08014, 0.07081] -> identity
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.08806, 0.08079, 0.04178, 0.05435] -> rotY180
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.03886, 0.05205, 0.09217, 0.08128] -> identity
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.03553, 0.04796, 0.08431, 0.07422] -> identity
+[17:30:00] [ICP-LOG]     Pole check: dists=[0.04060, 0.05628, 0.08145, 0.07080] -> identity
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.04405, 0.05434, 0.08455, 0.07803] -> identity
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.03727, 0.05325, 0.08294, 0.07419] -> identity
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.09100, 0.08479, 0.04637, 0.05339] -> rotY180
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.04130, 0.06101, 0.08407, 0.07679] -> identity
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.08849, 0.07559, 0.04596, 0.05789] -> rotY180
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.04077, 0.05826, 0.08006, 0.07117] -> identity
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.03930, 0.05190, 0.08454, 0.07403] -> identity
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.04918, 0.05419, 0.09155, 0.08253] -> identity
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.08905, 0.08701, 0.04612, 0.06069] -> rotY180
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.03811, 0.05317, 0.08584, 0.07578] -> identity
+[17:30:01] [ICP-LOG]     Pole check: dists=[0.08842, 0.07859, 0.03998, 0.05077] -> rotY180
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.07977, 0.07077, 0.03868, 0.05018] -> rotY180
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.07443, 0.08554, 0.05708, 0.04048] -> rotZ180
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.03913, 0.05088, 0.08391, 0.07417] -> identity
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.09366, 0.08611, 0.04423, 0.06035] -> rotY180
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.07716, 0.08961, 0.05486, 0.04087] -> rotZ180
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.04633, 0.05776, 0.08578, 0.07767] -> identity
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.04221, 0.05542, 0.08054, 0.06973] -> identity
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.04466, 0.05421, 0.08887, 0.07718] -> identity
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.04352, 0.05230, 0.07885, 0.07383] -> identity
+[17:30:02] [ICP-LOG]     Pole check: dists=[0.08617, 0.07658, 0.04104, 0.05056] -> rotY180
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.08146, 0.07085, 0.03732, 0.05637] -> rotY180
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.08430, 0.07755, 0.03888, 0.05422] -> rotY180
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.04359, 0.05297, 0.08657, 0.07789] -> identity
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.08266, 0.07329, 0.04491, 0.05859] -> rotY180
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.03946, 0.05408, 0.08522, 0.07488] -> identity
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.08071, 0.07172, 0.03791, 0.05215] -> rotY180
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.08807, 0.07646, 0.04123, 0.04950] -> rotY180
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.08808, 0.08113, 0.03909, 0.05343] -> rotY180
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.03747, 0.04974, 0.08353, 0.06928] -> identity
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.03869, 0.05582, 0.07662, 0.06730] -> identity
+[17:30:03] [ICP-LOG]     Pole check: dists=[0.04462, 0.05835, 0.09248, 0.08120] -> identity
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.04082, 0.05256, 0.09362, 0.08342] -> identity
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.08627, 0.07478, 0.03729, 0.04325] -> rotY180
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.03984, 0.05390, 0.07957, 0.07161] -> identity
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.09490, 0.08603, 0.04274, 0.05439] -> rotY180
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.08620, 0.07949, 0.04497, 0.05330] -> rotY180
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.09464, 0.08493, 0.05646, 0.06697] -> rotY180
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.08811, 0.07786, 0.04005, 0.04949] -> rotY180
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.03972, 0.04717, 0.08026, 0.06691] -> identity
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.03750, 0.05243, 0.08057, 0.07247] -> identity
+[17:30:04] [ICP-LOG]     Pole check: dists=[0.08887, 0.08397, 0.04144, 0.05867] -> rotY180
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.09246, 0.08509, 0.04397, 0.05704] -> rotY180
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.08438, 0.08921, 0.05038, 0.03833] -> rotZ180
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.08263, 0.07486, 0.04355, 0.05192] -> rotY180
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.08555, 0.07582, 0.04392, 0.05324] -> rotY180
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.03802, 0.05529, 0.08534, 0.07183] -> identity
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.08827, 0.08139, 0.04537, 0.05980] -> rotY180
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.08612, 0.07869, 0.04034, 0.05312] -> rotY180
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.04706, 0.06018, 0.09562, 0.08442] -> identity
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.08537, 0.07708, 0.04493, 0.05994] -> rotY180
+[17:30:05] [ICP-LOG]     Pole check: dists=[0.08466, 0.07353, 0.04120, 0.05263] -> rotY180
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.03972, 0.05148, 0.08620, 0.07568] -> identity
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.07800, 0.08565, 0.05862, 0.04185] -> rotZ180
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.09380, 0.08525, 0.04576, 0.05493] -> rotY180
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.08112, 0.06883, 0.03823, 0.05012] -> rotY180
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.08152, 0.06836, 0.03727, 0.05430] -> rotY180
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.05541, 0.07100, 0.09431, 0.08439] -> identity
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.03717, 0.05264, 0.08211, 0.07156] -> identity
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.04239, 0.05199, 0.08113, 0.07256] -> identity
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.04517, 0.05574, 0.08813, 0.07892] -> identity
+[17:30:06] [ICP-LOG]     Pole check: dists=[0.04780, 0.05694, 0.09099, 0.07846] -> identity
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.04254, 0.05420, 0.09070, 0.08113] -> identity
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.08336, 0.07226, 0.03788, 0.05014] -> rotY180
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.09029, 0.08067, 0.04189, 0.05841] -> rotY180
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.04167, 0.05305, 0.08692, 0.07676] -> identity
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.04196, 0.05578, 0.09096, 0.08086] -> identity
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.08294, 0.07168, 0.03938, 0.04751] -> rotY180
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.04034, 0.05098, 0.08815, 0.07612] -> identity
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.05059, 0.03670, 0.06951, 0.08302] -> rotX180
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.03985, 0.04720, 0.07613, 0.06589] -> identity
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.04073, 0.04940, 0.08420, 0.07479] -> identity
+[17:30:07] [ICP-LOG]     Pole check: dists=[0.08068, 0.07043, 0.03803, 0.04978] -> rotY180
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.09010, 0.07780, 0.04540, 0.05518] -> rotY180
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.03796, 0.05859, 0.08394, 0.07143] -> identity
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.08038, 0.07223, 0.04187, 0.05394] -> rotY180
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.04249, 0.05478, 0.08587, 0.07839] -> identity
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.04115, 0.05567, 0.07917, 0.06506] -> identity
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.04138, 0.05853, 0.07320, 0.06919] -> identity
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.04058, 0.05432, 0.08655, 0.07712] -> identity
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.03951, 0.05123, 0.08655, 0.07534] -> identity
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.08691, 0.07558, 0.04555, 0.06198] -> rotY180
+[17:30:08] [ICP-LOG]     Pole check: dists=[0.08202, 0.07232, 0.04105, 0.05242] -> rotY180
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.08496, 0.07476, 0.04300, 0.05268] -> rotY180
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.08047, 0.07200, 0.04007, 0.05183] -> rotY180
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.08645, 0.07364, 0.03867, 0.05163] -> rotY180
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.03765, 0.05315, 0.07610, 0.06273] -> identity
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.08915, 0.07911, 0.03853, 0.05477] -> rotY180
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.07857, 0.06710, 0.03862, 0.05229] -> rotY180
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.07965, 0.09209, 0.05791, 0.04295] -> rotZ180
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.04301, 0.05414, 0.08858, 0.07846] -> identity
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.04034, 0.05580, 0.07964, 0.06992] -> identity
+[17:30:09] [ICP-LOG]     Pole check: dists=[0.04723, 0.05548, 0.08767, 0.07931] -> identity
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.08927, 0.07795, 0.03944, 0.05354] -> rotY180
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.04089, 0.05501, 0.08780, 0.07538] -> identity
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.08116, 0.08571, 0.06114, 0.04538] -> rotZ180
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.04100, 0.04849, 0.08145, 0.07251] -> identity
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.04651, 0.05470, 0.08707, 0.07875] -> identity
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.08569, 0.07724, 0.03817, 0.05196] -> rotY180
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.04159, 0.05724, 0.08368, 0.07218] -> identity
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.07621, 0.06798, 0.03852, 0.04838] -> rotY180
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.04154, 0.04913, 0.08973, 0.07894] -> identity
+[17:30:10] [ICP-LOG]     Pole check: dists=[0.06153, 0.04660, 0.08237, 0.08713] -> rotX180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.04234, 0.05316, 0.08692, 0.07780] -> identity
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.09502, 0.08573, 0.05033, 0.06024] -> rotY180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.05687, 0.04626, 0.07564, 0.08704] -> rotX180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.08194, 0.07097, 0.03930, 0.05500] -> rotY180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.09032, 0.08025, 0.04216, 0.05259] -> rotY180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.09724, 0.08557, 0.04801, 0.05766] -> rotY180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.05437, 0.03934, 0.07300, 0.08512] -> rotX180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.08462, 0.07572, 0.03778, 0.04841] -> rotY180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.07504, 0.06736, 0.04650, 0.05417] -> rotY180
+[17:30:11] [ICP-LOG]     Pole check: dists=[0.04022, 0.05498, 0.08717, 0.07853] -> identity
+[17:30:12] [ICP-LOG]     Pole check: dists=[0.03992, 0.05781, 0.08553, 0.07242] -> identity
+[17:30:12] [ICP-LOG]     Pole check: dists=[0.04265, 0.05591, 0.08454, 0.07975] -> identity
+[17:30:12] [ICP-LOG]     Pole check: dists=[0.04334, 0.05898, 0.08350, 0.07470] -> identity
+[17:30:12] [ICP-LOG]     Pole check: dists=[0.08781, 0.07940, 0.04293, 0.05953] -> rotY180
+[17:30:12] [ICP-LOG]     Pole check: dists=[0.03720, 0.05279, 0.07880, 0.07095] -> identity
+[17:30:12] [ICP-LOG]     Pole check: dists=[0.04087, 0.05210, 0.08240, 0.07257] -> identity
+[17:30:12] [ICP-LOG]     Pole check: dists=[0.03923, 0.04962, 0.07781, 0.06701] -> identity
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.06060, 0.07376, 0.05201, 0.04179] -> rotZ180
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.04158, 0.04692, 0.08273, 0.07099] -> identity
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.04118, 0.05219, 0.07547, 0.06179] -> identity
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.09165, 0.08303, 0.04706, 0.05837] -> rotY180
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.03761, 0.05200, 0.08340, 0.07454] -> identity
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.04235, 0.05836, 0.08611, 0.07751] -> identity
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.08453, 0.07494, 0.04075, 0.05425] -> rotY180
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.04122, 0.05155, 0.07492, 0.06265] -> identity
+[17:30:13] [ICP-LOG]     Pole check: dists=[0.03923, 0.05296, 0.07820, 0.06656] -> identity
+[17:30:14] [ICP-LOG]     Pole check: dists=[0.04001, 0.05420, 0.07891, 0.06533] -> identity
+[17:30:14] [ICP-LOG]     Pole check: dists=[0.07953, 0.06895, 0.03686, 0.04909] -> rotY180
+[17:30:14] [ICP-LOG]     Pole check: dists=[0.06928, 0.08033, 0.05941, 0.04139] -> rotZ180
+[17:30:14] [ICP-LOG]     Pole check: dists=[0.07869, 0.06789, 0.03452, 0.04710] -> rotY180
+[17:30:14] [ICP-LOG]     Pole check: dists=[0.03946, 0.05281, 0.07913, 0.07116] -> identity
+[17:30:14] [ICP-LOG]     Pole check: dists=[0.03639, 0.05162, 0.08589, 0.07853] -> identity
+[17:30:14] [ICP-LOG]     Pole check: dists=[0.03993, 0.05377, 0.08223, 0.07058] -> identity
+[17:30:14] [ICP-LOG]     Pole check: dists=[0.03819, 0.05203, 0.07607, 0.06880] -> identity
+[17:30:15] [ICP-LOG]     Pole check: dists=[0.04128, 0.05436, 0.08698, 0.07714] -> identity
+[17:30:15] [ICP-LOG]     Pole check: dists=[0.07778, 0.07201, 0.03890, 0.04984] -> rotY180
+[17:30:15] [ICP-LOG]     Pole check: dists=[0.04329, 0.05255, 0.06996, 0.06057] -> identity
+[17:30:15] [ICP-LOG]     Pole check: dists=[0.04219, 0.05831, 0.08572, 0.07878] -> identity
+[17:30:15] [ICP-LOG]     Pole check: dists=[0.03832, 0.04605, 0.07653, 0.06569] -> identity
+[17:30:16] [ICP-LOG]     Pole check: dists=[0.07416, 0.06424, 0.04042, 0.05791] -> rotY180
+[17:30:16] [ICP-LOG]     Pole check: dists=[0.09071, 0.07645, 0.04195, 0.05668] -> rotY180
+[17:30:16] [ICP-LOG]     Pole check: dists=[0.03874, 0.05312, 0.07491, 0.06093] -> identity
+[17:30:16] [ICP-LOG]     Pole check: dists=[0.05306, 0.03731, 0.06956, 0.07975] -> rotX180
+[17:30:16] [ICP-LOG]     Pole check: dists=[0.03727, 0.05200, 0.08001, 0.06859] -> identity
+[17:30:16] [ICP-LOG]     Pole check: dists=[0.08165, 0.07290, 0.03706, 0.05009] -> rotY180
+[17:30:16] [ICP-LOG]     Pole check: dists=[0.04724, 0.03827, 0.06846, 0.07862] -> rotX180
+[17:30:16] [ICP-LOG]     Pole check: dists=[0.04920, 0.03889, 0.06925, 0.07954] -> rotX180
+[17:30:17] [ICP-LOG]     Pole check: dists=[0.08084, 0.06798, 0.04154, 0.04995] -> rotY180
+[17:30:17] [ICP-LOG]     Pole check: dists=[0.03842, 0.05661, 0.07413, 0.06545] -> identity
+[17:30:17] [ICP-LOG]     Pole check: dists=[0.04085, 0.05301, 0.07861, 0.07115] -> identity
+[17:30:17] [ICP-LOG]     Pole check: dists=[0.08895, 0.07936, 0.03894, 0.05195] -> rotY180
+[17:30:17] [ICP-LOG]     Pole check: dists=[0.04803, 0.03712, 0.06787, 0.07809] -> rotX180
+[17:30:17] [ICP-LOG]     Pole check: dists=[0.04014, 0.05211, 0.08365, 0.07190] -> identity
+[17:30:17] [ICP-LOG]     Pole check: dists=[0.05370, 0.04116, 0.07240, 0.08421] -> rotX180
+[17:30:17] [ICP-LOG]     Pole check: dists=[0.04083, 0.05451, 0.07122, 0.05999] -> identity
+[17:30:18] [ICP-LOG]     Pole check: dists=[0.03891, 0.05000, 0.07978, 0.06751] -> identity
+[17:30:18] [ICP-LOG]     Pole check: dists=[0.04131, 0.05598, 0.07580, 0.06306] -> identity
+[17:30:18] [ICP-LOG]     Pole check: dists=[0.04070, 0.05493, 0.07787, 0.06871] -> identity
+[17:30:18] [ICP-LOG]     Pole check: dists=[0.03819, 0.04977, 0.08490, 0.07580] -> identity
+[17:30:18] [ICP-LOG]     Pole check: dists=[0.08223, 0.06923, 0.03780, 0.05140] -> rotY180
+[17:30:18] [ICP-LOG]     Pole check: dists=[0.04090, 0.04937, 0.07835, 0.06417] -> identity
+[17:30:18] [ICP-LOG]     Pole check: dists=[0.04256, 0.05312, 0.08829, 0.07678] -> identity
+[17:30:18] [ICP-LOG]     Pole check: dists=[0.04056, 0.05690, 0.08633, 0.07641] -> identity
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.04689, 0.03908, 0.05978, 0.07347] -> rotX180
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.08362, 0.07426, 0.03902, 0.05209] -> rotY180
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.03684, 0.04586, 0.08159, 0.06877] -> identity
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.09564, 0.08771, 0.05707, 0.06598] -> rotY180
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.03802, 0.05062, 0.07392, 0.06608] -> identity
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.04102, 0.04860, 0.08419, 0.07517] -> identity
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.04459, 0.05567, 0.09458, 0.08318] -> identity
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.08818, 0.07504, 0.03914, 0.05124] -> rotY180
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.05075, 0.03723, 0.07087, 0.08074] -> rotX180
+[17:30:19] [ICP-LOG]     Pole check: dists=[0.03613, 0.05315, 0.07886, 0.06618] -> identity
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.08755, 0.07696, 0.03786, 0.04881] -> rotY180
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.08219, 0.07067, 0.04073, 0.05317] -> rotY180
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.03862, 0.04775, 0.08415, 0.07370] -> identity
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.04117, 0.05305, 0.07945, 0.07133] -> identity
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.03857, 0.05487, 0.07695, 0.06734] -> identity
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.08183, 0.07316, 0.04242, 0.04729] -> rotY180
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.08831, 0.09786, 0.05827, 0.05115] -> rotZ180
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.04201, 0.05255, 0.07862, 0.06699] -> identity
+[17:30:20] [ICP-LOG]     Pole check: dists=[0.08749, 0.07675, 0.04179, 0.05386] -> rotY180
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.04997, 0.03715, 0.07260, 0.08311] -> rotX180
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.07900, 0.06950, 0.03813, 0.05387] -> rotY180
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.04169, 0.04941, 0.08654, 0.07519] -> identity
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.03776, 0.04659, 0.08335, 0.07192] -> identity
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.08592, 0.07504, 0.03799, 0.05583] -> rotY180
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.04617, 0.03632, 0.06816, 0.07466] -> rotX180
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.03747, 0.05422, 0.07284, 0.06557] -> identity
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.03859, 0.05022, 0.08533, 0.07919] -> identity
+[17:30:21] [ICP-LOG]     Pole check: dists=[0.07883, 0.06884, 0.04031, 0.05295] -> rotY180
+[17:30:22] [ICP-LOG]     Pole check: dists=[0.08355, 0.07195, 0.04015, 0.04848] -> rotY180
+[17:30:22] [ICP-LOG]     Pole check: dists=[0.07735, 0.06386, 0.03937, 0.05134] -> rotY180
+[17:30:22] [ICP-LOG]     Pole check: dists=[0.04561, 0.06003, 0.09276, 0.08622] -> identity
+[17:30:22] [ICP-LOG]     Pole check: dists=[0.04569, 0.05820, 0.07404, 0.06164] -> identity
+[17:30:22] [ICP-LOG]     Pole check: dists=[0.03760, 0.05054, 0.07669, 0.06740] -> identity
+[17:30:22] [ICP-LOG]     Pole check: dists=[0.04519, 0.05727, 0.08289, 0.07297] -> identity
+[17:30:23] [ICP-LOG]     Pole check: dists=[0.04502, 0.05610, 0.06828, 0.05792] -> identity
+[17:30:23] [ICP-LOG]     Pole check: dists=[0.03681, 0.04518, 0.08399, 0.07263] -> identity
+[17:30:23] [ICP-LOG]     Pole check: dists=[0.05621, 0.04334, 0.06789, 0.07613] -> rotX180
+[17:30:23] [ICP-LOG]     Pole check: dists=[0.03894, 0.05571, 0.07856, 0.06465] -> identity
+[17:30:23] [ICP-LOG]     Pole check: dists=[0.04220, 0.05169, 0.08941, 0.07923] -> identity
+[17:30:23] [ICP-LOG]     Pole check: dists=[0.08136, 0.06927, 0.03732, 0.05014] -> rotY180
+[17:30:23] [ICP-LOG]     Pole check: dists=[0.04104, 0.05066, 0.08593, 0.07758] -> identity
+[17:30:24] [ICP-LOG]     Pole check: dists=[0.05232, 0.03887, 0.06838, 0.08041] -> rotX180
+[17:30:24] [ICP-LOG]     Pole check: dists=[0.04895, 0.06177, 0.09920, 0.09087] -> identity
+[17:30:24] [ICP-LOG]     Pole check: dists=[0.04121, 0.05226, 0.06946, 0.06014] -> identity
+[17:30:24] [ICP-LOG]     Pole check: dists=[0.07561, 0.06316, 0.03797, 0.05271] -> rotY180
+[17:30:24] [ICP-LOG]     Pole check: dists=[0.09057, 0.08303, 0.04388, 0.05636] -> rotY180
+[17:30:24] [ICP-LOG]     Pole check: dists=[0.03811, 0.05328, 0.07340, 0.06011] -> identity
+[17:30:25] [ICP-LOG]     Pole check: dists=[0.03804, 0.04874, 0.08710, 0.07431] -> identity
+[17:30:25] [ICP-LOG]     Pole check: dists=[0.05068, 0.03801, 0.06581, 0.07651] -> rotX180
+[17:30:25] [ICP-LOG]     Pole check: dists=[0.08455, 0.07157, 0.03931, 0.04902] -> rotY180
+[17:30:25] [ICP-LOG]     Pole check: dists=[0.04111, 0.05403, 0.07867, 0.07108] -> identity
+[17:30:25] [ICP-LOG]     Pole check: dists=[0.03827, 0.05308, 0.07959, 0.07076] -> identity
+[17:30:25] [ICP-LOG]     Pole check: dists=[0.06948, 0.08112, 0.05158, 0.03997] -> rotZ180
+[17:30:25] [ICP-LOG]     Pole check: dists=[0.04019, 0.05013, 0.07968, 0.07205] -> identity
+[17:30:25] [ICP-LOG]     Pole check: dists=[0.04316, 0.05931, 0.06920, 0.06172] -> identity
+[17:30:26] [ICP-LOG]     Pole check: dists=[0.08256, 0.07377, 0.03937, 0.06183] -> rotY180
+[17:30:26] [ICP-LOG]     Pole check: dists=[0.04102, 0.05221, 0.07714, 0.06295] -> identity
+[17:30:26] [ICP-LOG]     Pole check: dists=[0.03525, 0.05131, 0.07671, 0.06730] -> identity
+[17:30:26] [ICP-LOG]     Pole check: dists=[0.04632, 0.06178, 0.08800, 0.07712] -> identity
+[17:30:26] [ICP-LOG]     Pole check: dists=[0.07297, 0.06589, 0.04138, 0.05036] -> rotY180
+[17:30:26] [ICP-LOG]     Pole check: dists=[0.04166, 0.05536, 0.08332, 0.07232] -> identity
+[17:30:26] [ICP-LOG]     Pole check: dists=[0.07557, 0.05922, 0.04161, 0.05271] -> rotY180
+[17:30:27] [ICP-LOG]     Pole check: dists=[0.04033, 0.05872, 0.08614, 0.07931] -> identity
+[17:30:27] [ICP-LOG]     Pole check: dists=[0.08392, 0.07272, 0.04021, 0.05283] -> rotY180
+[17:30:27] [ICP-LOG]     Pole check: dists=[0.05429, 0.04194, 0.07247, 0.08195] -> rotX180
+[17:30:27] [ICP-LOG]     Pole check: dists=[0.05825, 0.04557, 0.07708, 0.09091] -> rotX180
+[17:30:27] [ICP-LOG]     Pole check: dists=[0.03947, 0.05439, 0.07394, 0.06390] -> identity
+[17:30:27] [ICP-LOG]     Pole check: dists=[0.04221, 0.05417, 0.07656, 0.06934] -> identity
+[17:30:27] [ICP-LOG]     Pole check: dists=[0.04472, 0.06001, 0.08205, 0.07010] -> identity
+[17:30:27] [ICP-LOG]     Pole check: dists=[0.07842, 0.06824, 0.03837, 0.04690] -> rotY180
+[17:30:28] [ICP-LOG]     Pole check: dists=[0.07651, 0.06285, 0.03774, 0.04988] -> rotY180
+[17:30:28] [ICP-LOG]     Pole check: dists=[0.03853, 0.04931, 0.07331, 0.06080] -> identity
+[17:30:28] [ICP-LOG]     Pole check: dists=[0.07816, 0.06972, 0.04369, 0.05599] -> rotY180
+[17:30:28] [ICP-LOG]     Pole check: dists=[0.08311, 0.07247, 0.03918, 0.05337] -> rotY180
+[17:30:28] [ICP-LOG]     Pole check: dists=[0.04122, 0.05036, 0.07605, 0.06066] -> identity
+[17:30:28] [ICP-LOG]     Pole check: dists=[0.04144, 0.05796, 0.07434, 0.06661] -> identity
+[17:30:29] [ICP-LOG]     Pole check: dists=[0.04161, 0.05380, 0.08610, 0.07710] -> identity
+[17:30:29] [ICP-LOG]     Pole check: dists=[0.04117, 0.05106, 0.08189, 0.06853] -> identity
+[17:30:29] [ICP-LOG]     Pole check: dists=[0.05829, 0.04394, 0.07315, 0.08567] -> rotX180
+[17:30:29] [ICP-LOG]     Pole check: dists=[0.07970, 0.07286, 0.04148, 0.05811] -> rotY180
+[17:30:29] [ICP-LOG]     Pole check: dists=[0.03677, 0.04927, 0.07893, 0.06828] -> identity
+[17:30:29] [ICP-LOG]     Pole check: dists=[0.07247, 0.06385, 0.04099, 0.05414] -> rotY180
+[17:30:29] [ICP-LOG]     Pole check: dists=[0.04216, 0.05639, 0.08502, 0.07623] -> identity
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.04325, 0.05680, 0.08205, 0.07785] -> identity
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.08328, 0.07336, 0.04004, 0.05147] -> rotY180
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.04010, 0.04996, 0.08039, 0.06929] -> identity
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.03682, 0.05051, 0.07877, 0.06837] -> identity
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.07968, 0.06986, 0.04135, 0.05221] -> rotY180
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.07367, 0.06027, 0.03821, 0.05139] -> rotY180
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.04022, 0.05239, 0.08020, 0.06971] -> identity
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.04021, 0.06106, 0.08298, 0.07213] -> identity
+[17:30:30] [ICP-LOG]     Pole check: dists=[0.06731, 0.08011, 0.05200, 0.04111] -> rotZ180
+[17:30:31] [ICP-LOG] Step 6: Saving results...
+[17:30:31] [ICP-LOG]   Saved T_matrices.npy (381 matrices)
+[17:30:31] [ICP-LOG]   Saved icp_convergence_history.json
+[17:30:31] [ICP-LOG]   Fixed reference is active; skipping a batch-derived mean_shape.ply to keep it distinct from the template.
+[17:30:35] [ICP-LOG]   Saved 381 aligned meshes to: C:/Users/IHCK/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection/reruns/icp_legacy_reference_20260921_172727/left\aligned_meshes
+[17:30:35] [ICP-LOG]   Output grid: 128^3, spacing=0.015625, box=[-1.0000,+1.0000]
+[17:30:35] [ICP-LOG]   Probing transform direction (forward vs inverse) on subject 1...
+[17:30:35] [ICP-LOG]     [forward] nonzero=29384, bounds X[-0.406,+0.375] Y[-0.172,+0.203] Z[-0.656,+0.688], mismatch=0.0223
+[17:30:36] [ICP-LOG]     [inverse] ว่างเปล่า (0 voxels) -> ทิศนี้ผิดแน่นอน
+[17:30:36] [ICP-LOG]     Mesh ref bounds     X[-0.408,+0.375] Y[-0.175,+0.205] Z[-0.666,+0.692]
+[17:30:36] [ICP-LOG]   --> เลือกใช้ transform ทิศ: FORWARD
+[17:30:36] [ICP-LOG] Saving [1/381]: left_Healthy_sub-00373_hippocampus_lh
+[17:30:36] [ICP-LOG]     OK: 29384 voxels, หดเข้า 0.65 voxel (budget 2.98), ล้นออก -0.02 voxel
+[17:30:36] [ICP-LOG] Saving [2/381]: left_Healthy_sub-04001_hippocampus_lh
+[17:30:36] [ICP-LOG]     OK: 29161 voxels, หดเข้า 0.83 voxel (budget 2.98), ล้นออก 0.14 voxel
+[17:30:36] [ICP-LOG] Saving [3/381]: left_Healthy_sub-04004_hippocampus_lh
+[17:30:37] [ICP-LOG]     OK: 29856 voxels, หดเข้า 0.85 voxel (budget 2.98), ล้นออก -0.35 voxel
+[17:30:37] [ICP-LOG] Saving [4/381]: left_Healthy_sub-04005_hippocampus_lh
+[17:30:37] [ICP-LOG]     OK: 29436 voxels, หดเข้า 0.68 voxel (budget 2.98), ล้นออก 0.03 voxel
+[17:30:37] [ICP-LOG] Saving [5/381]: left_Healthy_sub-04009_hippocampus_lh
+[17:30:37] [ICP-LOG]     OK: 34298 voxels, หดเข้า 0.62 voxel (budget 2.98), ล้นออก 0.10 voxel
+[17:30:37] [ICP-LOG] Saving [6/381]: left_Healthy_sub-04013_hippocampus_lh
+[17:30:37] [ICP-LOG]     OK: 29722 voxels, หดเข้า 0.72 voxel (budget 2.98), ล้นออก 0.35 voxel
+[17:30:37] [ICP-LOG] Saving [7/381]: left_Healthy_sub-04015_hippocampus_lh
+[17:30:38] [ICP-LOG]     OK: 28426 voxels, หดเข้า 0.76 voxel (budget 2.98), ล้นออก 0.17 voxel
+[17:30:38] [ICP-LOG] Saving [8/381]: left_Healthy_sub-04018_hippocampus_lh
+[17:30:38] [ICP-LOG]     OK: 28521 voxels, หดเข้า 0.65 voxel (budget 2.98), ล้นออก 0.11 voxel
+[17:30:38] [ICP-LOG] Saving [9/381]: left_Healthy_sub-04027_hippocampus_lh
+[17:30:38] [ICP-LOG]     OK: 32964 voxels, หดเข้า 0.47 voxel (budget 2.98), ล้นออก 0.02 voxel
+[17:30:38] [ICP-LOG] Saving [10/381]: left_Healthy_sub-04028_hippocampus_lh
+[17:30:39] [ICP-LOG]     OK: 29385 voxels, หดเข้า 0.82 voxel (budget 2.98), ล้นออก -0.34 voxel
+[17:30:39] [ICP-LOG] Saving [11/381]: left_Healthy_sub-04164_hippocampus_lh
+[17:30:39] [ICP-LOG]     OK: 32405 voxels, หดเข้า 0.69 voxel (budget 2.98), ล้นออก 0.14 voxel
+[17:30:39] [ICP-LOG] Saving [12/381]: left_Healthy_sub-04165_hippocampus_lh
+[17:30:39] [ICP-LOG]     OK: 35722 voxels, หดเข้า 0.60 voxel (budget 2.98), ล้นออก 0.22 voxel
+[17:30:39] [ICP-LOG] Saving [13/381]: left_Healthy_sub-04166_hippocampus_lh
+[17:30:40] [ICP-LOG]     OK: 29309 voxels, หดเข้า 0.66 voxel (budget 2.98), ล้นออก 0.23 voxel
+[17:30:40] [ICP-LOG] Saving [14/381]: left_Healthy_sub-04169_hippocampus_lh
+[17:30:40] [ICP-LOG]     OK: 28743 voxels, หดเข้า 0.78 voxel (budget 2.98), ล้นออก 0.09 voxel
+[17:30:40] [ICP-LOG] Saving [15/381]: left_Healthy_sub-04170_hippocampus_lh
+[17:30:40] [ICP-LOG]     OK: 31913 voxels, หดเข้า 0.88 voxel (budget 2.98), ล้นออก 0.29 voxel
+[17:30:40] [ICP-LOG] Saving [16/381]: left_Healthy_sub-04171_hippocampus_lh
+[17:30:40] [ICP-LOG]     OK: 39460 voxels, หดเข้า 0.72 voxel (budget 2.98), ล้นออก -0.24 voxel
+[17:30:40] [ICP-LOG] Saving [17/381]: left_Healthy_sub-04173_hippocampus_lh
+[17:30:41] [ICP-LOG]     OK: 29739 voxels, หดเข้า 0.83 voxel (budget 2.98), ล้นออก -0.06 voxel
+[17:30:41] [ICP-LOG] Saving [18/381]: left_Healthy_sub-04178_hippocampus_lh
+[17:30:41] [ICP-LOG]     OK: 33122 voxels, หดเข้า 0.71 voxel (budget 2.98), ล้นออก 0.13 voxel
+[17:30:41] [ICP-LOG] Saving [19/381]: left_Healthy_sub-04181_hippocampus_lh
+[17:30:41] [ICP-LOG]     OK: 30065 voxels, หดเข้า 0.78 voxel (budget 2.98), ล้นออก -0.09 voxel
+[17:30:41] [ICP-LOG] Saving [20/381]: left_Healthy_sub-04201_hippocampus_lh
+[17:30:42] [ICP-LOG]     OK: 27921 voxels, หดเข้า 0.82 voxel (budget 2.98), ล้นออก -0.04 voxel
+[17:30:42] [ICP-LOG] Saving [21/381]: left_Healthy_sub-04202_hippocampus_lh
+[17:30:42] [ICP-LOG]     OK: 28906 voxels, หดเข้า 0.87 voxel (budget 2.98), ล้นออก 0.09 voxel
+[17:30:42] [ICP-LOG] Saving [22/381]: left_Healthy_sub-04204_hippocampus_lh
+[17:30:42] [ICP-LOG]     OK: 30223 voxels, หดเข้า 0.73 voxel (budget 2.98), ล้นออก 0.34 voxel
+[17:30:42] [ICP-LOG] Saving [23/381]: left_Healthy_sub-04209_hippocampus_lh
+[17:30:42] [ICP-LOG]     OK: 26829 voxels, หดเข้า 0.83 voxel (budget 2.98), ล้นออก 0.06 voxel
+[17:30:42] [ICP-LOG] Saving [24/381]: left_Healthy_sub-04210_hippocampus_lh
+[17:30:43] [ICP-LOG]     OK: 33077 voxels, หดเข้า 0.90 voxel (budget 2.98), ล้นออก 0.16 voxel
+[17:30:43] [ICP-LOG] Saving [25/381]: left_Healthy_sub-04211_hippocampus_lh
+[17:30:43] [ICP-LOG]     OK: 30522 voxels, หดเข้า 0.83 voxel (budget 2.98), ล้นออก 0.08 voxel
+[17:30:43] [ICP-LOG] Saving [26/381]: left_Healthy_sub-04215_hippocampus_lh
+[17:30:43] [ICP-LOG]     OK: 32788 voxels, หดเข้า 0.68 voxel (budget 2.98), ล้นออก 0.24 voxel
+[17:30:43] [ICP-LOG] Saving [27/381]: left_Healthy_sub-04216_hippocampus_lh
+[17:30:44] [ICP-LOG]     OK: 36626 voxels, หดเข้า 0.89 voxel (budget 2.98), ล้นออก 0.17 voxel
+[17:30:44] [ICP-LOG] Saving [28/381]: left_Healthy_sub-04217_hippocampus_lh
+[17:30:44] [ICP-LOG]     OK: 33040 voxels, หดเข้า 0.77 voxel (budget 2.98), ล้นออก -0.16 voxel
+[17:30:44] [ICP-LOG] Saving [29/381]: left_Healthy_sub-04221_hippocampus_lh
+[17:30:44] [ICP-LOG]     OK: 28739 voxels, หดเข้า 0.62 voxel (budget 2.98), ล้นออก -0.14 voxel
+[17:30:44] [ICP-LOG] Saving [30/381]: left_Healthy_sub-04245_hippocampus_lh
+[17:30:44] [ICP-LOG]     OK: 26828 voxels, หดเข้า 0.71 voxel (budget 2.98), ล้นออก 0.21 voxel
+[17:30:45] [ICP-LOG] Saving [31/381]: left_Healthy_sub-101_hippocampus_lh
+[17:30:45] [ICP-LOG]     OK: 34231 voxels, หดเข้า 0.33 voxel (budget 2.92), ล้นออก 0.11 voxel
+[17:30:45] [ICP-LOG] Saving [32/381]: left_Healthy_sub-105_hippocampus_lh
+[17:30:45] [ICP-LOG]     OK: 32322 voxels, หดเข้า 0.49 voxel (budget 2.92), ล้นออก 0.17 voxel
+[17:30:45] [ICP-LOG] Saving [33/381]: left_Healthy_sub-114_hippocampus_lh
+[17:30:45] [ICP-LOG]     OK: 36561 voxels, หดเข้า 0.45 voxel (budget 2.92), ล้นออก 0.42 voxel
+[17:30:45] [ICP-LOG] Saving [34/381]: left_Healthy_sub-115_hippocampus_lh
+[17:30:46] [ICP-LOG]     OK: 37009 voxels, หดเข้า 0.59 voxel (budget 2.92), ล้นออก -0.30 voxel
+[17:30:46] [ICP-LOG] Saving [35/381]: left_Healthy_sub-11_hippocampus_lh
+[17:30:46] [ICP-LOG]     OK: 26721 voxels, หดเข้า 0.44 voxel (budget 2.98), ล้นออก 0.09 voxel
+[17:30:46] [ICP-LOG] Saving [36/381]: left_Healthy_sub-126_hippocampus_lh
+[17:30:46] [ICP-LOG]     OK: 30905 voxels, หดเข้า 0.41 voxel (budget 2.92), ล้นออก 0.20 voxel
+[17:30:46] [ICP-LOG] Saving [37/381]: left_Healthy_sub-135_hippocampus_lh
+[17:30:47] [ICP-LOG]     OK: 26565 voxels, หดเข้า 0.78 voxel (budget 2.98), ล้นออก 0.18 voxel
+[17:30:47] [ICP-LOG] Saving [38/381]: left_Healthy_sub-144_hippocampus_lh
+[17:30:47] [ICP-LOG]     OK: 27687 voxels, หดเข้า 0.69 voxel (budget 2.98), ล้นออก 0.44 voxel
+[17:30:47] [ICP-LOG] Saving [39/381]: left_Healthy_sub-147_hippocampus_lh
+[17:30:47] [ICP-LOG]     OK: 34730 voxels, หดเข้า 0.52 voxel (budget 2.92), ล้นออก 0.10 voxel
+[17:30:47] [ICP-LOG] Saving [40/381]: left_Healthy_sub-152_hippocampus_lh
+[17:30:47] [ICP-LOG]     OK: 32146 voxels, หดเข้า 0.85 voxel (budget 2.92), ล้นออก 0.35 voxel
+[17:30:47] [ICP-LOG] Saving [41/381]: left_Healthy_sub-153_hippocampus_lh
+[17:30:48] [ICP-LOG]     OK: 31356 voxels, หดเข้า 0.88 voxel (budget 2.92), ล้นออก -0.08 voxel
+[17:30:48] [ICP-LOG] Saving [42/381]: left_Healthy_sub-155_hippocampus_lh
+[17:30:48] [ICP-LOG]     OK: 35857 voxels, หดเข้า 0.54 voxel (budget 2.92), ล้นออก 0.46 voxel
+[17:30:48] [ICP-LOG] Saving [43/381]: left_Healthy_sub-161_hippocampus_lh
+[17:30:48] [ICP-LOG]     OK: 34485 voxels, หดเข้า 0.45 voxel (budget 2.92), ล้นออก 0.28 voxel
+[17:30:48] [ICP-LOG] Saving [44/381]: left_Healthy_sub-16_hippocampus_lh
+[17:30:48] [ICP-LOG]     OK: 28649 voxels, หดเข้า 0.57 voxel (budget 2.98), ล้นออก 0.07 voxel
+[17:30:48] [ICP-LOG] Saving [45/381]: left_Healthy_sub-175_hippocampus_lh
+[17:30:49] [ICP-LOG]     OK: 40424 voxels, หดเข้า 0.85 voxel (budget 2.92), ล้นออก 0.05 voxel
+[17:30:49] [ICP-LOG] Saving [46/381]: left_Healthy_sub-193_hippocampus_lh
+[17:30:49] [ICP-LOG]     OK: 29266 voxels, หดเข้า 0.81 voxel (budget 2.92), ล้นออก 0.12 voxel
+[17:30:49] [ICP-LOG] Saving [47/381]: left_Healthy_sub-197_hippocampus_lh
+[17:30:49] [ICP-LOG]     OK: 29819 voxels, หดเข้า 0.45 voxel (budget 2.92), ล้นออก 0.07 voxel
+[17:30:49] [ICP-LOG] Saving [48/381]: left_Healthy_sub-201_hippocampus_lh
+[17:30:50] [ICP-LOG]     OK: 36411 voxels, หดเข้า 0.79 voxel (budget 2.92), ล้นออก 0.01 voxel
+[17:30:50] [ICP-LOG] Saving [49/381]: left_Healthy_sub-203_hippocampus_lh
+[17:30:50] [ICP-LOG]     OK: 30290 voxels, หดเข้า 0.93 voxel (budget 2.92), ล้นออก -0.11 voxel
+[17:30:50] [ICP-LOG] Saving [50/381]: left_Healthy_sub-207_hippocampus_lh
+[17:30:50] [ICP-LOG]     OK: 32277 voxels, หดเข้า 0.75 voxel (budget 2.92), ล้นออก -0.44 voxel
+[17:30:50] [ICP-LOG] Saving [51/381]: left_Healthy_sub-219_hippocampus_lh
+[17:30:50] [ICP-LOG]     OK: 37629 voxels, หดเข้า 0.80 voxel (budget 2.92), ล้นออก -0.47 voxel
+[17:30:50] [ICP-LOG] Saving [52/381]: left_Healthy_sub-222_hippocampus_lh
+[17:30:51] [ICP-LOG]     OK: 33593 voxels, หดเข้า 0.76 voxel (budget 2.92), ล้นออก 0.33 voxel
+[17:30:51] [ICP-LOG] Saving [53/381]: left_Healthy_sub-233_hippocampus_lh
+[17:30:51] [ICP-LOG]     OK: 34257 voxels, หดเข้า 0.44 voxel (budget 2.92), ล้นออก 0.39 voxel
+[17:30:51] [ICP-LOG] Saving [54/381]: left_Healthy_sub-237_hippocampus_lh
+[17:30:51] [ICP-LOG]     OK: 33838 voxels, หดเข้า 0.80 voxel (budget 2.92), ล้นออก 0.46 voxel
+[17:30:51] [ICP-LOG] Saving [55/381]: left_Healthy_sub-238_hippocampus_lh
+[17:30:52] [ICP-LOG]     OK: 33901 voxels, หดเข้า 0.78 voxel (budget 2.92), ล้นออก 0.35 voxel
+[17:30:52] [ICP-LOG] Saving [56/381]: left_Healthy_sub-246_hippocampus_lh
+[17:30:52] [ICP-LOG]     OK: 35582 voxels, หดเข้า 0.83 voxel (budget 2.92), ล้นออก 0.11 voxel
+[17:30:52] [ICP-LOG] Saving [57/381]: left_Healthy_sub-247_hippocampus_lh
+[17:30:52] [ICP-LOG]     OK: 29645 voxels, หดเข้า 0.52 voxel (budget 2.92), ล้นออก 0.01 voxel
+[17:30:52] [ICP-LOG] Saving [58/381]: left_Healthy_sub-250_hippocampus_lh
+[17:30:52] [ICP-LOG]     OK: 33828 voxels, หดเข้า 0.71 voxel (budget 2.92), ล้นออก 0.14 voxel
+[17:30:52] [ICP-LOG] Saving [59/381]: left_Healthy_sub-255_hippocampus_lh
+[17:30:53] [ICP-LOG]     OK: 31600 voxels, หดเข้า 0.67 voxel (budget 2.92), ล้นออก 0.31 voxel
+[17:30:53] [ICP-LOG] Saving [60/381]: left_Healthy_sub-269_hippocampus_lh
+[17:30:53] [ICP-LOG]     OK: 33781 voxels, หดเข้า 0.64 voxel (budget 2.92), ล้นออก 0.24 voxel
+[17:30:53] [ICP-LOG] Saving [61/381]: left_Healthy_sub-271_hippocampus_lh
+[17:30:53] [ICP-LOG]     OK: 33586 voxels, หดเข้า 0.72 voxel (budget 2.92), ล้นออก -0.03 voxel
+[17:30:53] [ICP-LOG] Saving [62/381]: left_Healthy_sub-28620_hippocampus_lh
+[17:30:54] [ICP-LOG]     OK: 31283 voxels, หดเข้า 0.95 voxel (budget 2.98), ล้นออก 0.08 voxel
+[17:30:54] [ICP-LOG] Saving [63/381]: left_Healthy_sub-292_hippocampus_lh
+[17:30:54] [ICP-LOG]     OK: 40867 voxels, หดเข้า 0.70 voxel (budget 2.92), ล้นออก 0.15 voxel
+[17:30:54] [ICP-LOG] Saving [64/381]: left_Healthy_sub-29332_hippocampus_lh
+[17:30:54] [ICP-LOG]     OK: 35274 voxels, หดเข้า 0.68 voxel (budget 2.98), ล้นออก 0.24 voxel
+[17:30:54] [ICP-LOG] Saving [65/381]: left_Healthy_sub-296_hippocampus_lh
+[17:30:54] [ICP-LOG]     OK: 29986 voxels, หดเข้า 0.63 voxel (budget 2.92), ล้นออก 0.14 voxel
+[17:30:54] [ICP-LOG] Saving [66/381]: left_Healthy_sub-2_hippocampus_lh
+[17:30:55] [ICP-LOG]     OK: 27475 voxels, หดเข้า 0.79 voxel (budget 2.92), ล้นออก 0.60 voxel
+[17:30:55] [ICP-LOG] Saving [67/381]: left_Healthy_sub-300_hippocampus_lh
+[17:30:55] [ICP-LOG]     OK: 38248 voxels, หดเข้า 0.68 voxel (budget 2.92), ล้นออก -0.08 voxel
+[17:30:55] [ICP-LOG] Saving [68/381]: left_Healthy_sub-301_hippocampus_lh
+[17:30:55] [ICP-LOG]     OK: 39487 voxels, หดเข้า 0.75 voxel (budget 2.92), ล้นออก -0.19 voxel
+[17:30:55] [ICP-LOG] Saving [69/381]: left_Healthy_sub-305_hippocampus_lh
+[17:30:56] [ICP-LOG]     OK: 34999 voxels, หดเข้า 0.66 voxel (budget 2.92), ล้นออก 0.20 voxel
+[17:30:56] [ICP-LOG] Saving [70/381]: left_Healthy_sub-31730_hippocampus_lh
+[17:30:56] [ICP-LOG]     OK: 30799 voxels, หดเข้า 0.75 voxel (budget 2.98), ล้นออก 0.16 voxel
+[17:30:56] [ICP-LOG] Saving [71/381]: left_Healthy_sub-317_hippocampus_lh
+[17:30:56] [ICP-LOG]     OK: 33362 voxels, หดเข้า 0.82 voxel (budget 2.92), ล้นออก 0.18 voxel
+[17:30:56] [ICP-LOG] Saving [72/381]: left_Healthy_sub-31_hippocampus_lh
+[17:30:56] [ICP-LOG]     OK: 31389 voxels, หดเข้า 0.82 voxel (budget 2.92), ล้นออก 0.13 voxel
+[17:30:56] [ICP-LOG] Saving [73/381]: left_Healthy_sub-32231_hippocampus_lh
+[17:30:57] [ICP-LOG]     OK: 35061 voxels, หดเข้า 0.88 voxel (budget 2.98), ล้นออก -0.01 voxel
+[17:30:57] [ICP-LOG] Saving [74/381]: left_Healthy_sub-32310_hippocampus_lh
+[17:30:57] [ICP-LOG]     OK: 29489 voxels, หดเข้า 0.81 voxel (budget 2.98), ล้นออก 0.05 voxel
+[17:30:57] [ICP-LOG] Saving [75/381]: left_Healthy_sub-32436_hippocampus_lh
+[17:30:57] [ICP-LOG]     OK: 29188 voxels, หดเข้า 0.79 voxel (budget 2.98), ล้นออก -0.66 voxel
+[17:30:57] [ICP-LOG] Saving [76/381]: left_Healthy_sub-324_hippocampus_lh
+[17:30:57] [ICP-LOG]     OK: 41232 voxels, หดเข้า 0.48 voxel (budget 2.92), ล้นออก 0.32 voxel
+[17:30:58] [ICP-LOG] Saving [77/381]: left_Healthy_sub-325_hippocampus_lh
+[17:30:58] [ICP-LOG]     OK: 27556 voxels, หดเข้า 0.78 voxel (budget 2.98), ล้นออก 0.01 voxel
+[17:30:58] [ICP-LOG] Saving [78/381]: left_Healthy_sub-327_hippocampus_lh
+[17:30:58] [ICP-LOG]     OK: 31015 voxels, หดเข้า 0.52 voxel (budget 2.92), ล้นออก 0.07 voxel
+[17:30:58] [ICP-LOG] Saving [79/381]: left_Healthy_sub-330_hippocampus_lh
+[17:30:58] [ICP-LOG]     OK: 31771 voxels, หดเข้า 0.86 voxel (budget 2.92), ล้นออก 0.42 voxel
+[17:30:58] [ICP-LOG] Saving [80/381]: left_Healthy_sub-332_hippocampus_lh
+[17:30:59] [ICP-LOG]     OK: 27848 voxels, หดเข้า 0.52 voxel (budget 2.92), ล้นออก 0.25 voxel
+[17:30:59] [ICP-LOG] Saving [81/381]: left_Healthy_sub-334_hippocampus_lh
+[17:30:59] [ICP-LOG]     OK: 34467 voxels, หดเข้า 0.81 voxel (budget 2.92), ล้นออก 0.15 voxel
+[17:30:59] [ICP-LOG] Saving [82/381]: left_Healthy_sub-340_hippocampus_lh
+[17:30:59] [ICP-LOG]     OK: 30173 voxels, หดเข้า 0.61 voxel (budget 2.92), ล้นออก 0.15 voxel
+[17:30:59] [ICP-LOG] Saving [83/381]: left_Healthy_sub-343_hippocampus_lh
+[17:30:59] [ICP-LOG]     OK: 36318 voxels, หดเข้า 0.67 voxel (budget 2.92), ล้นออก -0.10 voxel
+[17:30:59] [ICP-LOG] Saving [84/381]: left_Healthy_sub-34437_hippocampus_lh
+[17:31:00] [ICP-LOG]     OK: 38643 voxels, หดเข้า 0.79 voxel (budget 2.98), ล้นออก 0.19 voxel
+[17:31:00] [ICP-LOG] Saving [85/381]: left_Healthy_sub-344_hippocampus_lh
+[17:31:00] [ICP-LOG]     OK: 35268 voxels, หดเข้า 0.53 voxel (budget 2.92), ล้นออก 0.13 voxel
+[17:31:00] [ICP-LOG] Saving [86/381]: left_Healthy_sub-346_hippocampus_lh
+[17:31:00] [ICP-LOG]     OK: 35607 voxels, หดเข้า 0.71 voxel (budget 2.98), ล้นออก 0.12 voxel
+[17:31:00] [ICP-LOG] Saving [87/381]: left_Healthy_sub-35232_hippocampus_lh
+[17:31:01] [ICP-LOG]     OK: 27601 voxels, หดเข้า 0.82 voxel (budget 2.98), ล้นออก 0.04 voxel
+[17:31:01] [ICP-LOG] Saving [88/381]: left_Healthy_sub-352_hippocampus_lh
+[17:31:01] [ICP-LOG]     OK: 28703 voxels, หดเข้า 0.49 voxel (budget 2.92), ล้นออก 0.05 voxel
+[17:31:01] [ICP-LOG] Saving [89/381]: left_Healthy_sub-35538_hippocampus_lh
+[17:31:01] [ICP-LOG]     OK: 31247 voxels, หดเข้า 0.54 voxel (budget 2.98), ล้นออก 0.28 voxel
+[17:31:01] [ICP-LOG] Saving [90/381]: left_Healthy_sub-35557_hippocampus_lh
+[17:31:01] [ICP-LOG]     OK: 30439 voxels, หดเข้า 0.70 voxel (budget 2.98), ล้นออก -0.17 voxel
+[17:31:01] [ICP-LOG] Saving [91/381]: left_Healthy_sub-356_hippocampus_lh
+[17:31:02] [ICP-LOG]     OK: 34805 voxels, หดเข้า 0.26 voxel (budget 2.92), ล้นออก 0.39 voxel
+[17:31:02] [ICP-LOG] Saving [92/381]: left_Healthy_sub-362_hippocampus_lh
+[17:31:02] [ICP-LOG]     OK: 40952 voxels, หดเข้า 0.69 voxel (budget 2.92), ล้นออก 0.18 voxel
+[17:31:02] [ICP-LOG] Saving [93/381]: left_Healthy_sub-36387_hippocampus_lh
+[17:31:02] [ICP-LOG]     OK: 26656 voxels, หดเข้า 0.63 voxel (budget 2.98), ล้นออก 0.38 voxel
+[17:31:02] [ICP-LOG] Saving [94/381]: left_Healthy_sub-365_hippocampus_lh
+[17:31:02] [ICP-LOG]     OK: 30488 voxels, หดเข้า 0.65 voxel (budget 2.92), ล้นออก 0.27 voxel
+[17:31:02] [ICP-LOG] Saving [95/381]: left_Healthy_sub-36664_hippocampus_lh
+[17:31:03] [ICP-LOG]     OK: 30982 voxels, หดเข้า 0.37 voxel (budget 2.98), ล้นออก 0.25 voxel
+[17:31:03] [ICP-LOG] Saving [96/381]: left_Healthy_sub-36966_hippocampus_lh
+[17:31:03] [ICP-LOG]     OK: 31599 voxels, หดเข้า 0.75 voxel (budget 2.98), ล้นออก -0.04 voxel
+[17:31:03] [ICP-LOG] Saving [97/381]: left_Healthy_sub-37117_hippocampus_lh
+[17:31:03] [ICP-LOG]     OK: 32979 voxels, หดเข้า 0.72 voxel (budget 2.98), ล้นออก -0.15 voxel
+[17:31:03] [ICP-LOG] Saving [98/381]: left_Healthy_sub-37130_hippocampus_lh
+[17:31:03] [ICP-LOG]     OK: 33367 voxels, หดเข้า 0.76 voxel (budget 2.98), ล้นออก 0.08 voxel
+[17:31:04] [ICP-LOG] Saving [99/381]: left_Healthy_sub-37149_hippocampus_lh
+[17:31:04] [ICP-LOG]     OK: 31962 voxels, หดเข้า 0.58 voxel (budget 2.98), ล้นออก 0.13 voxel
+[17:31:04] [ICP-LOG] Saving [100/381]: left_Healthy_sub-37289_hippocampus_lh
+[17:31:04] [ICP-LOG]     OK: 32444 voxels, หดเข้า 0.85 voxel (budget 2.98), ล้นออก -0.09 voxel
+[17:31:04] [ICP-LOG] Saving [101/381]: left_Healthy_sub-374_hippocampus_lh
+[17:31:04] [ICP-LOG]     OK: 31763 voxels, หดเข้า 0.45 voxel (budget 2.98), ล้นออก 0.15 voxel
+[17:31:04] [ICP-LOG] Saving [102/381]: left_Healthy_sub-376_hippocampus_lh
+[17:31:05] [ICP-LOG]     OK: 30141 voxels, หดเข้า 0.65 voxel (budget 2.92), ล้นออก 0.24 voxel
+[17:31:05] [ICP-LOG] Saving [103/381]: left_Healthy_sub-377_hippocampus_lh
+[17:31:05] [ICP-LOG]     OK: 30368 voxels, หดเข้า 0.36 voxel (budget 2.92), ล้นออก 0.22 voxel
+[17:31:05] [ICP-LOG] Saving [104/381]: left_Healthy_sub-380_hippocampus_lh
+[17:31:05] [ICP-LOG]     OK: 37901 voxels, หดเข้า 0.83 voxel (budget 2.92), ล้นออก 0.11 voxel
+[17:31:05] [ICP-LOG] Saving [105/381]: left_Healthy_sub-382_hippocampus_lh
+[17:31:05] [ICP-LOG]     OK: 33892 voxels, หดเข้า 0.74 voxel (budget 2.92), ล้นออก 0.22 voxel
+[17:31:05] [ICP-LOG] Saving [106/381]: left_Healthy_sub-385_hippocampus_lh
+[17:31:06] [ICP-LOG]     OK: 30467 voxels, หดเข้า 0.63 voxel (budget 2.92), ล้นออก 0.27 voxel
+[17:31:06] [ICP-LOG] Saving [107/381]: left_Healthy_sub-38_hippocampus_lh
+[17:31:06] [ICP-LOG]     OK: 33272 voxels, หดเข้า 0.67 voxel (budget 2.98), ล้นออก 0.16 voxel
+[17:31:06] [ICP-LOG] Saving [108/381]: left_Healthy_sub-394_hippocampus_lh
+[17:31:06] [ICP-LOG]     OK: 31032 voxels, หดเข้า 0.52 voxel (budget 2.92), ล้นออก -0.01 voxel
+[17:31:06] [ICP-LOG] Saving [109/381]: left_Healthy_sub-399_hippocampus_lh
+[17:31:07] [ICP-LOG]     OK: 30277 voxels, หดเข้า 0.81 voxel (budget 2.98), ล้นออก 0.40 voxel
+[17:31:07] [ICP-LOG] Saving [110/381]: left_Healthy_sub-4001_hippocampus_lh
+[17:31:07] [ICP-LOG]     OK: 33325 voxels, หดเข้า 0.64 voxel (budget 2.98), ล้นออก 0.42 voxel
+[17:31:07] [ICP-LOG] Saving [111/381]: left_Healthy_sub-4002_hippocampus_lh
+[17:31:07] [ICP-LOG]     OK: 38770 voxels, หดเข้า 0.71 voxel (budget 2.92), ล้นออก 0.14 voxel
+[17:31:07] [ICP-LOG] Saving [112/381]: left_Healthy_sub-4003_hippocampus_lh
+[17:31:07] [ICP-LOG]     OK: 29272 voxels, หดเข้า 0.81 voxel (budget 2.98), ล้นออก 0.47 voxel
+[17:31:07] [ICP-LOG] Saving [113/381]: left_Healthy_sub-4004_hippocampus_lh
+[17:31:08] [ICP-LOG]     OK: 31628 voxels, หดเข้า 0.81 voxel (budget 2.92), ล้นออก 0.30 voxel
+[17:31:08] [ICP-LOG] Saving [114/381]: left_Healthy_sub-4005_hippocampus_lh
+[17:31:08] [ICP-LOG]     OK: 34953 voxels, หดเข้า 0.57 voxel (budget 2.98), ล้นออก -0.14 voxel
+[17:31:08] [ICP-LOG] Saving [115/381]: left_Healthy_sub-4006_hippocampus_lh
+[17:31:08] [ICP-LOG]     OK: 29844 voxels, หดเข้า 0.56 voxel (budget 2.98), ล้นออก 0.16 voxel
+[17:31:08] [ICP-LOG] Saving [116/381]: left_Healthy_sub-4007_hippocampus_lh
+[17:31:08] [ICP-LOG]     OK: 27313 voxels, หดเข้า 0.47 voxel (budget 2.98), ล้นออก 0.09 voxel
+[17:31:08] [ICP-LOG] Saving [117/381]: left_Healthy_sub-4008_hippocampus_lh
+[17:31:09] [ICP-LOG]     OK: 32850 voxels, หดเข้า 0.58 voxel (budget 2.92), ล้นออก 0.30 voxel
+[17:31:09] [ICP-LOG] Saving [118/381]: left_Healthy_sub-4009_hippocampus_lh
+[17:31:09] [ICP-LOG]     OK: 35007 voxels, หดเข้า 0.80 voxel (budget 2.98), ล้นออก -0.01 voxel
+[17:31:09] [ICP-LOG] Saving [119/381]: left_Healthy_sub-400_hippocampus_lh
+[17:31:09] [ICP-LOG]     OK: 31435 voxels, หดเข้า 0.76 voxel (budget 2.92), ล้นออก 0.23 voxel
+[17:31:09] [ICP-LOG] Saving [120/381]: left_Healthy_sub-4010_hippocampus_lh
+[17:31:10] [ICP-LOG]     OK: 33628 voxels, หดเข้า 0.56 voxel (budget 2.92), ล้นออก 0.01 voxel
+[17:31:10] [ICP-LOG] Saving [121/381]: left_Healthy_sub-4011_hippocampus_lh
+[17:31:10] [ICP-LOG]     OK: 33249 voxels, หดเข้า 0.44 voxel (budget 2.98), ล้นออก 0.35 voxel
+[17:31:10] [ICP-LOG] Saving [122/381]: left_Healthy_sub-4012_hippocampus_lh
+[17:31:10] [ICP-LOG]     OK: 30268 voxels, หดเข้า 0.82 voxel (budget 2.98), ล้นออก -0.15 voxel
+[17:31:10] [ICP-LOG] Saving [123/381]: left_Healthy_sub-4013_hippocampus_lh
+[17:31:10] [ICP-LOG]     OK: 31631 voxels, หดเข้า 0.81 voxel (budget 2.98), ล้นออก 0.11 voxel
+[17:31:10] [ICP-LOG] Saving [124/381]: left_Healthy_sub-4014_hippocampus_lh
+[17:31:11] [ICP-LOG]     OK: 35988 voxels, หดเข้า 0.86 voxel (budget 2.92), ล้นออก -0.02 voxel
+[17:31:11] [ICP-LOG] Saving [125/381]: left_Healthy_sub-4015_hippocampus_lh
+[17:31:11] [ICP-LOG]     OK: 29887 voxels, หดเข้า 0.42 voxel (budget 2.98), ล้นออก 0.43 voxel
+[17:31:11] [ICP-LOG] Saving [126/381]: left_Healthy_sub-4016_hippocampus_lh
+[17:31:11] [ICP-LOG]     OK: 36419 voxels, หดเข้า 0.43 voxel (budget 2.92), ล้นออก 0.09 voxel
+[17:31:11] [ICP-LOG] Saving [127/381]: left_Healthy_sub-4017_hippocampus_lh
+[17:31:11] [ICP-LOG]     OK: 32783 voxels, หดเข้า 0.77 voxel (budget 2.98), ล้นออก 0.33 voxel
+[17:31:12] [ICP-LOG] Saving [128/381]: left_Healthy_sub-4018_hippocampus_lh
+[17:31:12] [ICP-LOG]     OK: 36234 voxels, หดเข้า 0.74 voxel (budget 2.98), ล้นออก 0.12 voxel
+[17:31:12] [ICP-LOG] Saving [129/381]: left_Healthy_sub-4019_hippocampus_lh
+[17:31:12] [ICP-LOG]     OK: 29375 voxels, หดเข้า 0.58 voxel (budget 2.98), ล้นออก 0.17 voxel
+[17:31:12] [ICP-LOG] Saving [130/381]: left_Healthy_sub-4020_hippocampus_lh
+[17:31:12] [ICP-LOG]     OK: 31725 voxels, หดเข้า 0.75 voxel (budget 2.98), ล้นออก 0.37 voxel
+[17:31:12] [ICP-LOG] Saving [131/381]: left_Healthy_sub-4021_hippocampus_lh
+[17:31:13] [ICP-LOG]     OK: 37628 voxels, หดเข้า 0.60 voxel (budget 2.92), ล้นออก 0.09 voxel
+[17:31:13] [ICP-LOG] Saving [132/381]: left_Healthy_sub-4022_hippocampus_lh
+[17:31:13] [ICP-LOG]     OK: 37451 voxels, หดเข้า 0.78 voxel (budget 2.92), ล้นออก 0.43 voxel
+[17:31:13] [ICP-LOG] Saving [133/381]: left_Healthy_sub-4023_hippocampus_lh
+[17:31:13] [ICP-LOG]     OK: 28592 voxels, หดเข้า 0.78 voxel (budget 2.98), ล้นออก 0.23 voxel
+[17:31:13] [ICP-LOG] Saving [134/381]: left_Healthy_sub-4024_hippocampus_lh
+[17:31:13] [ICP-LOG]     OK: 31234 voxels, หดเข้า 0.43 voxel (budget 2.98), ล้นออก 0.26 voxel
+[17:31:13] [ICP-LOG] Saving [135/381]: left_Healthy_sub-4025_hippocampus_lh
+[17:31:14] [ICP-LOG]     OK: 28844 voxels, หดเข้า 0.41 voxel (budget 2.98), ล้นออก 0.55 voxel
+[17:31:14] [ICP-LOG] Saving [136/381]: left_Healthy_sub-4026_hippocampus_lh
+[17:31:14] [ICP-LOG]     OK: 32512 voxels, หดเข้า 0.37 voxel (budget 2.98), ล้นออก 0.38 voxel
+[17:31:14] [ICP-LOG] Saving [137/381]: left_Healthy_sub-4027_hippocampus_lh
+[17:31:14] [ICP-LOG]     OK: 32312 voxels, หดเข้า 0.45 voxel (budget 2.98), ล้นออก 0.33 voxel
+[17:31:14] [ICP-LOG] Saving [138/381]: left_Healthy_sub-4028_hippocampus_lh
+[17:31:14] [ICP-LOG]     OK: 37276 voxels, หดเข้า 0.43 voxel (budget 2.98), ล้นออก -0.00 voxel
+[17:31:14] [ICP-LOG] Saving [139/381]: left_Healthy_sub-4029_hippocampus_lh
+[17:31:15] [ICP-LOG]     OK: 33183 voxels, หดเข้า 0.87 voxel (budget 2.98), ล้นออก -0.29 voxel
+[17:31:15] [ICP-LOG] Saving [140/381]: left_Healthy_sub-402_hippocampus_lh
+[17:31:15] [ICP-LOG]     OK: 35899 voxels, หดเข้า 0.27 voxel (budget 2.92), ล้นออก 0.29 voxel
+[17:31:15] [ICP-LOG] Saving [141/381]: left_Healthy_sub-4030_hippocampus_lh
+[17:31:15] [ICP-LOG]     OK: 31508 voxels, หดเข้า 0.68 voxel (budget 2.98), ล้นออก 0.26 voxel
+[17:31:15] [ICP-LOG] Saving [142/381]: left_Healthy_sub-4031_hippocampus_lh
+[17:31:16] [ICP-LOG]     OK: 34404 voxels, หดเข้า 0.61 voxel (budget 2.92), ล้นออก 0.34 voxel
+[17:31:16] [ICP-LOG] Saving [143/381]: left_Healthy_sub-4032_hippocampus_lh
+[17:31:16] [ICP-LOG]     OK: 32384 voxels, หดเข้า 0.66 voxel (budget 2.92), ล้นออก -0.25 voxel
+[17:31:16] [ICP-LOG] Saving [144/381]: left_Healthy_sub-4033_hippocampus_lh
+[17:31:16] [ICP-LOG]     OK: 34547 voxels, หดเข้า 0.56 voxel (budget 2.92), ล้นออก -0.04 voxel
+[17:31:16] [ICP-LOG] Saving [145/381]: left_Healthy_sub-4034_hippocampus_lh
+[17:31:16] [ICP-LOG]     OK: 28741 voxels, หดเข้า 0.68 voxel (budget 2.98), ล้นออก 0.06 voxel
+[17:31:16] [ICP-LOG] Saving [146/381]: left_Healthy_sub-4035_hippocampus_lh
+[17:31:17] [ICP-LOG]     OK: 34433 voxels, หดเข้า 0.62 voxel (budget 2.98), ล้นออก 0.46 voxel
+[17:31:17] [ICP-LOG] Saving [147/381]: left_Healthy_sub-4036_hippocampus_lh
+[17:31:17] [ICP-LOG]     OK: 36439 voxels, หดเข้า 0.73 voxel (budget 2.92), ล้นออก 0.26 voxel
+[17:31:17] [ICP-LOG] Saving [148/381]: left_Healthy_sub-4037_hippocampus_lh
+[17:31:17] [ICP-LOG]     OK: 34982 voxels, หดเข้า 0.58 voxel (budget 2.98), ล้นออก 0.31 voxel
+[17:31:17] [ICP-LOG] Saving [149/381]: left_Healthy_sub-4038_hippocampus_lh
+[17:31:17] [ICP-LOG]     OK: 29664 voxels, หดเข้า 0.76 voxel (budget 2.98), ล้นออก 0.10 voxel
+[17:31:17] [ICP-LOG] Saving [150/381]: left_Healthy_sub-4039_hippocampus_lh
+[17:31:18] [ICP-LOG]     OK: 31603 voxels, หดเข้า 0.50 voxel (budget 2.92), ล้นออก 0.36 voxel
+[17:31:18] [ICP-LOG] Saving [151/381]: left_Healthy_sub-4040_hippocampus_lh
+[17:31:18] [ICP-LOG]     OK: 33897 voxels, หดเข้า 0.57 voxel (budget 2.98), ล้นออก 0.17 voxel
+[17:31:18] [ICP-LOG] Saving [152/381]: left_Healthy_sub-4041_hippocampus_lh
+[17:31:18] [ICP-LOG]     OK: 33425 voxels, หดเข้า 0.70 voxel (budget 2.98), ล้นออก 0.20 voxel
+[17:31:18] [ICP-LOG] Saving [153/381]: left_Healthy_sub-4042_hippocampus_lh
+[17:31:19] [ICP-LOG]     OK: 27790 voxels, หดเข้า 0.65 voxel (budget 2.98), ล้นออก 0.24 voxel
+[17:31:19] [ICP-LOG] Saving [154/381]: left_Healthy_sub-4043_hippocampus_lh
+[17:31:19] [ICP-LOG]     OK: 30023 voxels, หดเข้า 0.55 voxel (budget 2.98), ล้นออก 0.41 voxel
+[17:31:19] [ICP-LOG] Saving [155/381]: left_Healthy_sub-4044_hippocampus_lh
+[17:31:19] [ICP-LOG]     OK: 37787 voxels, หดเข้า 0.58 voxel (budget 2.92), ล้นออก 0.37 voxel
+[17:31:19] [ICP-LOG] Saving [156/381]: left_Healthy_sub-4045_hippocampus_lh
+[17:31:19] [ICP-LOG]     OK: 34506 voxels, หดเข้า 0.34 voxel (budget 2.98), ล้นออก 0.08 voxel
+[17:31:19] [ICP-LOG] Saving [157/381]: left_Healthy_sub-4046_hippocampus_lh
+[17:31:20] [ICP-LOG]     OK: 27358 voxels, หดเข้า 0.37 voxel (budget 2.98), ล้นออก 0.44 voxel
+[17:31:20] [ICP-LOG] Saving [158/381]: left_Healthy_sub-4047_hippocampus_lh
+[17:31:20] [ICP-LOG]     OK: 32206 voxels, หดเข้า 0.55 voxel (budget 2.98), ล้นออก 0.15 voxel
+[17:31:20] [ICP-LOG] Saving [159/381]: left_Healthy_sub-4048_hippocampus_lh
+[17:31:20] [ICP-LOG]     OK: 36355 voxels, หดเข้า 0.54 voxel (budget 2.98), ล้นออก 0.32 voxel
+[17:31:20] [ICP-LOG] Saving [160/381]: left_Healthy_sub-4049_hippocampus_lh
+[17:31:20] [ICP-LOG]     OK: 33216 voxels, หดเข้า 0.66 voxel (budget 2.98), ล้นออก -0.01 voxel
+[17:31:20] [ICP-LOG] Saving [161/381]: left_Healthy_sub-404_hippocampus_lh
+[17:31:21] [ICP-LOG]     OK: 40469 voxels, หดเข้า 0.82 voxel (budget 2.92), ล้นออก -0.50 voxel
+[17:31:21] [ICP-LOG] Saving [162/381]: left_Healthy_sub-4050_hippocampus_lh
+[17:31:21] [ICP-LOG]     OK: 32552 voxels, หดเข้า 0.71 voxel (budget 2.98), ล้นออก 0.13 voxel
+[17:31:21] [ICP-LOG] Saving [163/381]: left_Healthy_sub-4051_hippocampus_lh
+[17:31:21] [ICP-LOG]     OK: 27465 voxels, หดเข้า 0.55 voxel (budget 2.98), ล้นออก 0.10 voxel
+[17:31:21] [ICP-LOG] Saving [164/381]: left_Healthy_sub-4052_hippocampus_lh
+[17:31:22] [ICP-LOG]     OK: 30093 voxels, หดเข้า 0.61 voxel (budget 2.98), ล้นออก 0.21 voxel
+[17:31:22] [ICP-LOG] Saving [165/381]: left_Healthy_sub-4053_hippocampus_lh
+[17:31:22] [ICP-LOG]     OK: 33836 voxels, หดเข้า 0.28 voxel (budget 2.98), ล้นออก 0.01 voxel
+[17:31:22] [ICP-LOG] Saving [166/381]: left_Healthy_sub-4054_hippocampus_lh
+[17:31:22] [ICP-LOG]     OK: 36644 voxels, หดเข้า 0.69 voxel (budget 2.92), ล้นออก 0.21 voxel
+[17:31:22] [ICP-LOG] Saving [167/381]: left_Healthy_sub-4055_hippocampus_lh
+[17:31:22] [ICP-LOG]     OK: 32114 voxels, หดเข้า 0.86 voxel (budget 2.98), ล้นออก 0.39 voxel
+[17:31:22] [ICP-LOG] Saving [168/381]: left_Healthy_sub-4056_hippocampus_lh
+[17:31:23] [ICP-LOG]     OK: 34405 voxels, หดเข้า 0.41 voxel (budget 2.92), ล้นออก 0.30 voxel
+[17:31:23] [ICP-LOG] Saving [169/381]: left_Healthy_sub-4057_hippocampus_lh
+[17:31:23] [ICP-LOG]     OK: 32647 voxels, หดเข้า 0.60 voxel (budget 2.98), ล้นออก 0.13 voxel
+[17:31:23] [ICP-LOG] Saving [170/381]: left_Healthy_sub-4058_hippocampus_lh
+[17:31:23] [ICP-LOG]     OK: 29676 voxels, หดเข้า 0.61 voxel (budget 2.98), ล้นออก 0.38 voxel
+[17:31:23] [ICP-LOG] Saving [171/381]: left_Healthy_sub-4059_hippocampus_lh
+[17:31:24] [ICP-LOG]     OK: 38341 voxels, หดเข้า 0.51 voxel (budget 2.98), ล้นออก 0.02 voxel
+[17:31:24] [ICP-LOG] Saving [172/381]: left_Healthy_sub-405_hippocampus_lh
+[17:31:24] [ICP-LOG]     OK: 35298 voxels, หดเข้า 0.88 voxel (budget 2.92), ล้นออก 0.10 voxel
+[17:31:24] [ICP-LOG] Saving [173/381]: left_Healthy_sub-4060_hippocampus_lh
+[17:31:24] [ICP-LOG]     OK: 40989 voxels, หดเข้า 0.66 voxel (budget 2.92), ล้นออก -0.07 voxel
+[17:31:24] [ICP-LOG] Saving [174/381]: left_Healthy_sub-4061_hippocampus_lh
+[17:31:24] [ICP-LOG]     OK: 35051 voxels, หดเข้า 0.67 voxel (budget 2.98), ล้นออก 0.40 voxel
+[17:31:24] [ICP-LOG] Saving [175/381]: left_Healthy_sub-4062_hippocampus_lh
+[17:31:25] [ICP-LOG]     OK: 31727 voxels, หดเข้า 0.68 voxel (budget 2.98), ล้นออก 0.03 voxel
+[17:31:25] [ICP-LOG] Saving [176/381]: left_Healthy_sub-4063_hippocampus_lh
+[17:31:25] [ICP-LOG]     OK: 30927 voxels, หดเข้า 0.66 voxel (budget 2.98), ล้นออก 0.19 voxel
+[17:31:25] [ICP-LOG] Saving [177/381]: left_Healthy_sub-4064_hippocampus_lh
+[17:31:25] [ICP-LOG]     OK: 34627 voxels, หดเข้า 0.67 voxel (budget 2.98), ล้นออก 0.11 voxel
+[17:31:25] [ICP-LOG] Saving [178/381]: left_Healthy_sub-4065_hippocampus_lh
+[17:31:26] [ICP-LOG]     OK: 34866 voxels, หดเข้า 0.61 voxel (budget 2.92), ล้นออก -0.26 voxel
+[17:31:26] [ICP-LOG] Saving [179/381]: left_Healthy_sub-4066_hippocampus_lh
+[17:31:26] [ICP-LOG]     OK: 29469 voxels, หดเข้า 0.16 voxel (budget 2.98), ล้นออก 0.25 voxel
+[17:31:26] [ICP-LOG] Saving [180/381]: left_Healthy_sub-4067_hippocampus_lh
+[17:31:26] [ICP-LOG]     OK: 27252 voxels, หดเข้า 0.39 voxel (budget 2.98), ล้นออก 0.15 voxel
+[17:31:26] [ICP-LOG] Saving [181/381]: left_Healthy_sub-4068_hippocampus_lh
+[17:31:26] [ICP-LOG]     OK: 41157 voxels, หดเข้า 0.71 voxel (budget 2.92), ล้นออก 0.06 voxel
+[17:31:26] [ICP-LOG] Saving [182/381]: left_Healthy_sub-4069_hippocampus_lh
+[17:31:27] [ICP-LOG]     OK: 29237 voxels, หดเข้า 0.43 voxel (budget 2.98), ล้นออก 0.33 voxel
+[17:31:27] [ICP-LOG] Saving [183/381]: left_Healthy_sub-406_hippocampus_lh
+[17:31:27] [ICP-LOG]     OK: 31498 voxels, หดเข้า 0.56 voxel (budget 2.98), ล้นออก 0.21 voxel
+[17:31:27] [ICP-LOG] Saving [184/381]: left_Healthy_sub-4070_hippocampus_lh
+[17:31:27] [ICP-LOG]     OK: 37470 voxels, หดเข้า 0.90 voxel (budget 2.92), ล้นออก 0.11 voxel
+[17:31:27] [ICP-LOG] Saving [185/381]: left_Healthy_sub-4071_hippocampus_lh
+[17:31:28] [ICP-LOG]     OK: 34095 voxels, หดเข้า 0.82 voxel (budget 2.92), ล้นออก 0.43 voxel
+[17:31:28] [ICP-LOG] Saving [186/381]: left_Healthy_sub-4072_hippocampus_lh
+[17:31:28] [ICP-LOG]     OK: 35963 voxels, หดเข้า 0.64 voxel (budget 2.92), ล้นออก -0.11 voxel
+[17:31:28] [ICP-LOG] Saving [187/381]: left_Healthy_sub-4073_hippocampus_lh
+[17:31:28] [ICP-LOG]     OK: 28537 voxels, หดเข้า 0.51 voxel (budget 2.98), ล้นออก 0.25 voxel
+[17:31:28] [ICP-LOG] Saving [188/381]: left_Healthy_sub-4074_hippocampus_lh
+[17:31:28] [ICP-LOG]     OK: 36056 voxels, หดเข้า 0.75 voxel (budget 2.98), ล้นออก 0.15 voxel
+[17:31:28] [ICP-LOG] Saving [189/381]: left_Healthy_sub-4075_hippocampus_lh
+[17:31:29] [ICP-LOG]     OK: 33631 voxels, หดเข้า 0.80 voxel (budget 2.98), ล้นออก 0.22 voxel
+[17:31:29] [ICP-LOG] Saving [190/381]: left_Healthy_sub-4076_hippocampus_lh
+[17:31:29] [ICP-LOG]     OK: 36742 voxels, หดเข้า 0.54 voxel (budget 2.92), ล้นออก 0.25 voxel
+[17:31:29] [ICP-LOG] Saving [191/381]: left_Healthy_sub-4077_hippocampus_lh
+[17:31:29] [ICP-LOG]     OK: 29216 voxels, หดเข้า 0.34 voxel (budget 2.98), ล้นออก 0.17 voxel
+[17:31:29] [ICP-LOG] Saving [192/381]: left_Healthy_sub-4078_hippocampus_lh
+[17:31:29] [ICP-LOG]     OK: 28773 voxels, หดเข้า 0.80 voxel (budget 2.98), ล้นออก 0.03 voxel
+[17:31:29] [ICP-LOG] Saving [193/381]: left_Healthy_sub-4079_hippocampus_lh
+[17:31:30] [ICP-LOG]     OK: 28715 voxels, หดเข้า 0.87 voxel (budget 2.98), ล้นออก -0.04 voxel
+[17:31:30] [ICP-LOG] Saving [194/381]: left_Healthy_sub-4080_hippocampus_lh
+[17:31:30] [ICP-LOG]     OK: 26887 voxels, หดเข้า 0.13 voxel (budget 2.98), ล้นออก 0.27 voxel
+[17:31:30] [ICP-LOG] Saving [195/381]: left_Healthy_sub-4081_hippocampus_lh
+[17:31:30] [ICP-LOG]     OK: 32125 voxels, หดเข้า 0.42 voxel (budget 2.98), ล้นออก 0.05 voxel
+[17:31:30] [ICP-LOG] Saving [196/381]: left_Healthy_sub-4082_hippocampus_lh
+[17:31:31] [ICP-LOG]     OK: 28741 voxels, หดเข้า 0.79 voxel (budget 2.98), ล้นออก 0.11 voxel
+[17:31:31] [ICP-LOG] Saving [197/381]: left_Healthy_sub-4083_hippocampus_lh
+[17:31:31] [ICP-LOG]     OK: 34579 voxels, หดเข้า 0.62 voxel (budget 2.98), ล้นออก 0.43 voxel
+[17:31:31] [ICP-LOG] Saving [198/381]: left_Healthy_sub-4084_hippocampus_lh
+[17:31:31] [ICP-LOG]     OK: 29209 voxels, หดเข้า 0.75 voxel (budget 2.98), ล้นออก 0.03 voxel
+[17:31:31] [ICP-LOG] Saving [199/381]: left_Healthy_sub-4085_hippocampus_lh
+[17:31:32] [ICP-LOG]     OK: 30838 voxels, หดเข้า 0.71 voxel (budget 2.98), ล้นออก -0.05 voxel
+[17:31:32] [ICP-LOG] Saving [200/381]: left_Healthy_sub-4086_hippocampus_lh
+[17:31:32] [ICP-LOG]     OK: 33905 voxels, หดเข้า 0.80 voxel (budget 2.92), ล้นออก 0.04 voxel
+[17:31:32] [ICP-LOG] Saving [201/381]: left_Healthy_sub-4087_hippocampus_lh
+[17:31:32] [ICP-LOG]     OK: 28082 voxels, หดเข้า 0.79 voxel (budget 2.98), ล้นออก 0.18 voxel
+[17:31:32] [ICP-LOG] Saving [202/381]: left_Healthy_sub-4088_hippocampus_lh
+[17:31:32] [ICP-LOG]     OK: 28579 voxels, หดเข้า 0.75 voxel (budget 2.98), ล้นออก 0.34 voxel
+[17:31:32] [ICP-LOG] Saving [203/381]: left_Healthy_sub-4089_hippocampus_lh
+[17:31:33] [ICP-LOG]     OK: 34299 voxels, หดเข้า 0.82 voxel (budget 2.98), ล้นออก 0.39 voxel
+[17:31:33] [ICP-LOG] Saving [204/381]: left_Healthy_sub-4090_hippocampus_lh
+[17:31:33] [ICP-LOG]     OK: 28811 voxels, หดเข้า 0.68 voxel (budget 2.98), ล้นออก 0.06 voxel
+[17:31:33] [ICP-LOG] Saving [205/381]: left_Healthy_sub-4091_hippocampus_lh
+[17:31:33] [ICP-LOG]     OK: 32675 voxels, หดเข้า 0.92 voxel (budget 2.98), ล้นออก 0.27 voxel
+[17:31:33] [ICP-LOG] Saving [206/381]: left_Healthy_sub-4092_hippocampus_lh
+[17:31:34] [ICP-LOG]     OK: 31189 voxels, หดเข้า 0.82 voxel (budget 2.98), ล้นออก 0.53 voxel
+[17:31:34] [ICP-LOG] Saving [207/381]: left_Healthy_sub-4093_hippocampus_lh
+[17:31:34] [ICP-LOG]     OK: 33186 voxels, หดเข้า 0.93 voxel (budget 2.92), ล้นออก 0.34 voxel
+[17:31:34] [ICP-LOG] Saving [208/381]: left_Healthy_sub-4094_hippocampus_lh
+[17:31:34] [ICP-LOG]     OK: 30111 voxels, หดเข้า 0.85 voxel (budget 2.92), ล้นออก 0.24 voxel
+[17:31:34] [ICP-LOG] Saving [209/381]: left_Healthy_sub-4095_hippocampus_lh
+[17:31:34] [ICP-LOG]     OK: 31925 voxels, หดเข้า 0.78 voxel (budget 2.98), ล้นออก 0.10 voxel
+[17:31:34] [ICP-LOG] Saving [210/381]: left_Healthy_sub-4096_hippocampus_lh
+[17:31:35] [ICP-LOG]     OK: 27313 voxels, หดเข้า 0.53 voxel (budget 2.98), ล้นออก 0.37 voxel
+[17:31:35] [ICP-LOG] Saving [211/381]: left_Healthy_sub-4097_hippocampus_lh
+[17:31:35] [ICP-LOG]     OK: 34923 voxels, หดเข้า 0.35 voxel (budget 2.98), ล้นออก 0.13 voxel
+[17:31:35] [ICP-LOG] Saving [212/381]: left_Healthy_sub-4098_hippocampus_lh
+[17:31:35] [ICP-LOG]     OK: 27962 voxels, หดเข้า 0.39 voxel (budget 2.98), ล้นออก 0.35 voxel
+[17:31:35] [ICP-LOG] Saving [213/381]: left_Healthy_sub-4099_hippocampus_lh
+[17:31:36] [ICP-LOG]     OK: 35655 voxels, หดเข้า 0.62 voxel (budget 2.98), ล้นออก 0.29 voxel
+[17:31:36] [ICP-LOG] Saving [214/381]: left_Healthy_sub-40_hippocampus_lh
+[17:31:36] [ICP-LOG]     OK: 34003 voxels, หดเข้า 0.60 voxel (budget 2.92), ล้นออก 0.32 voxel
+[17:31:36] [ICP-LOG] Saving [215/381]: left_Healthy_sub-4100_hippocampus_lh
+[17:31:36] [ICP-LOG]     OK: 27559 voxels, หดเข้า 0.39 voxel (budget 2.98), ล้นออก 0.26 voxel
+[17:31:36] [ICP-LOG] Saving [216/381]: left_Healthy_sub-413_hippocampus_lh
+[17:31:36] [ICP-LOG]     OK: 32610 voxels, หดเข้า 0.66 voxel (budget 2.92), ล้นออก 0.05 voxel
+[17:31:36] [ICP-LOG] Saving [217/381]: left_Healthy_sub-417_hippocampus_lh
+[17:31:37] [ICP-LOG]     OK: 32246 voxels, หดเข้า 0.68 voxel (budget 2.98), ล้นออก 0.19 voxel
+[17:31:37] [ICP-LOG] Saving [218/381]: left_Healthy_sub-419_hippocampus_lh
+[17:31:37] [ICP-LOG]     OK: 34027 voxels, หดเข้า 0.64 voxel (budget 2.92), ล้นออก 0.04 voxel
+[17:31:37] [ICP-LOG] Saving [219/381]: left_Healthy_sub-41_hippocampus_lh
+[17:31:37] [ICP-LOG]     OK: 39502 voxels, หดเข้า 0.90 voxel (budget 2.92), ล้นออก 0.27 voxel
+[17:31:37] [ICP-LOG] Saving [220/381]: left_Healthy_sub-427_hippocampus_lh
+[17:31:38] [ICP-LOG]     OK: 29801 voxels, หดเข้า 0.40 voxel (budget 2.92), ล้นออก 0.22 voxel
+[17:31:38] [ICP-LOG] Saving [221/381]: left_Healthy_sub-432_hippocampus_lh
+[17:31:38] [ICP-LOG]     OK: 37371 voxels, หดเข้า 0.32 voxel (budget 2.92), ล้นออก 0.07 voxel
+[17:31:38] [ICP-LOG] Saving [222/381]: left_Healthy_sub-437_hippocampus_lh
+[17:31:38] [ICP-LOG]     OK: 32502 voxels, หดเข้า 0.41 voxel (budget 2.92), ล้นออก 0.20 voxel
+[17:31:38] [ICP-LOG] Saving [223/381]: left_Healthy_sub-442_hippocampus_lh
+[17:31:38] [ICP-LOG]     OK: 31758 voxels, หดเข้า 0.80 voxel (budget 2.92), ล้นออก -0.03 voxel
+[17:31:38] [ICP-LOG] Saving [224/381]: left_Healthy_sub-447_hippocampus_lh
+[17:31:39] [ICP-LOG]     OK: 25633 voxels, หดเข้า 0.55 voxel (budget 2.92), ล้นออก -0.17 voxel
+[17:31:39] [ICP-LOG] Saving [225/381]: left_Healthy_sub-451_hippocampus_lh
+[17:31:39] [ICP-LOG]     OK: 29950 voxels, หดเข้า 0.54 voxel (budget 2.92), ล้นออก 0.33 voxel
+[17:31:39] [ICP-LOG] Saving [226/381]: left_Healthy_sub-455_hippocampus_lh
+[17:31:39] [ICP-LOG]     OK: 39050 voxels, หดเข้า 0.53 voxel (budget 2.92), ล้นออก 0.21 voxel
+[17:31:39] [ICP-LOG] Saving [227/381]: left_Healthy_sub-45_hippocampus_lh
+[17:31:40] [ICP-LOG]     OK: 34454 voxels, หดเข้า 0.20 voxel (budget 2.92), ล้นออก 0.11 voxel
+[17:31:40] [ICP-LOG] Saving [228/381]: left_Healthy_sub-49_hippocampus_lh
+[17:31:40] [ICP-LOG]     OK: 37764 voxels, หดเข้า 0.87 voxel (budget 2.92), ล้นออก 0.14 voxel
+[17:31:40] [ICP-LOG] Saving [229/381]: left_Healthy_sub-57_hippocampus_lh
+[17:31:40] [ICP-LOG]     OK: 34390 voxels, หดเข้า 0.76 voxel (budget 2.92), ล้นออก 0.09 voxel
+[17:31:40] [ICP-LOG] Saving [230/381]: left_Healthy_sub-61_hippocampus_lh
+[17:31:40] [ICP-LOG]     OK: 28702 voxels, หดเข้า 0.69 voxel (budget 2.98), ล้นออก 0.35 voxel
+[17:31:40] [ICP-LOG] Saving [231/381]: left_Healthy_sub-64_hippocampus_lh
+[17:31:41] [ICP-LOG]     OK: 35020 voxels, หดเข้า 0.85 voxel (budget 2.92), ล้นออก 0.25 voxel
+[17:31:41] [ICP-LOG] Saving [232/381]: left_Healthy_sub-70_hippocampus_lh
+[17:31:41] [ICP-LOG]     OK: 35677 voxels, หดเข้า 0.63 voxel (budget 2.98), ล้นออก -0.16 voxel
+[17:31:41] [ICP-LOG] Saving [233/381]: left_Healthy_sub-75_hippocampus_lh
+[17:31:41] [ICP-LOG]     OK: 31103 voxels, หดเข้า 0.54 voxel (budget 2.92), ล้นออก 0.28 voxel
+[17:31:41] [ICP-LOG] Saving [234/381]: left_Healthy_sub-76_hippocampus_lh
+[17:31:41] [ICP-LOG]     OK: 28432 voxels, หดเข้า 0.57 voxel (budget 2.98), ล้นออก 0.20 voxel
+[17:31:41] [ICP-LOG] Saving [235/381]: left_Healthy_sub-7_hippocampus_lh
+[17:31:42] [ICP-LOG]     OK: 24092 voxels, หดเข้า 0.53 voxel (budget 2.98), ล้นออก -0.04 voxel
+[17:31:42] [ICP-LOG] Saving [236/381]: left_Healthy_sub-82_hippocampus_lh
+[17:31:42] [ICP-LOG]     OK: 34733 voxels, หดเข้า 0.73 voxel (budget 2.92), ล้นออก 0.43 voxel
+[17:31:42] [ICP-LOG] Saving [237/381]: left_Healthy_sub-84_hippocampus_lh
+[17:31:42] [ICP-LOG]     OK: 29865 voxels, หดเข้า 0.52 voxel (budget 2.92), ล้นออก -0.06 voxel
+[17:31:42] [ICP-LOG] Saving [238/381]: left_Healthy_sub-94_hippocampus_lh
+[17:31:43] [ICP-LOG]     OK: 32411 voxels, หดเข้า 0.32 voxel (budget 2.92), ล้นออก 0.26 voxel
+[17:31:43] [ICP-LOG] Saving [239/381]: left_Healthy_sub-95_hippocampus_lh
+[17:31:43] [ICP-LOG]     OK: 31592 voxels, หดเข้า 0.66 voxel (budget 2.98), ล้นออก 0.27 voxel
+[17:31:43] [ICP-LOG] Saving [240/381]: left_Healthy_sub-97_hippocampus_lh
+[17:31:43] [ICP-LOG]     OK: 35702 voxels, หดเข้า 0.42 voxel (budget 2.92), ล้นออก 0.09 voxel
+[17:31:43] [ICP-LOG] Saving [241/381]: left_TLE_sub-106_hippocampus_lh
+[17:31:43] [ICP-LOG]     OK: 26123 voxels, หดเข้า 0.65 voxel (budget 2.92), ล้นออก -0.01 voxel
+[17:31:43] [ICP-LOG] Saving [242/381]: left_TLE_sub-109_hippocampus_lh
+[17:31:44] [ICP-LOG]     OK: 24147 voxels, หดเข้า 0.75 voxel (budget 2.92), ล้นออก 0.22 voxel
+[17:31:44] [ICP-LOG] Saving [243/381]: left_TLE_sub-118_hippocampus_lh
+[17:31:44] [ICP-LOG]     OK: 22778 voxels, หดเข้า 0.58 voxel (budget 2.92), ล้นออก 0.17 voxel
+[17:31:44] [ICP-LOG] Saving [244/381]: left_TLE_sub-120_hippocampus_lh
+[17:31:44] [ICP-LOG]     OK: 20750 voxels, หดเข้า 0.58 voxel (budget 2.98), ล้นออก 0.33 voxel
+[17:31:44] [ICP-LOG] Saving [245/381]: left_TLE_sub-125_hippocampus_lh
+[17:31:44] [ICP-LOG]     OK: 23678 voxels, หดเข้า 0.56 voxel (budget 2.92), ล้นออก -0.09 voxel
+[17:31:44] [ICP-LOG] Saving [246/381]: left_TLE_sub-127_hippocampus_lh
+[17:31:45] [ICP-LOG]     OK: 19779 voxels, หดเข้า 0.50 voxel (budget 2.98), ล้นออก 0.19 voxel
+[17:31:45] [ICP-LOG] Saving [247/381]: left_TLE_sub-143_hippocampus_lh
+[17:31:45] [ICP-LOG]     OK: 37925 voxels, หดเข้า 0.36 voxel (budget 2.92), ล้นออก 0.05 voxel
+[17:31:45] [ICP-LOG] Saving [248/381]: left_TLE_sub-149_hippocampus_lh
+[17:31:45] [ICP-LOG]     OK: 25877 voxels, หดเข้า 0.72 voxel (budget 2.92), ล้นออก 0.04 voxel
+[17:31:45] [ICP-LOG] Saving [249/381]: left_TLE_sub-154_hippocampus_lh
+[17:31:46] [ICP-LOG]     OK: 30504 voxels, หดเข้า 0.51 voxel (budget 2.92), ล้นออก 0.26 voxel
+[17:31:46] [ICP-LOG] Saving [250/381]: left_TLE_sub-156_hippocampus_lh
+[17:31:46] [ICP-LOG]     OK: 29827 voxels, หดเข้า 0.90 voxel (budget 2.92), ล้นออก 0.16 voxel
+[17:31:46] [ICP-LOG] Saving [251/381]: left_TLE_sub-162_hippocampus_lh
+[17:31:46] [ICP-LOG]     OK: 25022 voxels, หดเข้า 0.58 voxel (budget 2.92), ล้นออก 0.18 voxel
+[17:31:46] [ICP-LOG] Saving [252/381]: left_TLE_sub-164_hippocampus_lh
+[17:31:46] [ICP-LOG]     OK: 27565 voxels, หดเข้า 0.42 voxel (budget 2.98), ล้นออก 0.39 voxel
+[17:31:46] [ICP-LOG] Saving [253/381]: left_TLE_sub-165_hippocampus_lh
+[17:31:47] [ICP-LOG]     OK: 24992 voxels, หดเข้า 0.74 voxel (budget 2.92), ล้นออก 0.07 voxel
+[17:31:47] [ICP-LOG] Saving [254/381]: left_TLE_sub-167_hippocampus_lh
+[17:31:47] [ICP-LOG]     OK: 24090 voxels, หดเข้า 0.76 voxel (budget 2.92), ล้นออก 0.31 voxel
+[17:31:47] [ICP-LOG] Saving [255/381]: left_TLE_sub-168_hippocampus_lh
+[17:31:47] [ICP-LOG]     OK: 25215 voxels, หดเข้า 0.84 voxel (budget 2.92), ล้นออก 0.25 voxel
+[17:31:47] [ICP-LOG] Saving [256/381]: left_TLE_sub-174_hippocampus_lh
+[17:31:48] [ICP-LOG]     OK: 24310 voxels, หดเข้า 0.76 voxel (budget 2.92), ล้นออก 0.03 voxel
+[17:31:48] [ICP-LOG] Saving [257/381]: left_TLE_sub-176_hippocampus_lh
+[17:31:48] [ICP-LOG]     OK: 29759 voxels, หดเข้า 0.48 voxel (budget 2.92), ล้นออก 0.29 voxel
+[17:31:48] [ICP-LOG] Saving [258/381]: left_TLE_sub-183_hippocampus_lh
+[17:31:48] [ICP-LOG]     OK: 29424 voxels, หดเข้า 0.65 voxel (budget 2.92), ล้นออก 0.02 voxel
+[17:31:48] [ICP-LOG] Saving [259/381]: left_TLE_sub-186_hippocampus_lh
+[17:31:48] [ICP-LOG]     OK: 28912 voxels, หดเข้า 0.70 voxel (budget 2.92), ล้นออก 0.11 voxel
+[17:31:48] [ICP-LOG] Saving [260/381]: left_TLE_sub-188_hippocampus_lh
+[17:31:49] [ICP-LOG]     OK: 21919 voxels, หดเข้า 0.71 voxel (budget 2.92), ล้นออก 0.22 voxel
+[17:31:49] [ICP-LOG] Saving [261/381]: left_TLE_sub-191_hippocampus_lh
+[17:31:49] [ICP-LOG]     OK: 27186 voxels, หดเข้า 0.71 voxel (budget 2.92), ล้นออก -0.10 voxel
+[17:31:49] [ICP-LOG] Saving [262/381]: left_TLE_sub-196_hippocampus_lh
+[17:31:50] [ICP-LOG]     OK: 23102 voxels, หดเข้า 0.58 voxel (budget 2.46), ล้นออก 0.31 voxel
+[17:31:50] [ICP-LOG] Saving [263/381]: left_TLE_sub-199_hippocampus_lh
+[17:31:51] [ICP-LOG]     OK: 21221 voxels, หดเข้า 0.35 voxel (budget 2.98), ล้นออก 0.04 voxel
+[17:31:51] [ICP-LOG] Saving [264/381]: left_TLE_sub-202_hippocampus_lh
+[17:31:51] [ICP-LOG]     OK: 24510 voxels, หดเข้า 0.49 voxel (budget 2.92), ล้นออก 0.12 voxel
+[17:31:51] [ICP-LOG] Saving [265/381]: left_TLE_sub-205_hippocampus_lh
+[17:31:51] [ICP-LOG]     OK: 21148 voxels, หดเข้า 0.66 voxel (budget 2.92), ล้นออก 0.00 voxel
+[17:31:51] [ICP-LOG] Saving [266/381]: left_TLE_sub-208_hippocampus_lh
+[17:31:52] [ICP-LOG]     OK: 26801 voxels, หดเข้า 0.85 voxel (budget 2.46), ล้นออก -0.08 voxel
+[17:31:52] [ICP-LOG] Saving [267/381]: left_TLE_sub-215_hippocampus_lh
+[17:31:53] [ICP-LOG]     OK: 30706 voxels, หดเข้า 0.65 voxel (budget 2.98), ล้นออก 0.57 voxel
+[17:31:53] [ICP-LOG] Saving [268/381]: left_TLE_sub-217_hippocampus_lh
+[17:31:53] [ICP-LOG]     OK: 17685 voxels, หดเข้า 0.44 voxel (budget 2.98), ล้นออก 0.34 voxel
+[17:31:53] [ICP-LOG] Saving [269/381]: left_TLE_sub-218_hippocampus_lh
+[17:31:53] [ICP-LOG]     OK: 26082 voxels, หดเข้า 0.58 voxel (budget 2.92), ล้นออก 0.26 voxel
+[17:31:53] [ICP-LOG] Saving [270/381]: left_TLE_sub-220_hippocampus_lh
+[17:31:54] [ICP-LOG]     OK: 24113 voxels, หดเข้า 0.40 voxel (budget 2.92), ล้นออก 0.16 voxel
+[17:31:54] [ICP-LOG] Saving [271/381]: left_TLE_sub-227_hippocampus_lh
+[17:31:54] [ICP-LOG]     OK: 26075 voxels, หดเข้า 0.55 voxel (budget 2.92), ล้นออก -0.09 voxel
+[17:31:54] [ICP-LOG] Saving [272/381]: left_TLE_sub-229_hippocampus_lh
+[17:31:54] [ICP-LOG]     OK: 23184 voxels, หดเข้า 0.80 voxel (budget 2.92), ล้นออก 0.15 voxel
+[17:31:54] [ICP-LOG] Saving [273/381]: left_TLE_sub-235_hippocampus_lh
+[17:31:54] [ICP-LOG]     OK: 23209 voxels, หดเข้า 0.81 voxel (budget 2.92), ล้นออก 0.18 voxel
+[17:31:54] [ICP-LOG] Saving [274/381]: left_TLE_sub-236_hippocampus_lh
+[17:31:55] [ICP-LOG]     OK: 28174 voxels, หดเข้า 0.71 voxel (budget 2.92), ล้นออก 0.41 voxel
+[17:31:55] [ICP-LOG] Saving [275/381]: left_TLE_sub-23_hippocampus_lh
+[17:31:55] [ICP-LOG]     OK: 21976 voxels, หดเข้า 0.51 voxel (budget 2.98), ล้นออก -0.03 voxel
+[17:31:55] [ICP-LOG] Saving [276/381]: left_TLE_sub-240_hippocampus_lh
+[17:31:55] [ICP-LOG]     OK: 29119 voxels, หดเข้า 0.70 voxel (budget 2.92), ล้นออก 0.21 voxel
+[17:31:55] [ICP-LOG] Saving [277/381]: left_TLE_sub-251_hippocampus_lh
+[17:31:55] [ICP-LOG]     OK: 28054 voxels, หดเข้า 0.67 voxel (budget 2.92), ล้นออก 0.10 voxel
+[17:31:55] [ICP-LOG] Saving [278/381]: left_TLE_sub-259_hippocampus_lh
+[17:31:56] [ICP-LOG]     OK: 24956 voxels, หดเข้า 0.78 voxel (budget 2.92), ล้นออก 0.35 voxel
+[17:31:56] [ICP-LOG] Saving [279/381]: left_TLE_sub-25_hippocampus_lh
+[17:31:56] [ICP-LOG]     OK: 30146 voxels, หดเข้า 0.67 voxel (budget 2.92), ล้นออก 0.29 voxel
+[17:31:56] [ICP-LOG] Saving [280/381]: left_TLE_sub-263_hippocampus_lh
+[17:31:56] [ICP-LOG]     OK: 30867 voxels, หดเข้า 0.55 voxel (budget 2.92), ล้นออก 0.32 voxel
+[17:31:56] [ICP-LOG] Saving [281/381]: left_TLE_sub-264_hippocampus_lh
+[17:31:57] [ICP-LOG]     OK: 20541 voxels, หดเข้า 0.20 voxel (budget 2.92), ล้นออก 0.25 voxel
+[17:31:57] [ICP-LOG] Saving [282/381]: left_TLE_sub-265_hippocampus_lh
+[17:31:57] [ICP-LOG]     OK: 30364 voxels, หดเข้า 0.76 voxel (budget 2.92), ล้นออก 0.19 voxel
+[17:31:57] [ICP-LOG] Saving [283/381]: left_TLE_sub-266_hippocampus_lh
+[17:31:57] [ICP-LOG]     OK: 23350 voxels, หดเข้า 0.46 voxel (budget 2.92), ล้นออก 0.04 voxel
+[17:31:57] [ICP-LOG] Saving [284/381]: left_TLE_sub-267_hippocampus_lh
+[17:31:57] [ICP-LOG]     OK: 27354 voxels, หดเข้า 0.65 voxel (budget 2.92), ล้นออก 0.06 voxel
+[17:31:57] [ICP-LOG] Saving [285/381]: left_TLE_sub-26896_hippocampus_lh
+[17:31:58] [ICP-LOG]     OK: 30804 voxels, หดเข้า 0.57 voxel (budget 2.98), ล้นออก 0.35 voxel
+[17:31:58] [ICP-LOG] Saving [286/381]: left_TLE_sub-270_hippocampus_lh
+[17:31:58] [ICP-LOG]     OK: 28074 voxels, หดเข้า 0.86 voxel (budget 2.92), ล้นออก 0.16 voxel
+[17:31:58] [ICP-LOG] Saving [287/381]: left_TLE_sub-273_hippocampus_lh
+[17:31:58] [ICP-LOG]     OK: 24308 voxels, หดเข้า 0.22 voxel (budget 2.98), ล้นออก 0.19 voxel
+[17:31:58] [ICP-LOG] Saving [288/381]: left_TLE_sub-275_hippocampus_lh
+[17:31:58] [ICP-LOG]     OK: 33117 voxels, หดเข้า 0.75 voxel (budget 2.92), ล้นออก 0.23 voxel
+[17:31:59] [ICP-LOG] Saving [289/381]: left_TLE_sub-27872_hippocampus_lh
+[17:31:59] [ICP-LOG]     OK: 33650 voxels, หดเข้า 0.74 voxel (budget 2.98), ล้นออก -0.00 voxel
+[17:31:59] [ICP-LOG] Saving [290/381]: left_TLE_sub-27934_hippocampus_lh
+[17:31:59] [ICP-LOG]     OK: 20089 voxels, หดเข้า 0.52 voxel (budget 2.98), ล้นออก 0.09 voxel
+[17:31:59] [ICP-LOG] Saving [291/381]: left_TLE_sub-27960_hippocampus_lh
+[17:31:59] [ICP-LOG]     OK: 32379 voxels, หดเข้า 0.50 voxel (budget 2.98), ล้นออก -0.01 voxel
+[17:31:59] [ICP-LOG] Saving [292/381]: left_TLE_sub-27974_hippocampus_lh
+[17:32:00] [ICP-LOG]     OK: 26860 voxels, หดเข้า 0.79 voxel (budget 2.98), ล้นออก 0.15 voxel
+[17:32:00] [ICP-LOG] Saving [293/381]: left_TLE_sub-279_hippocampus_lh
+[17:32:00] [ICP-LOG]     OK: 29932 voxels, หดเข้า 0.70 voxel (budget 2.92), ล้นออก -0.09 voxel
+[17:32:00] [ICP-LOG] Saving [294/381]: left_TLE_sub-27_hippocampus_lh
+[17:32:00] [ICP-LOG]     OK: 25139 voxels, หดเข้า 0.76 voxel (budget 2.92), ล้นออก 0.23 voxel
+[17:32:00] [ICP-LOG] Saving [295/381]: left_TLE_sub-282_hippocampus_lh
+[17:32:00] [ICP-LOG]     OK: 30055 voxels, หดเข้า 0.32 voxel (budget 2.92), ล้นออก 0.46 voxel
+[17:32:00] [ICP-LOG] Saving [296/381]: left_TLE_sub-29073_hippocampus_lh
+[17:32:01] [ICP-LOG]     OK: 35404 voxels, หดเข้า 0.73 voxel (budget 2.98), ล้นออก 0.04 voxel
+[17:32:01] [ICP-LOG] Saving [297/381]: left_TLE_sub-29096_hippocampus_lh
+[17:32:01] [ICP-LOG]     OK: 31213 voxels, หดเข้า 0.83 voxel (budget 2.98), ล้นออก 0.06 voxel
+[17:32:01] [ICP-LOG] Saving [298/381]: left_TLE_sub-290_hippocampus_lh
+[17:32:01] [ICP-LOG]     OK: 28687 voxels, หดเข้า 0.62 voxel (budget 2.92), ล้นออก 0.10 voxel
+[17:32:01] [ICP-LOG] Saving [299/381]: left_TLE_sub-293_hippocampus_lh
+[17:32:01] [ICP-LOG]     OK: 23835 voxels, หดเข้า 0.66 voxel (budget 2.92), ล้นออก 0.20 voxel
+[17:32:02] [ICP-LOG] Saving [300/381]: left_TLE_sub-294_hippocampus_lh
+[17:32:02] [ICP-LOG]     OK: 31451 voxels, หดเข้า 0.60 voxel (budget 2.92), ล้นออก -0.15 voxel
+[17:32:02] [ICP-LOG] Saving [301/381]: left_TLE_sub-297_hippocampus_lh
+[17:32:02] [ICP-LOG]     OK: 27648 voxels, หดเข้า 0.83 voxel (budget 2.92), ล้นออก 0.44 voxel
+[17:32:02] [ICP-LOG] Saving [302/381]: left_TLE_sub-29_hippocampus_lh
+[17:32:02] [ICP-LOG]     OK: 29487 voxels, หดเข้า 0.74 voxel (budget 2.92), ล้นออก -0.21 voxel
+[17:32:02] [ICP-LOG] Saving [303/381]: left_TLE_sub-302_hippocampus_lh
+[17:32:03] [ICP-LOG]     OK: 27493 voxels, หดเข้า 0.79 voxel (budget 2.98), ล้นออก 0.08 voxel
+[17:32:03] [ICP-LOG] Saving [304/381]: left_TLE_sub-310_hippocampus_lh
+[17:32:03] [ICP-LOG]     OK: 22768 voxels, หดเข้า 0.72 voxel (budget 2.92), ล้นออก 0.41 voxel
+[17:32:03] [ICP-LOG] Saving [305/381]: left_TLE_sub-314_hippocampus_lh
+[17:32:03] [ICP-LOG]     OK: 27307 voxels, หดเข้า 0.72 voxel (budget 2.92), ล้นออก 0.05 voxel
+[17:32:03] [ICP-LOG] Saving [306/381]: left_TLE_sub-316_hippocampus_lh
+[17:32:04] [ICP-LOG]     OK: 33101 voxels, หดเข้า 0.68 voxel (budget 2.92), ล้นออก -0.05 voxel
+[17:32:04] [ICP-LOG] Saving [307/381]: left_TLE_sub-320_hippocampus_lh
+[17:32:04] [ICP-LOG]     OK: 23524 voxels, หดเข้า 0.66 voxel (budget 2.92), ล้นออก 0.64 voxel
+[17:32:04] [ICP-LOG] Saving [308/381]: left_TLE_sub-32159_hippocampus_lh
+[17:32:04] [ICP-LOG]     OK: 31909 voxels, หดเข้า 0.85 voxel (budget 2.98), ล้นออก 0.12 voxel
+[17:32:04] [ICP-LOG] Saving [309/381]: left_TLE_sub-32907_hippocampus_lh
+[17:32:04] [ICP-LOG]     OK: 30276 voxels, หดเข้า 0.82 voxel (budget 2.98), ล้นออก 0.20 voxel
+[17:32:04] [ICP-LOG] Saving [310/381]: left_TLE_sub-329_hippocampus_lh
+[17:32:05] [ICP-LOG]     OK: 23337 voxels, หดเข้า 0.73 voxel (budget 2.92), ล้นออก 0.16 voxel
+[17:32:05] [ICP-LOG] Saving [311/381]: left_TLE_sub-336_hippocampus_lh
+[17:32:05] [ICP-LOG]     OK: 30920 voxels, หดเข้า 0.52 voxel (budget 2.92), ล้นออก 0.49 voxel
+[17:32:05] [ICP-LOG] Saving [312/381]: left_TLE_sub-337_hippocampus_lh
+[17:32:05] [ICP-LOG]     OK: 25864 voxels, หดเข้า 0.41 voxel (budget 2.92), ล้นออก 0.18 voxel
+[17:32:05] [ICP-LOG] Saving [313/381]: left_TLE_sub-33_hippocampus_lh
+[17:32:05] [ICP-LOG]     OK: 29827 voxels, หดเข้า 0.54 voxel (budget 2.92), ล้นออก 0.33 voxel
+[17:32:05] [ICP-LOG] Saving [314/381]: left_TLE_sub-34273_hippocampus_lh
+[17:32:06] [ICP-LOG]     OK: 22011 voxels, หดเข้า 0.74 voxel (budget 2.98), ล้นออก 0.34 voxel
+[17:32:06] [ICP-LOG] Saving [315/381]: left_TLE_sub-34359_hippocampus_lh
+[17:32:06] [ICP-LOG]     OK: 25210 voxels, หดเข้า 0.46 voxel (budget 2.98), ล้นออก 0.15 voxel
+[17:32:06] [ICP-LOG] Saving [316/381]: left_TLE_sub-34736_hippocampus_lh
+[17:32:06] [ICP-LOG]     OK: 30087 voxels, หดเข้า 0.89 voxel (budget 2.98), ล้นออก 0.15 voxel
+[17:32:06] [ICP-LOG] Saving [317/381]: left_TLE_sub-347_hippocampus_lh
+[17:32:07] [ICP-LOG]     OK: 26131 voxels, หดเข้า 0.32 voxel (budget 2.98), ล้นออก 0.12 voxel
+[17:32:07] [ICP-LOG] Saving [318/381]: left_TLE_sub-34826_hippocampus_lh
+[17:32:07] [ICP-LOG]     OK: 25683 voxels, หดเข้า 0.76 voxel (budget 2.98), ล้นออก 0.44 voxel
+[17:32:07] [ICP-LOG] Saving [319/381]: left_TLE_sub-348_hippocampus_lh
+[17:32:07] [ICP-LOG]     OK: 20472 voxels, หดเข้า 0.27 voxel (budget 2.98), ล้นออก 0.35 voxel
+[17:32:07] [ICP-LOG] Saving [320/381]: left_TLE_sub-349_hippocampus_lh
+[17:32:07] [ICP-LOG]     OK: 40001 voxels, หดเข้า 0.87 voxel (budget 2.92), ล้นออก 0.35 voxel
+[17:32:07] [ICP-LOG] Saving [321/381]: left_TLE_sub-351_hippocampus_lh
+[17:32:08] [ICP-LOG]     OK: 24024 voxels, หดเข้า 0.67 voxel (budget 2.92), ล้นออก 0.42 voxel
+[17:32:08] [ICP-LOG] Saving [322/381]: left_TLE_sub-35272_hippocampus_lh
+[17:32:08] [ICP-LOG]     OK: 20214 voxels, หดเข้า 0.75 voxel (budget 2.98), ล้นออก -0.20 voxel
+[17:32:08] [ICP-LOG] Saving [323/381]: left_TLE_sub-35353_hippocampus_lh
+[17:32:08] [ICP-LOG]     OK: 30460 voxels, หดเข้า 0.43 voxel (budget 2.98), ล้นออก 0.02 voxel
+[17:32:08] [ICP-LOG] Saving [324/381]: left_TLE_sub-353_hippocampus_lh
+[17:32:10] [ICP-LOG]     OK: 14612 voxels, หดเข้า 1.09 voxel (budget 2.46), ล้นออก -0.10 voxel
+[17:32:10] [ICP-LOG] Saving [325/381]: left_TLE_sub-354_hippocampus_lh
+[17:32:10] [ICP-LOG]     OK: 22651 voxels, หดเข้า 0.62 voxel (budget 2.98), ล้นออก 0.06 voxel
+[17:32:10] [ICP-LOG] Saving [326/381]: left_TLE_sub-358_hippocampus_lh
+[17:32:10] [ICP-LOG]     OK: 26241 voxels, หดเข้า 0.44 voxel (budget 2.92), ล้นออก 0.35 voxel
+[17:32:10] [ICP-LOG] Saving [327/381]: left_TLE_sub-361_hippocampus_lh
+[17:32:10] [ICP-LOG]     OK: 23340 voxels, หดเข้า 0.84 voxel (budget 2.92), ล้นออก 0.13 voxel
+[17:32:10] [ICP-LOG] Saving [328/381]: left_TLE_sub-36487_hippocampus_lh
+[17:32:11] [ICP-LOG]     OK: 33114 voxels, หดเข้า 0.44 voxel (budget 2.98), ล้นออก 0.17 voxel
+[17:32:11] [ICP-LOG] Saving [329/381]: left_TLE_sub-364_hippocampus_lh
+[17:32:11] [ICP-LOG]     OK: 23577 voxels, หดเข้า 0.43 voxel (budget 2.98), ล้นออก 0.02 voxel
+[17:32:11] [ICP-LOG] Saving [330/381]: left_TLE_sub-366_hippocampus_lh
+[17:32:11] [ICP-LOG]     OK: 30588 voxels, หดเข้า 0.44 voxel (budget 2.92), ล้นออก 0.29 voxel
+[17:32:11] [ICP-LOG] Saving [331/381]: left_TLE_sub-36737_hippocampus_lh
+[17:32:12] [ICP-LOG]     OK: 30599 voxels, หดเข้า 0.72 voxel (budget 2.98), ล้นออก 0.32 voxel
+[17:32:12] [ICP-LOG] Saving [332/381]: left_TLE_sub-36866_hippocampus_lh
+[17:32:12] [ICP-LOG]     OK: 40824 voxels, หดเข้า 0.58 voxel (budget 2.98), ล้นออก 0.07 voxel
+[17:32:12] [ICP-LOG] Saving [333/381]: left_TLE_sub-368_hippocampus_lh
+[17:32:12] [ICP-LOG]     OK: 20102 voxels, หดเข้า 0.84 voxel (budget 2.92), ล้นออก 0.22 voxel
+[17:32:12] [ICP-LOG] Saving [334/381]: left_TLE_sub-372_hippocampus_lh
+[17:32:12] [ICP-LOG]     OK: 21131 voxels, หดเข้า 0.57 voxel (budget 2.92), ล้นออก -0.01 voxel
+[17:32:12] [ICP-LOG] Saving [335/381]: left_TLE_sub-37348_hippocampus_lh
+[17:32:13] [ICP-LOG]     OK: 37641 voxels, หดเข้า 0.77 voxel (budget 2.98), ล้นออก 0.04 voxel
+[17:32:13] [ICP-LOG] Saving [336/381]: left_TLE_sub-375_hippocampus_lh
+[17:32:13] [ICP-LOG]     OK: 22460 voxels, หดเข้า 0.83 voxel (budget 2.92), ล้นออก 0.42 voxel
+[17:32:13] [ICP-LOG] Saving [337/381]: left_TLE_sub-379_hippocampus_lh
+[17:32:13] [ICP-LOG]     OK: 30081 voxels, หดเข้า 0.85 voxel (budget 2.92), ล้นออก 0.48 voxel
+[17:32:13] [ICP-LOG] Saving [338/381]: left_TLE_sub-37_hippocampus_lh
+[17:32:14] [ICP-LOG]     OK: 22924 voxels, หดเข้า 0.62 voxel (budget 2.46), ล้นออก 0.17 voxel
+[17:32:14] [ICP-LOG] Saving [339/381]: left_TLE_sub-387_hippocampus_lh
+[17:32:15] [ICP-LOG]     OK: 28108 voxels, หดเข้า 0.65 voxel (budget 2.98), ล้นออก 0.28 voxel
+[17:32:15] [ICP-LOG] Saving [340/381]: left_TLE_sub-388_hippocampus_lh
+[17:32:15] [ICP-LOG]     OK: 27304 voxels, หดเข้า 0.79 voxel (budget 2.92), ล้นออก 0.40 voxel
+[17:32:15] [ICP-LOG] Saving [341/381]: left_TLE_sub-389_hippocampus_lh
+[17:32:15] [ICP-LOG]     OK: 25660 voxels, หดเข้า 0.52 voxel (budget 2.98), ล้นออก 0.06 voxel
+[17:32:15] [ICP-LOG] Saving [342/381]: left_TLE_sub-390_hippocampus_lh
+[17:32:16] [ICP-LOG]     OK: 28472 voxels, หดเข้า 0.74 voxel (budget 2.92), ล้นออก 0.27 voxel
+[17:32:16] [ICP-LOG] Saving [343/381]: left_TLE_sub-397_hippocampus_lh
+[17:32:16] [ICP-LOG]     OK: 25049 voxels, หดเข้า 0.90 voxel (budget 2.92), ล้นออก -0.34 voxel
+[17:32:16] [ICP-LOG] Saving [344/381]: left_TLE_sub-39_hippocampus_lh
+[17:32:16] [ICP-LOG]     OK: 19840 voxels, หดเข้า 0.73 voxel (budget 2.98), ล้นออก -0.05 voxel
+[17:32:16] [ICP-LOG] Saving [345/381]: left_TLE_sub-401_hippocampus_lh
+[17:32:16] [ICP-LOG]     OK: 28519 voxels, หดเข้า 0.57 voxel (budget 2.92), ล้นออก 0.11 voxel
+[17:32:16] [ICP-LOG] Saving [346/381]: left_TLE_sub-407_hippocampus_lh
+[17:32:17] [ICP-LOG]     OK: 27036 voxels, หดเข้า 0.85 voxel (budget 2.92), ล้นออก 0.23 voxel
+[17:32:17] [ICP-LOG] Saving [347/381]: left_TLE_sub-408_hippocampus_lh
+[17:32:17] [ICP-LOG]     OK: 24720 voxels, หดเข้า 0.49 voxel (budget 2.98), ล้นออก 0.32 voxel
+[17:32:17] [ICP-LOG] Saving [348/381]: left_TLE_sub-416_hippocampus_lh
+[17:32:17] [ICP-LOG]     OK: 40862 voxels, หดเข้า 0.71 voxel (budget 2.92), ล้นออก 0.26 voxel
+[17:32:17] [ICP-LOG] Saving [349/381]: left_TLE_sub-418_hippocampus_lh
+[17:32:17] [ICP-LOG]     OK: 22108 voxels, หดเข้า 0.52 voxel (budget 2.92), ล้นออก 0.24 voxel
+[17:32:17] [ICP-LOG] Saving [350/381]: left_TLE_sub-420_hippocampus_lh
+[17:32:18] [ICP-LOG]     OK: 31549 voxels, หดเข้า 0.73 voxel (budget 2.92), ล้นออก -0.33 voxel
+[17:32:18] [ICP-LOG] Saving [351/381]: left_TLE_sub-421_hippocampus_lh
+[17:32:18] [ICP-LOG]     OK: 22279 voxels, หดเข้า 0.68 voxel (budget 2.92), ล้นออก 0.09 voxel
+[17:32:18] [ICP-LOG] Saving [352/381]: left_TLE_sub-423_hippocampus_lh
+[17:32:18] [ICP-LOG]     OK: 32180 voxels, หดเข้า 0.87 voxel (budget 2.92), ล้นออก 0.12 voxel
+[17:32:18] [ICP-LOG] Saving [353/381]: left_TLE_sub-425_hippocampus_lh
+[17:32:19] [ICP-LOG]     OK: 29830 voxels, หดเข้า 0.67 voxel (budget 2.92), ล้นออก 0.03 voxel
+[17:32:19] [ICP-LOG] Saving [354/381]: left_TLE_sub-426_hippocampus_lh
+[17:32:19] [ICP-LOG]     OK: 30553 voxels, หดเข้า 0.34 voxel (budget 2.92), ล้นออก -0.02 voxel
+[17:32:19] [ICP-LOG] Saving [355/381]: left_TLE_sub-430_hippocampus_lh
+[17:32:19] [ICP-LOG]     OK: 30813 voxels, หดเข้า 0.47 voxel (budget 2.92), ล้นออก 0.36 voxel
+[17:32:19] [ICP-LOG] Saving [356/381]: left_TLE_sub-433_hippocampus_lh
+[17:32:19] [ICP-LOG]     OK: 18026 voxels, หดเข้า 0.37 voxel (budget 2.92), ล้นออก 0.34 voxel
+[17:32:19] [ICP-LOG] Saving [357/381]: left_TLE_sub-43_hippocampus_lh
+[17:32:20] [ICP-LOG]     OK: 26201 voxels, หดเข้า 0.59 voxel (budget 2.92), ล้นออก 0.19 voxel
+[17:32:20] [ICP-LOG] Saving [358/381]: left_TLE_sub-441_hippocampus_lh
+[17:32:20] [ICP-LOG]     OK: 26288 voxels, หดเข้า 0.81 voxel (budget 2.92), ล้นออก 0.16 voxel
+[17:32:20] [ICP-LOG] Saving [359/381]: left_TLE_sub-444_hippocampus_lh
+[17:32:20] [ICP-LOG]     OK: 24311 voxels, หดเข้า 0.60 voxel (budget 2.92), ล้นออก 0.08 voxel
+[17:32:20] [ICP-LOG] Saving [360/381]: left_TLE_sub-445_hippocampus_lh
+[17:32:20] [ICP-LOG]     OK: 20513 voxels, หดเข้า 0.32 voxel (budget 2.92), ล้นออก 0.36 voxel
+[17:32:20] [ICP-LOG] Saving [361/381]: left_TLE_sub-446_hippocampus_lh
+[17:32:21] [ICP-LOG]     OK: 20415 voxels, หดเข้า 0.64 voxel (budget 2.92), ล้นออก 0.13 voxel
+[17:32:21] [ICP-LOG] Saving [362/381]: left_TLE_sub-450_hippocampus_lh
+[17:32:21] [ICP-LOG]     OK: 25382 voxels, หดเข้า 0.79 voxel (budget 2.98), ล้นออก 0.18 voxel
+[17:32:21] [ICP-LOG] Saving [363/381]: left_TLE_sub-452_hippocampus_lh
+[17:32:21] [ICP-LOG]     OK: 26270 voxels, หดเข้า 0.47 voxel (budget 2.92), ล้นออก 0.08 voxel
+[17:32:21] [ICP-LOG] Saving [364/381]: left_TLE_sub-454_hippocampus_lh
+[17:32:22] [ICP-LOG]     OK: 22550 voxels, หดเข้า 0.83 voxel (budget 2.92), ล้นออก 0.20 voxel
+[17:32:22] [ICP-LOG] Saving [365/381]: left_TLE_sub-460_hippocampus_lh
+[17:32:22] [ICP-LOG]     OK: 23152 voxels, หดเข้า 0.65 voxel (budget 2.92), ล้นออก 0.33 voxel
+[17:32:22] [ICP-LOG] Saving [366/381]: left_TLE_sub-461_hippocampus_lh
+[17:32:22] [ICP-LOG]     OK: 33081 voxels, หดเข้า 0.59 voxel (budget 2.92), ล้นออก 0.23 voxel
+[17:32:22] [ICP-LOG] Saving [367/381]: left_TLE_sub-46_hippocampus_lh
+[17:32:22] [ICP-LOG]     OK: 23542 voxels, หดเข้า 0.75 voxel (budget 2.92), ล้นออก 0.09 voxel
+[17:32:22] [ICP-LOG] Saving [368/381]: left_TLE_sub-55_hippocampus_lh
+[17:32:23] [ICP-LOG]     OK: 27122 voxels, หดเข้า 0.84 voxel (budget 2.92), ล้นออก 0.22 voxel
+[17:32:23] [ICP-LOG] Saving [369/381]: left_TLE_sub-56_hippocampus_lh
+[17:32:23] [ICP-LOG]     OK: 27808 voxels, หดเข้า 0.46 voxel (budget 2.98), ล้นออก 0.35 voxel
+[17:32:23] [ICP-LOG] Saving [370/381]: left_TLE_sub-5_hippocampus_lh
+[17:32:23] [ICP-LOG]     OK: 21856 voxels, หดเข้า 0.67 voxel (budget 2.98), ล้นออก 0.34 voxel
+[17:32:23] [ICP-LOG] Saving [371/381]: left_TLE_sub-67_hippocampus_lh
+[17:32:23] [ICP-LOG]     OK: 18698 voxels, หดเข้า 0.40 voxel (budget 2.92), ล้นออก 0.25 voxel
+[17:32:23] [ICP-LOG] Saving [372/381]: left_TLE_sub-68_hippocampus_lh
+[17:32:24] [ICP-LOG]     OK: 33129 voxels, หดเข้า 0.74 voxel (budget 2.92), ล้นออก 0.12 voxel
+[17:32:24] [ICP-LOG] Saving [373/381]: left_TLE_sub-71_hippocampus_lh
+[17:32:24] [ICP-LOG]     OK: 34575 voxels, หดเข้า 0.55 voxel (budget 2.92), ล้นออก 0.18 voxel
+[17:32:24] [ICP-LOG] Saving [374/381]: left_TLE_sub-74_hippocampus_lh
+[17:32:24] [ICP-LOG]     OK: 28925 voxels, หดเข้า 0.66 voxel (budget 2.92), ล้นออก 0.33 voxel
+[17:32:24] [ICP-LOG] Saving [375/381]: left_TLE_sub-77_hippocampus_lh
+[17:32:25] [ICP-LOG]     OK: 25593 voxels, หดเข้า 0.93 voxel (budget 2.92), ล้นออก 0.15 voxel
+[17:32:25] [ICP-LOG] Saving [376/381]: left_TLE_sub-78_hippocampus_lh
+[17:32:25] [ICP-LOG]     OK: 25992 voxels, หดเข้า 0.59 voxel (budget 2.92), ล้นออก 0.03 voxel
+[17:32:25] [ICP-LOG] Saving [377/381]: left_TLE_sub-85_hippocampus_lh
+[17:32:25] [ICP-LOG]     OK: 23580 voxels, หดเข้า 0.64 voxel (budget 2.92), ล้นออก -0.03 voxel
+[17:32:25] [ICP-LOG] Saving [378/381]: left_TLE_sub-87_hippocampus_lh
+[17:32:25] [ICP-LOG]     OK: 19725 voxels, หดเข้า 0.72 voxel (budget 2.92), ล้นออก 0.17 voxel
+[17:32:25] [ICP-LOG] Saving [379/381]: left_TLE_sub-90_hippocampus_lh
+[17:32:26] [ICP-LOG]     OK: 30395 voxels, หดเข้า 0.51 voxel (budget 2.92), ล้นออก 0.06 voxel
+[17:32:26] [ICP-LOG] Saving [380/381]: left_TLE_sub-92_hippocampus_lh
+[17:32:27] [ICP-LOG]     OK: 26089 voxels, หดเข้า 1.01 voxel (budget 2.46), ล้นออก -0.01 voxel
+[17:32:27] [ICP-LOG] Saving [381/381]: left_TLE_sub-93_hippocampus_lh
+[17:32:27] [ICP-LOG]     OK: 27127 voxels, หดเข้า 0.78 voxel (budget 2.98), ล้นออก 0.14 voxel
+[17:32:27] [ICP-LOG]   สรุป: ทั้ง 381 subject ผ่านการตรวจสอบ bounds เรียบร้อย
+[17:32:27] [ICP-LOG]   All 381 aligned NIfTI saved to: C:/Users/IHCK/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection/reruns/icp_legacy_reference_20260921_172727/left\aligned_nifti
+[17:32:27] [ICP-LOG] --- ICP.py FINISHED ---

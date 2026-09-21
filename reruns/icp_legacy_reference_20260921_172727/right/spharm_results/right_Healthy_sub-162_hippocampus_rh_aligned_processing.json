@@ -1,0 +1,17 @@
+{
+  "feature_contract": {
+    "version": "spharm-feature-v1",
+    "icp_mode": "fixed_reference",
+    "icp_geometry_version": "fixed-legacy-groupwise-reference-v1",
+    "icp_reference_sha256": "3f8c7896bca197a48955824eb37e90c91a3c48a6fc26b2ba893af7f216deb461",
+    "spharm_template": "C:/Users/IHCK/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection/Templates/SPHARM/template_spharm_right.vtk",
+    "spharm_template_sha256": "efc2252d5b08ab26fdc5c4084d46828c86ad153081ef398673af69126f0cb1d0",
+    "num_iterations": 1000,
+    "subdiv_level": 10,
+    "spharm_degree": 12,
+    "grid_theta": 4.5,
+    "grid_phi": 4.5
+  },
+  "input_name": "right_Healthy_sub-162_hippocampus_rh_aligned.nii.gz",
+  "input_sha256": "765e6892a843064e36369e65eb3bf9f0518c271c3500b06314809da147fa69fd"
+}

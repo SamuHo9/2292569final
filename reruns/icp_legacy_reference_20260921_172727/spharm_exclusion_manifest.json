@@ -1,0 +1,589 @@
+{
+    "schema":  "spharm_case_exclusion_v1",
+    "created_at_local":  "2026-09-21T23:22:16.9108482+07:00",
+    "run_root":  "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727",
+    "reason":  "All 16 failed SPHARM cases were explicitly excluded after the fixed-reference retry failed at GenParaMesh.",
+    "scope":  "Current ICP/SPHARM run outputs only; files outside this run root are untouched.",
+    "excluded_by_side":  {
+                             "left":  [
+                                          "left_Healthy_sub-451_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-109_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-196_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-202_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-37_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-388_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-430_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-441_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-446_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-460_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-85_hippocampus_lh_aligned.nii.gz",
+                                          "left_TLE_sub-92_hippocampus_lh_aligned.nii.gz"
+                                      ],
+                             "right":  [
+                                           "right_Healthy_sub-37149_hippocampus_rh_aligned.nii.gz",
+                                           "right_TLE_sub-203_hippocampus_rh_aligned.nii.gz",
+                                           "right_TLE_sub-405_hippocampus_rh_aligned.nii.gz",
+                                           "right_TLE_sub-419_hippocampus_rh_aligned.nii.gz"
+                                       ]
+                         },
+    "excluded_cases":  [
+                           {
+                               "side":  "left",
+                               "input_file":  "left_Healthy_sub-451_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-109_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-196_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-202_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-37_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-388_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-430_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-441_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-446_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-460_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-85_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "left",
+                               "input_file":  "left_TLE_sub-92_hippocampus_lh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "right",
+                               "input_file":  "right_Healthy_sub-37149_hippocampus_rh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "right",
+                               "input_file":  "right_TLE_sub-203_hippocampus_rh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "right",
+                               "input_file":  "right_TLE_sub-405_hippocampus_rh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           },
+                           {
+                               "side":  "right",
+                               "input_file":  "right_TLE_sub-419_hippocampus_rh_aligned.nii.gz",
+                               "first_attempt_failed":  true,
+                               "retry_failed":  true,
+                               "merged_into_original":  false,
+                               "failed_at":  "GenParaMesh produced an empty mesh; retry also produced no required SPHARM outputs."
+                           }
+                       ],
+    "removed_files":  [
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_Healthy_sub-451_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  7038,
+                              "sha256":  "c89c90f574546248cef4c8853fde3aefeb73b909128b3ac68f7d3650861c3937"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_Healthy_sub-451_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  278614,
+                              "sha256":  "9daaa726a06343d8b7ffae24296a31e7c1e81f73f2be3caab39a2b1d95b56bd2"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_Healthy_sub-451_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26762,
+                              "sha256":  "964787ee1cab2f5b2180eb87a3b76d7c7a378bf40e9019a1a01b3dee1dedc889"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_Healthy_sub-451_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  7038,
+                              "sha256":  "c89c90f574546248cef4c8853fde3aefeb73b909128b3ac68f7d3650861c3937"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_Healthy_sub-451_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26762,
+                              "sha256":  "964787ee1cab2f5b2180eb87a3b76d7c7a378bf40e9019a1a01b3dee1dedc889"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-109_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  7119,
+                              "sha256":  "d2f4603d54a17dc3f1ddf6684c31b84fe1270cfe5e8791d1a7c3527f5efb76aa"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-109_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  256016,
+                              "sha256":  "531ae04f540d64f1522352e0f2061b1b9ddd006c0445f331699fc665ac5d380f"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-109_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26733,
+                              "sha256":  "fb5d96f8db274c87b6f0ac66c728c372c5b5cca13345d799c49e91c78ae944df"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-109_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  7119,
+                              "sha256":  "d2f4603d54a17dc3f1ddf6684c31b84fe1270cfe5e8791d1a7c3527f5efb76aa"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-109_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26733,
+                              "sha256":  "fb5d96f8db274c87b6f0ac66c728c372c5b5cca13345d799c49e91c78ae944df"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-196_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6289,
+                              "sha256":  "2113ddcdbb3c4ec1f5863921ecfa4982fa2036b421ca12f6c776bffb2ca864b4"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-196_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  1102390,
+                              "sha256":  "68c00037f3c904a95b7d4347d25e4f32d0dd4e8fd18cdfc23927956d8f62b4ed"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-196_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  25126,
+                              "sha256":  "27c0a434f7e677eaa05f49481fb86e14424819bcb69e016f682c411871cf18de"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-196_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6289,
+                              "sha256":  "2113ddcdbb3c4ec1f5863921ecfa4982fa2036b421ca12f6c776bffb2ca864b4"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-196_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  25126,
+                              "sha256":  "27c0a434f7e677eaa05f49481fb86e14424819bcb69e016f682c411871cf18de"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-202_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  7400,
+                              "sha256":  "59671057bca8ed0a9dbd2d11767fab8664cce52318795e3a9a7bee2697c1b29b"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-202_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  283007,
+                              "sha256":  "96974f7aacfcf985316a0b5213a5bdaac1de8145a87979f85e40ad5dc69f2845"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-202_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26902,
+                              "sha256":  "e57e8396d1a6f2caab57609fdbedd3918717015b69ae8b77bee3c8a1ba842de3"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-202_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  7400,
+                              "sha256":  "59671057bca8ed0a9dbd2d11767fab8664cce52318795e3a9a7bee2697c1b29b"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-202_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26902,
+                              "sha256":  "e57e8396d1a6f2caab57609fdbedd3918717015b69ae8b77bee3c8a1ba842de3"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-37_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6608,
+                              "sha256":  "77442d17bdc6d1d177e1f133d2d028137363bcc82446d1792201925242750f2e"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-37_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  1125576,
+                              "sha256":  "41bd18ed3811c1fdc7c25e2cd8b5888cbda5f781e95eb9c37f5dc8e4184160bf"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-37_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  25824,
+                              "sha256":  "fa3ea4b81fbe8c619c6386a4168e859b2cb85e07a4945b9847f72a2c6718abc1"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-37_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6608,
+                              "sha256":  "77442d17bdc6d1d177e1f133d2d028137363bcc82446d1792201925242750f2e"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-37_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  25824,
+                              "sha256":  "fa3ea4b81fbe8c619c6386a4168e859b2cb85e07a4945b9847f72a2c6718abc1"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-388_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6531,
+                              "sha256":  "58b42e247599267e3d250f0dfa9d95597bbfaa78a1a43ae6f0ce1da28610da35"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-388_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  260498,
+                              "sha256":  "10fd4b404cb26211e693654006d37ccd2491ed591570778c6ed31ba69efbe33e"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-388_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26499,
+                              "sha256":  "ba01c74c1ee16b344b413efbe58d59c74c9f624adf3a2c35d1b43565cd781f2d"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-388_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6531,
+                              "sha256":  "58b42e247599267e3d250f0dfa9d95597bbfaa78a1a43ae6f0ce1da28610da35"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-388_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26499,
+                              "sha256":  "ba01c74c1ee16b344b413efbe58d59c74c9f624adf3a2c35d1b43565cd781f2d"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-430_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  9020,
+                              "sha256":  "6e995d8a90cadd5b2134a297b6ec4ecac7972c5a2b1213b808d38ed96ee676ef"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-430_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  310131,
+                              "sha256":  "6faf46c9a2e5f4f56bce8ae9a87bd0707fec3fc14fbcec34b18010f6e5b57a26"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-430_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  28835,
+                              "sha256":  "08a722abd8582cad937b1bde48fd16c7cc06f664369c334c7c9ef722d6e340a1"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-430_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  9020,
+                              "sha256":  "6e995d8a90cadd5b2134a297b6ec4ecac7972c5a2b1213b808d38ed96ee676ef"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-430_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  28835,
+                              "sha256":  "08a722abd8582cad937b1bde48fd16c7cc06f664369c334c7c9ef722d6e340a1"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-441_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6809,
+                              "sha256":  "300415d47ab0b29ada083e564daac8ebad76c902844a944e59e0ee69471c8f23"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-441_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  269629,
+                              "sha256":  "1dd8bf8bf83ae94a4e09ff12de362c06d63cde00c5bcdc231173ad0cbf77c4ff"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-441_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26738,
+                              "sha256":  "08a2fb6ef91456c6b5861e1947fae57a74d06185487d3d9d6b11c354423d78f4"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-441_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6809,
+                              "sha256":  "300415d47ab0b29ada083e564daac8ebad76c902844a944e59e0ee69471c8f23"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-441_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26738,
+                              "sha256":  "08a2fb6ef91456c6b5861e1947fae57a74d06185487d3d9d6b11c354423d78f4"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-446_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6292,
+                              "sha256":  "da1b76fd54c5bc2aec8c172ce45d4cc7c50785e5a76f9ede7b15b4cb15d0988f"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-446_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  228382,
+                              "sha256":  "1f36485949753e4cf3f1b582554a971be3d00703d9db2a01135ba5e43c1eb196"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-446_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  25321,
+                              "sha256":  "f1770a75f84fdb56cd196737a9c01d21d6c037967488d267059bf8cf224f8509"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-446_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6292,
+                              "sha256":  "da1b76fd54c5bc2aec8c172ce45d4cc7c50785e5a76f9ede7b15b4cb15d0988f"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-446_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  25321,
+                              "sha256":  "f1770a75f84fdb56cd196737a9c01d21d6c037967488d267059bf8cf224f8509"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-460_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6391,
+                              "sha256":  "41179b992e8dd792a2afdd248989703eaa885fbab34590654d4070710e69b0d3"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-460_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  237691,
+                              "sha256":  "f130541c1ef9c60a947476354b994de57e72d5cca74d4a60135dd15feae24b8d"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-460_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26001,
+                              "sha256":  "4c715bec045c836c05a7ae0e98de41661cdb36810077bb48353ef4dfaf475599"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-460_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6391,
+                              "sha256":  "41179b992e8dd792a2afdd248989703eaa885fbab34590654d4070710e69b0d3"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-460_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26001,
+                              "sha256":  "4c715bec045c836c05a7ae0e98de41661cdb36810077bb48353ef4dfaf475599"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-85_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6242,
+                              "sha256":  "0d54c0ba27827041edc2cd337b3390fd746ece62b1c2cf9d9477a39a096fc96e"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-85_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  239236,
+                              "sha256":  "707052b04043b0874907e53697ef180afac18ddf81a8d6964259d56b1b47e7d6"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-85_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26011,
+                              "sha256":  "cf9cb676f2ed42a6709de1d9fd9fa78d76300d586e71f09c529b463e231b8447"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-85_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  6242,
+                              "sha256":  "0d54c0ba27827041edc2cd337b3390fd746ece62b1c2cf9d9477a39a096fc96e"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-85_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  26011,
+                              "sha256":  "cf9cb676f2ed42a6709de1d9fd9fa78d76300d586e71f09c529b463e231b8447"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_nifti\\left_TLE_sub-92_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  7286,
+                              "sha256":  "73228ada5d7a5044a7bbbbd4e81cfe2a5cea186f74e1cdb458e765e60bc4be45"
+                          },
+                          {
+                              "path_from_run_root":  "left\\aligned_meshes\\left_TLE_sub-92_hippocampus_lh_aligned.vtk",
+                              "size_bytes":  1220157,
+                              "sha256":  "a776dcf2b8318b8f6f131a7a685b35014ae8230f25f7b7a892b6de0450d1e189"
+                          },
+                          {
+                              "path_from_run_root":  "left\\spharm_results\\left_TLE_sub-92_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  27326,
+                              "sha256":  "c5cabe6635c9ce51763e93489779e02602d63d86dafaa49415a8459c8d2c4afd"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\input\\left_TLE_sub-92_hippocampus_lh_aligned.nii.gz",
+                              "size_bytes":  7286,
+                              "sha256":  "73228ada5d7a5044a7bbbbd4e81cfe2a5cea186f74e1cdb458e765e60bc4be45"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\left\\output\\spharm_results\\left_TLE_sub-92_hippocampus_lh_aligned_pp.nrrd",
+                              "size_bytes":  27326,
+                              "sha256":  "c5cabe6635c9ce51763e93489779e02602d63d86dafaa49415a8459c8d2c4afd"
+                          },
+                          {
+                              "path_from_run_root":  "right\\aligned_nifti\\right_Healthy_sub-37149_hippocampus_rh_aligned.nii.gz",
+                              "size_bytes":  7900,
+                              "sha256":  "1f24418d9e73461c40260bd163d0033b1407dacfbf7c2455f7a875b5c990e43d"
+                          },
+                          {
+                              "path_from_run_root":  "right\\aligned_meshes\\right_Healthy_sub-37149_hippocampus_rh_aligned.vtk",
+                              "size_bytes":  273205,
+                              "sha256":  "445d98125da6ea67428666ed0d1dcbd94fc0c2ba62ea7c0f3d6b04c6f39250d8"
+                          },
+                          {
+                              "path_from_run_root":  "right\\spharm_results\\right_Healthy_sub-37149_hippocampus_rh_aligned_pp.nrrd",
+                              "size_bytes":  28745,
+                              "sha256":  "b9968e3c6d655563d21cdd951e2eb3704a8cec4d03ddcb2ce11c95046a0a8b6d"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\right\\input\\right_Healthy_sub-37149_hippocampus_rh_aligned.nii.gz",
+                              "size_bytes":  7900,
+                              "sha256":  "1f24418d9e73461c40260bd163d0033b1407dacfbf7c2455f7a875b5c990e43d"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\right\\output\\spharm_results\\right_Healthy_sub-37149_hippocampus_rh_aligned_pp.nrrd",
+                              "size_bytes":  28745,
+                              "sha256":  "b9968e3c6d655563d21cdd951e2eb3704a8cec4d03ddcb2ce11c95046a0a8b6d"
+                          },
+                          {
+                              "path_from_run_root":  "right\\aligned_nifti\\right_TLE_sub-203_hippocampus_rh_aligned.nii.gz",
+                              "size_bytes":  7153,
+                              "sha256":  "05787a33f31cf1a5913e04f12360e8a5e26969ef4a30842f84760a403d8a83ef"
+                          },
+                          {
+                              "path_from_run_root":  "right\\aligned_meshes\\right_TLE_sub-203_hippocampus_rh_aligned.vtk",
+                              "size_bytes":  232434,
+                              "sha256":  "0d62b0979142054b000064fa27543fc9befa129b758f05a60061b18c1d1cd2ff"
+                          },
+                          {
+                              "path_from_run_root":  "right\\spharm_results\\right_TLE_sub-203_hippocampus_rh_aligned_pp.nrrd",
+                              "size_bytes":  27145,
+                              "sha256":  "ba33b1289bb7ebde40cf7a72b389895dc7a5b80f5143b1a49c550e9b764ae4db"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\right\\input\\right_TLE_sub-203_hippocampus_rh_aligned.nii.gz",
+                              "size_bytes":  7153,
+                              "sha256":  "05787a33f31cf1a5913e04f12360e8a5e26969ef4a30842f84760a403d8a83ef"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\right\\output\\spharm_results\\right_TLE_sub-203_hippocampus_rh_aligned_pp.nrrd",
+                              "size_bytes":  27145,
+                              "sha256":  "ba33b1289bb7ebde40cf7a72b389895dc7a5b80f5143b1a49c550e9b764ae4db"
+                          },
+                          {
+                              "path_from_run_root":  "right\\aligned_nifti\\right_TLE_sub-405_hippocampus_rh_aligned.nii.gz",
+                              "size_bytes":  8097,
+                              "sha256":  "962610a4464c05a186bd4c45b19d7a7357fdcce72d613a8646e9c9549d97a749"
+                          },
+                          {
+                              "path_from_run_root":  "right\\aligned_meshes\\right_TLE_sub-405_hippocampus_rh_aligned.vtk",
+                              "size_bytes":  298296,
+                              "sha256":  "4b049c659da2ca6c653b76249c8930a71530f9331a876984b12b0de6b3c89d08"
+                          },
+                          {
+                              "path_from_run_root":  "right\\spharm_results\\right_TLE_sub-405_hippocampus_rh_aligned_pp.nrrd",
+                              "size_bytes":  28979,
+                              "sha256":  "44aedb00060050677060e30d7fe4402184c1783cbfacb0ebce0223b17d8e362b"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\right\\input\\right_TLE_sub-405_hippocampus_rh_aligned.nii.gz",
+                              "size_bytes":  8097,
+                              "sha256":  "962610a4464c05a186bd4c45b19d7a7357fdcce72d613a8646e9c9549d97a749"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\right\\output\\spharm_results\\right_TLE_sub-405_hippocampus_rh_aligned_pp.nrrd",
+                              "size_bytes":  28979,
+                              "sha256":  "44aedb00060050677060e30d7fe4402184c1783cbfacb0ebce0223b17d8e362b"
+                          },
+                          {
+                              "path_from_run_root":  "right\\aligned_nifti\\right_TLE_sub-419_hippocampus_rh_aligned.nii.gz",
+                              "size_bytes":  6539,
+                              "sha256":  "9373dbc40794f971ef8e6c4d6faa2ba2589b7730e068793fa18ec8e3490a1323"
+                          },
+                          {
+                              "path_from_run_root":  "right\\aligned_meshes\\right_TLE_sub-419_hippocampus_rh_aligned.vtk",
+                              "size_bytes":  250789,
+                              "sha256":  "0b8d2b9c8c186fc3dd6b85b95452e0fb2e0d91b0c54195e41ece4b1e7c333005"
+                          },
+                          {
+                              "path_from_run_root":  "right\\spharm_results\\right_TLE_sub-419_hippocampus_rh_aligned_pp.nrrd",
+                              "size_bytes":  27154,
+                              "sha256":  "ef3cbcb2e2a63c1222358e27fecbcbd109d7b9f7e82efafb50d62854d7d4f27f"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\right\\input\\right_TLE_sub-419_hippocampus_rh_aligned.nii.gz",
+                              "size_bytes":  6539,
+                              "sha256":  "9373dbc40794f971ef8e6c4d6faa2ba2589b7730e068793fa18ec8e3490a1323"
+                          },
+                          {
+                              "path_from_run_root":  "spharm_failed_retry_20260921_225951\\right\\output\\spharm_results\\right_TLE_sub-419_hippocampus_rh_aligned_pp.nrrd",
+                              "size_bytes":  27154,
+                              "sha256":  "ef3cbcb2e2a63c1222358e27fecbcbd109d7b9f7e82efafb50d62854d7d4f27f"
+                          }
+                      ],
+    "cleanup_status":  "completed",
+    "retained_audit":  [
+                           "left/verify_spharm_outputs_pre_exclusion.json",
+                           "right/verify_spharm_outputs_pre_exclusion.json",
+                           "spharm_failed_retry_20260921_225951/retry_manifest.json",
+                           "Original SPHARM shard status JSON files and run logs"
+                       ],
+    "completed_at_local":  "2026-09-21T23:22:17.1065126+07:00",
+    "deleted_file_count":  80,
+    "active_inputs_after_exclusion":  {
+                                          "left":  369,
+                                          "right":  377
+                                      },
+    "post_exclusion_verification":  {
+                                        "left":  {
+                                                     "total_inputs":  369,
+                                                     "complete":  369,
+                                                     "failed":  0,
+                                                     "deep_geometry_check":  true
+                                                 },
+                                        "right":  {
+                                                      "total_inputs":  377,
+                                                      "complete":  377,
+                                                      "failed":  0,
+                                                      "deep_geometry_check":  true
+                                                  }
+                                    },
+    "retry_helper_check_only":  "passed: zero retry subjects; exclusions honored"
+}

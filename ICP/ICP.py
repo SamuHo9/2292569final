@@ -521,10 +521,14 @@ INTERPOLATION_MODE = "nn"   # ต้องเป็น nn สำหรับ lab
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Group-wise rigid ICP alignment for NIfTI labels.")
-    parser.add_argument("--input_dir", default=None, help="Input directory containing NIfTI labels")
+    input_group = parser.add_mutually_exclusive_group()
+    input_group.add_argument("--input_dir", default=None, help="Batch input directory containing NIfTI labels")
+    input_group.add_argument("--input_file", default=None, help="Single NIfTI label file")
     parser.add_argument("--output_dir", default=None, help="Output directory for aligned files")
-    parser.add_argument("--reference_template", default=None, help="Fixed training template .vtk/.ply with matching .json metadata")
+    parser.add_argument("--reference_template", default=None, help="Fixed ICP template .vtk/.ply with matching .json metadata")
     parser.add_argument("--fit_reference", action="store_true", help="Build a new reference from TRAINING masks only; requires model retraining")
+    parser.add_argument("--exploratory_groupwise", action="store_true",
+                        help="Explicitly allow a batch-dependent groupwise reference for exploratory analysis only")
     parser.add_argument("--output_spacing", type=float, default=None,
                         help="Output voxel spacing (ถ้าไม่ระบุ = 2.0/output_voxels ให้กล่องพอดี [-1,1])")
     parser.add_argument("--output_voxels", type=int, default=OUTPUT_VOXELS, help="Output volume dimension size")
@@ -537,8 +541,16 @@ def parse_args():
     parser.add_argument("--invert_transform", type=str, default="auto", choices=["auto", "yes", "no"],
                         help="ทิศของ transform ที่ส่งให้ ITK resample (auto = ทดสอบกับ subject แรกแล้วเลือกเอง)")
     args, _ = parser.parse_known_args()
-    if args.reference_template and args.fit_reference:
-        parser.error('Choose either --reference_template or --fit_reference')
+    alignment_modes = int(bool(args.reference_template)) + int(bool(args.fit_reference)) + int(bool(args.exploratory_groupwise))
+    if alignment_modes != 1:
+        parser.error('Choose exactly one of --reference_template, --fit_reference, or --exploratory_groupwise')
+    if args.input_file:
+        if not os.path.isfile(args.input_file):
+            parser.error(f'--input_file does not exist: {args.input_file}')
+        if not args.input_file.lower().endswith(('.nii.gz', '.nii', '.hdr', '.nrrd')):
+            parser.error('--input_file must be a supported NIfTI/Nrrd volume')
+        if not args.output_dir:
+            parser.error('--output_dir is required with --input_file')
     if args.output_voxels < 8 or args.max_iterations < 1 or args.pairwise_iterations < 1:
         parser.error('Voxel size/iteration counts must be positive and valid')
 
@@ -837,12 +849,17 @@ def step6_save_outputs(output_dir, file_list, aligned_meshes, T_matrices, gw_his
         json.dump(gw_history, f, indent=2)
     sprint("  Saved icp_convergence_history.json")
 
-    mean_poly = compute_mean_poly(aligned_meshes)
-    writer = vtk.vtkPLYWriter()
-    writer.SetFileName(os.path.join(output_dir, "mean_shape.ply"))
-    writer.SetInputData(mean_poly)
-    writer.Write()
-    sprint("  Saved mean_shape.ply")
+    derived_mean_shape = None
+    if args.reference_template:
+        sprint("  Fixed reference is active; skipping a batch-derived mean_shape.ply to keep it distinct from the template.")
+    else:
+        mean_poly = compute_mean_poly(aligned_meshes)
+        writer = vtk.vtkPLYWriter()
+        derived_mean_shape = os.path.join(output_dir, "mean_shape.ply")
+        writer.SetFileName(derived_mean_shape)
+        writer.SetInputData(mean_poly)
+        writer.Write()
+        sprint("  Saved mean_shape.ply")
 
     # Save individual aligned meshes for each subject
     aligned_mesh_dir = os.path.join(output_dir, "aligned_meshes")
@@ -874,35 +891,55 @@ def step6_save_outputs(output_dir, file_list, aligned_meshes, T_matrices, gw_his
             'fit_reference' if args.fit_reference else 'exploratory_groupwise')
     reference_sha256 = None
     reference_path = args.reference_template
+    reference_contract = None
     if args.reference_template:
-        reference_sha256 = load_reference_contract(args.reference_template)['template_sha256']
+        reference_contract = load_reference_contract(args.reference_template)
+        reference_sha256 = reference_contract['template_sha256']
     elif args.fit_reference:
         reference_path = os.path.join(output_dir, 'mean_shape.ply')
         contract_path = reference_path + '.json'
         if os.path.isfile(contract_path):
             with open(contract_path, 'r', encoding='utf-8') as contract_stream:
-                reference_sha256 = json.load(contract_stream).get('template_sha256')
+                reference_contract = json.load(contract_stream)
+                reference_sha256 = reference_contract.get('template_sha256')
+    geometry_version = (
+        reference_contract.get('version') if reference_contract else
+        'exploratory-groupwise-v1'
+    )
     with open(os.path.join(output_dir, 'icp_status.json'), 'w', encoding='utf-8') as stream:
         json.dump({'success': True, 'subjects': len(file_list),
-                   'geometry_version': ('fixed-training-reference-v1'
-                                        if mode in ('fixed_reference', 'fit_reference')
-                                        else 'exploratory-groupwise-v1'),
+                   'geometry_version': geometry_version,
                    'reference_template': reference_path,
                    'reference_sha256': reference_sha256,
-                   'mode': mode}, stream)
+                   'mode': mode,
+                   'reference_origin': (reference_contract or {}).get('reference_origin'),
+                   'derived_mean_shape': derived_mean_shape,
+                   'independent_test_reference': (
+                       (reference_contract or {}).get('independent_test_reference',
+                           (reference_contract or {}).get('version') == 'fixed-training-reference-v1')
+                       if reference_contract else None
+                   ),
+                   'parameters': {
+                       'output_voxels': int(args.output_voxels),
+                       'output_spacing': float(args.output_spacing),
+                       'max_groupwise_iterations': int(args.max_iterations),
+                       'groupwise_tolerance': float(args.tolerance),
+                       'pairwise_iterations': int(args.pairwise_iterations),
+                       'pairwise_tolerance': float(args.pairwise_tolerance),
+                       'pairwise_landmarks': int(args.pairwise_landmarks),
+                       'interpolation': str(args.interpolation),
+                       'invert_transform': str(args.invert_transform),
+                   }}, stream)
 
     sprint(f"  All {N} aligned NIfTI saved to: {os.path.join(output_dir, 'aligned_nifti')}")
     sprint("--- ICP.py FINISHED ---")
 
 def main():
-    sprint("--- ICP.py STARTING (rigid groupwise ICP) ---")
     args = parse_args()
-    if not args.reference_template and not args.fit_reference:
-        sprint('[WARNING] Exploratory groupwise alignment: batch-dependent coordinates. For training use --fit_reference; for held-out/inference use --reference_template.')
-
     input_dir = args.input_dir
-    if not input_dir:
-        sprint("No --input_dir given. Opening folder picker...")
+    input_file = args.input_file
+    if not input_dir and not input_file:
+        sprint("No input given. Opening folder picker...")
         input_dir = prompt_folder("Select input folder containing NIfTI labels")
         if not input_dir:
             sprint("ERROR: No folder selected. Exiting.")
@@ -914,10 +951,22 @@ def main():
         output_dir = os.path.join(SCRIPT_DIR, f"output_{basename}")
         sprint(f"No --output_dir given. Using default: {output_dir}")
 
-    input_dir = input_dir.replace("\\", "/")
+    if input_dir:
+        input_dir = input_dir.replace("\\", "/")
+    if input_file:
+        input_file = input_file.replace("\\", "/")
     output_dir = output_dir.replace("\\", "/")
     os.makedirs(output_dir, exist_ok=True)
-    sprint(f"Input  dir: {input_dir}")
+    global DEBUG_LOG
+    DEBUG_LOG = os.path.join(output_dir, "icp_debug_log.txt")
+    with open(DEBUG_LOG, "w", encoding="utf-8") as f:
+        f.write(f"--- LOG START: {datetime.now()} ---\n")
+    sprint("--- ICP.py STARTING (rigid ICP) ---")
+    if args.exploratory_groupwise:
+        sprint('[WARNING] Explicit exploratory groupwise alignment: the reference depends on this entire input batch.')
+    sprint(f"Input  dir: {input_dir or '(single-file mode)'}")
+    if input_file:
+        sprint(f"Input file: {input_file}")
     sprint(f"Output dir: {output_dir}")
 
     clean_previous_outputs(output_dir)
@@ -925,7 +974,7 @@ def main():
     with open(status_path, 'w', encoding='utf-8') as stream:
         json.dump({'success': False, 'state': 'running'}, stream)
 
-    file_list = find_input_files(input_dir)
+    file_list = [input_file] if input_file else find_input_files(input_dir)
     sprint(f"Total files to process: {len(file_list)}")
     if not file_list:
         raise ValueError('No files found in input_dir')
@@ -953,8 +1002,6 @@ def main():
 if __name__ == "__main__":
     import sys, os
     exit_code = 0
-    with open(DEBUG_LOG, "w") as f:
-        f.write(f"--- LOG START: {datetime.now()} ---\n")
     try:
         main()
     except Exception as e:

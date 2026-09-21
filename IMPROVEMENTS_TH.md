@@ -2,6 +2,21 @@
 
 วันที่: 18 กันยายน 2026
 
+## อัปเดตการเตรียม rerun — 21 กันยายน 2026
+
+- กู้ ICP reference ซ้าย/ขวาจากผล groupwise เดิม โดยตรวจ `icp_status.json`, 381 subject names, `T_matrices.npy` และ geometry ของ aligned NIfTI ครบ 381 ไฟล์ต่อข้าง เก็บพร้อม hash/scale/grid ที่ `ICP/references/legacy_groupwise_all_381_v1/`
+- เพิ่ม `ICP/run_icp_with_reference.py` ให้รันทีละข้างหรือทีละไฟล์จาก Python, ตรวจ input/reference ก่อนเริ่ม, รอ Slicer จบ และตรวจจำนวน output/hash/status ก่อนรายงานสำเร็จ
+- แก้ PowerShell wrappers ให้รอ Slicer process tree ก่อนตรวจ status; แก้กรณี Git Bash/PowerShell รายงานว่าไม่มี `icp_status.json` ทั้งที่ Slicer ยังประมวลผลต่ออยู่
+- `ICP/ICP.py` บังคับระบุโหมด alignment ให้ชัด และรองรับ single-file input; status ใหม่บันทึก reference version/provenance และ flag ว่า legacy reference ไม่เป็นอิสระจาก test ของชุดเดิม
+- ลบ output ICP/SPHARM, launcher รุ่นเก่าที่ใช้ path ตายตัว และ post-SPHARM split helpers ที่ไม่อยู่ใน rerun ใหม่ หลังสร้าง bundle ที่ตรวจสอบแล้ว ลบ 49,609 ไฟล์/3.816 GiB; รายการอยู่ใน `CLEANUP_MANIFEST_20260921.json`; อัปเดตคู่มือทั้งหมดที่เกี่ยวข้อง
+- ผล model, training logs, raw MRI/masks และ split/status manifests ที่ต้องใช้ rerun ยังคงอยู่; ไม่ลบหรือเขียนทับผล model เก่าก่อนมี rerun ใหม่
+
+legacy reference นี้ใช้ทำซ้ำ coordinate frame เดิมเท่านั้น เพราะมาจากผู้เข้าร่วมทั้ง 381 ราย ห้ามใช้สร้าง test inputs แล้วอ้าง held-out evaluation อิสระ ให้ใช้ train-only flow ใน [RERUN_GUIDE_TH.md](RERUN_GUIDE_TH.md)
+
+รอบที่ผู้ใช้รันเมื่อ 21 กันยายน 2026 ซ้ายประมวลผลสำเร็จครบ 381 volumes แม้ PowerShell runner เดิมแจ้ง error ก่อน Slicer จบ; status และ aligned outputs ถูกตรวจแล้ว ส่วนขวายังต้องรันด้วย Python launcher ใหม่
+
+ตรวจ subject IDs กับ ALL status ชุดปัจจุบันแล้ว: left **373/373** และ right **377/377** อยู่ใน legacy ICP reference ทั้งหมด ผล overlap และ hash ของ status tables อยู่ใน `ICP/references/legacy_groupwise_all_381_v1/reference_manifest.json`
+
 ปรับโค้ดเพื่อให้การประมวลผล การแบ่งข้อมูล และการวัดผลตรวจสอบได้มากขึ้น พร้อมทดสอบส่วนข้อมูลและ SVM จริงแล้ว งานนี้ยังไม่ใช่การรับรองความถูกต้องของการวินิจฉัย และยังไม่ได้รัน MRI → Desktop ครบทั้งระบบบนภาพใหม่หลังแก้ไข
 
 ## ระบบทำอะไร และ preprocessing อยู่ที่ไหน
@@ -25,7 +40,7 @@ MRI
  → Desktop inference และบันทึกผล
 ```
 
-Preprocessing จึงมีทั้งระดับภาพ, mask, geometry และ feature การ fit ขั้นตอนที่เรียนรู้จากข้อมูลต้องไม่ใช้ validation/test ของการประเมินนั้น ตัวเลือก groupwise ICP เดิมยังมีไว้สำรวจข้อมูล แต่ไม่ใช่เส้นทางยืนยันการทำนายผู้ป่วยใหม่
+Preprocessing จึงมีทั้งระดับภาพ, mask, geometry และ feature การ fit ขั้นตอนที่เรียนรู้จากข้อมูลต้องไม่ใช้ validation/test ของการประเมินนั้น groupwise ICP แบบเดิมและ legacy fixed reference ที่สร้างจากผลนั้นใช้ทำซ้ำ/สำรวจเท่านั้น ไม่ใช่เส้นทางยืนยันการทำนาย held-out ผู้ป่วยชุดเดิม
 
 ## รายการแก้ไข
 
@@ -51,7 +66,7 @@ Preprocessing จึงมีทั้งระดับภาพ, mask, geometr
 - เพิ่ม margin ตอนกำหนดกรอบ และเปลี่ยนการ export ที่ผิดพลาด/ไม่ผ่านเกณฑ์ QC ให้หยุดพร้อมสถานะไม่สำเร็จ
 - แก้ชื่อพารามิเตอร์ GUI ให้ตรงกับ CLI; กำหนด reference แยกข้างผ่าน `HIPPO_ICP_REFERENCE_LEFT` และ `HIPPO_ICP_REFERENCE_RIGHT`
 
-**ผลต่อการใช้งาน:** template เก่าที่ไม่มี metadata จะใช้ fixed-reference mode ไม่ได้ ต้องสร้าง reference ใหม่จาก train เท่านั้น แล้วประมวลผลทั้ง train และ test ด้วย reference เดียวกัน การเปลี่ยน geometry นี้ต้องสร้าง features และฝึกโมเดลใหม่ ห้ามเติม metadata เดา ๆ ให้ weights เก่า
+**ผลต่อการใช้งาน:** mean shape เดิมไม่มี metadata จึงสร้าง legacy reference bundle โดยตรวจ scale ร่วมจาก 381 transform matrices และ grid จาก aligned NIfTI ทุกไฟล์ พร้อม hash ต้นทาง ไม่ได้เติม scale โดยเดา อย่างไรก็ตาม reference ดังกล่าว fit จากผู้เข้าร่วมทั้งชุดเดิม จึงห้ามใช้ประเมิน held-out test ของ cohort นั้น หากสร้าง evaluation ใหม่ให้ fit reference จาก training masks เท่านั้น แล้ว align train/test ด้วย bundle นั้น การเปลี่ยน geometry ต้องสร้าง features และฝึกโมเดลใหม่ ห้ามนำ weights เก่ามาปะกับ feature ใหม่
 
 ### 3. SPHARM: ตรวจผลจริงและที่มาของผลลัพธ์
 
@@ -63,7 +78,7 @@ Preprocessing จึงมีทั้งระดับภาพ, mask, geometr
 - status รุ่นปัจจุบันบันทึกโหมด, `iter/subdiv/degree`, input/output directory, required suffixes และ SHA-256 ของ template เพื่อแยกผลคนละมาตรฐานออกจากกันได้
 - แก้จุดที่ `run_batch_spharm()` เดิมละเลยค่า `False` จาก `process_single_subject()` ทำให้ mesh ว่างยังถูกพิมพ์ว่า completed; ตอนนี้ตรวจ `Completed` เท่านั้น ตรวจ ParaToSPHARMMesh/grid และคืน exit code ไม่สำเร็จเมื่อมี subject ตก
 - เพิ่ม `SPHARM/verify_spharm_outputs.py` สำหรับตรวจ input ทุกตัวกับ `.coef`, `.vtk`, `_grid.vtk` และ `_ellalign.coef` จาก Terminal
-- ทำคำสั่งซ้าย/ขวาให้ใช้มาตรฐานเดียวกันผ่าน `SPHARM/run_spharm.bat left|right` และ wrapper `run_spharm_parallel_left.bat`/`run_spharm_parallel_right.bat`: production `iter=1000`, `subdiv=10`, `degree=12`, grid 4.5°×4.5°, Slicer flags และ validation ชุดเดียวกัน โดยเลือก template ซ้าย/ขวาตาม hemisphere
+- launcher `SPHARM/run_spharm.bat` และ wrappers ซ้าย/ขวาเป็นวิธีจากรอบก่อน ปัจจุบันลบแล้วเพื่อลดความสับสน; ใช้ `SPHARM/run_spharm_parallel.py` ในคำสั่งที่ระบุ input/output/reference ชัดเจนตาม `RERUN_GUIDE_TH.md` โดยยังใช้ค่าผลิต SPHARM เดิมที่บันทึกไว้
 - เพิ่ม Windows error mode เพื่อไม่ให้ native access violation ของ `ParaToSPHARMMeshCLP.exe` เปิด dialog ค้างทั้ง batch และกำหนด wrapper มาตรฐานเป็น 5 workers เพื่อให้ซ้าย/ขวาใช้ความขนานเท่ากัน โดย subject ที่มี topology ผิดปกติยังถูกบันทึกเป็น failed รายตัว
 - ข้ามผลเดิมได้เมื่อ fingerprint ตรงและผลที่จำเป็นมีครบ ลดการใช้ไฟล์ค้างจากการตั้งค่ารอบก่อน
 - ตรวจ shard, input ว่าง, reference ที่หาย และ dependency ของ preprocessing
@@ -160,7 +175,7 @@ Preprocessing จึงมีทั้งระดับภาพ, mask, geometr
 
 - ใช้ PythonSlicer 3.9.10 ที่มีอยู่ในเครื่องรัน regression tests และ sklearn; ไม่ได้ติดตั้ง dependencies เพิ่ม
 - รายละเอียดผลปัจจุบัน: `regression_results.txt`, `regression_summary.json`
-- ผลตรวจล่าสุด: **26 tests ผ่านทั้งหมด**, syntax ของ Python **156 ไฟล์ไม่พบข้อผิดพลาด** (ไม่นับ source ภายนอก FastSurfer/backup/build ตามตัวกรองใน `verify_changes.py`)
+- ผลตรวจล่าสุด 21 กันยายน 2026: **32 tests ผ่านทั้งหมด**, syntax ของ Python **7,945 ไฟล์ไม่พบข้อผิดพลาด** (`verify_changes.py`; การตรวจนี้ไม่ใช่ end-to-end MRI/SPHARM/GUI/inference run)
 - ทดสอบ schema/predictor, unknown labels, reference metadata/hash, failure propagation, bootstrap, augmentation ภายใน fit, cohort ทั้ง 12 คู่ dataset/side และสคริปต์ฝึก 74 ตัว
 - ส่วนที่ต้องใช้ Slicer/VTK/MRI/Qt/torch บางรายการใช้ AST extraction และ mocks เพื่อทดสอบตรรกะ จึงไม่ใช่ end-to-end test
 - ตรวจ syntax ของ source Python และ parser ของ PowerShell launchers
@@ -169,7 +184,7 @@ Preprocessing จึงมีทั้งระดับภาพ, mask, geometr
 - การเรียก legacy SVM ทั้งไฟล์โดยตรงยังติด matplotlib ที่ขาด มีหลักฐานใน `legacy_svm_smoke.txt`; ผลทดสอบแยกส่วนอยู่ใน `legacy_svm_model_smoke.txt`
 - เปรียบเทียบ predictions สองรอบสำเร็จหลังตรวจ identities: `Model/validated_runs/smoke_comparison.csv`
 
-การตรวจ artifact รอบมาตรฐานล่าสุดพบว่า ICP มี `icp_status.json` สำเร็จ 381 รายต่อข้าง แต่เป็น `exploratory_groupwise` และ `reference_sha256=null` จึงยังไม่ใช่ fixed training reference. SPHARM ใช้คำสั่งและสัญญาเดียวกันทั้งสองข้าง (`iter=1000`, `subdiv=10`, `degree=12`, grid 4.5°×4.5°, template แยกตาม hemisphere, validation ชุดเดียวกัน) และมีรายงานรวมใน `bilateral_spharm_verification.json` โดยเปิด deep VTK geometry check แล้ว ผลคือซ้าย **373/381** และขวา **377/381** ครบ artifact ที่จำเป็นและไม่มี VTK geometry ที่เสียใน 750 ผลลัพธ์ที่ตรวจได้ รวมยังตก 12 ราย (ซ้าย 8 รายจาก `GenParaMesh` ได้ mesh ว่าง และขวา 4 รายที่ยังสร้างผลไม่ครบ). ตัวอย่าง input จับคู่ตาม subject ได้ **381/381**; label ซ้าย/ขวาต่างกัน 246 ราย ซึ่งเป็นข้อมูลที่ต้องยืนยันกับ label manifest ว่าหมายถึงสถานะ hippocampus รายข้าง ห้ามสกัด feature จาก subject ที่ไม่ผ่าน verifier; Current SPHARM artifacts also lack provenance sidecars, so feature extraction must wait for a rerun that writes a fixed-reference contract.
+หลักฐานก่อน cleanup เคยพบว่า ICP เดิมเป็น `exploratory_groupwise` 381 รายต่อข้าง ส่วน SPHARM ผ่าน artifact check ซ้าย 373/381 และขวา 377/381; ขาด 12 ราย และ input เดิมจับคู่กันได้ 381/381 การตรวจในขณะนั้นยังไม่มี provenance sidecars จึงต้อง rerun ก่อนสกัด features ผล ICP/SPHARM และรายงาน `bilateral_spharm_verification.json` รุ่นเก่าถูกลบใน cleanup วันที่ 21 กันยายน 2026; ตัวเลขนี้เป็นประวัติ ไม่ใช่ output ที่ใช้กับ rerun ปัจจุบัน
 
 ผล nested baseline: Ds004469 ซ้าย, train 41, test 11, outer CV 3 folds, augmentation 1 ลูกต่อ training subject:
 
@@ -185,36 +200,18 @@ Preprocessing จึงมีทั้งระดับภาพ, mask, geometr
 
 ## วิธีรันซ้ำและย้ายไป preprocessing รุ่นใหม่
 
-จาก root repository ใน environment ที่ติดตั้ง dependency ครบ:
+คู่มือคำสั่งปัจจุบันอยู่ใน [RERUN_GUIDE_TH.md](RERUN_GUIDE_TH.md): ส่วน A ใช้ legacy ICP reference ที่สร้างไว้สำหรับ batch/single repeatability; ส่วน B แบ่งผู้ป่วยก่อน ICP และ fit reference จาก train masks เท่านั้นสำหรับ evaluation ใหม่
+
+อย่าใช้คำสั่ง verifier แบบเก่าที่ชี้ไปยัง `ICP/output_left_hippocampus` หรือ `ICP/output_right_hippocampus` เพราะผลเก่าถูกลบแล้ว ให้ตรวจ output directory ที่ runner สร้างใน `$RunRoot` เช่น:
 
 ```powershell
-python verify_changes.py
-python SPHARM/verify_spharm_outputs.py --input_dir ICP/output_left_hippocampus/aligned_nifti --output_dir ICP/output_left_hippocampus
-python SPHARM/verify_spharm_outputs.py --input_dir ICP/output_right_hippocampus/aligned_nifti --output_dir ICP/output_right_hippocampus
-python SPHARM/verify_bilateral_outputs.py --left_input_dir ICP/output_left_hippocampus/aligned_nifti --left_output_dir ICP/output_left_hippocampus --right_input_dir ICP/output_right_hippocampus/aligned_nifti --right_output_dir ICP/output_right_hippocampus --report bilateral_spharm_verification.json --deep
-python Model/train_validated_baseline.py --cohort Ds004469 --side left --outer-folds 3 --children 1 --components 2 5
-python Model/compare_runs.py path/to/run_A/test_predictions.npz path/to/run_B/test_predictions.npz --output comparison_new.csv
+& 'C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe' SPHARM\verify_spharm_outputs.py `
+  --input_dir "$RunRoot\icp\left\train_fixed\aligned_nifti" `
+  --output_dir "$RunRoot\icp\left\train_fixed" `
+  --deep
 ```
 
-baseline อ่าน canonical CSV ของ repository ตาม `Model/data_contract.py` ไม่ใช่รับ CSV ใดก็ได้ผ่านคำสั่งนี้ อย่านำผลของ historical features ไปอ้างว่าได้ผ่าน preprocessing รุ่นใหม่แล้ว
-
-ลำดับ migration ที่ยังต้องรันกับข้อมูลจริง:
-
-1. ยืนยัน subject IDs, label และ train/test split ก่อนสร้าง template; ถ้ามีหลาย scan ต่อคนต้องแยกตามคน ไม่ให้ข้าม fold
-2. สร้าง ICP reference แยกข้างจาก training masks เท่านั้นด้วย `--fit_reference`; เก็บ `mean_shape.ply` และ `.json` คู่กัน
-3. รัน ICP ทั้ง train และ test ด้วย `--reference_template` ชี้คู่ไฟล์นั้น โดยใช้ output directory ใหม่; ห้ามใช้ output ของ groupwise fit ปะปนกับ fixed-reference output
-4. ใช้ SPHARM template ที่มาจาก train และ freeze ค่า preprocessing/degree/grid ให้ตรงกัน ตรวจ segmentation และ mesh ด้วยข้อมูลจริง
-5. สกัด features ใหม่พร้อม label CSV และ metadata; จัด canonical splits ให้ตรงกับ loader พร้อมเก็บชุดเก่าแยกไว้ก่อน
-6. ฝึกและประเมินใหม่ด้วย fold-local preprocessing; หากจะอ้าง CV ที่ครอบคลุมการเรียนรู้ geometry ต้องสร้าง reference ภายในแต่ละ training fold ด้วย baseline ปัจจุบันยังไม่ orchestration ขั้นภาพภายใน folds
-7. ฝึกโมเดลที่จะใช้ใน Desktop จริง บันทึก weights/scaler/PLS/schema/manifest ที่ตรงกัน และทดสอบ round-trip ว่า training กับ Desktop ให้ผลเหมือนกัน
-8. ประเมินบนผู้ป่วยและแหล่งข้อมูลภายนอกที่ไม่ได้ใช้เลือกโมเดล พร้อมตรวจนิยาม target และ calibration ก่อนพิจารณาการใช้งานกับคน
-
-ตัวอย่าง ICP CLI ผ่าน SlicerSALT (เปลี่ยน placeholder เป็น directory จริง; ยังไม่ได้รันคำสั่งตัวอย่างนี้):
-
-```powershell
-& 'C:\Program Files\SlicerSALT 6.0.0\SlicerSALT.exe' --no-main-window --python-script ICP/ICP.py --input_dir TRAIN_LEFT_MASKS --output_dir NEW_LEFT_REFERENCE --fit_reference
-& 'C:\Program Files\SlicerSALT 6.0.0\SlicerSALT.exe' --no-main-window --python-script ICP/ICP.py --input_dir LEFT_MASKS_TO_TRANSFORM --output_dir NEW_LEFT_FIXED --reference_template NEW_LEFT_REFERENCE/mean_shape.ply
-```
+การประเมินใหม่ยังต้องตรวจ source ของ SPHARM template และจำไว้ว่าการสร้าง ICP reference จาก outer-train ก่อน 10-fold ทำให้ OOF ยังไม่ fold-local ทาง geometry หากจะอ้าง CV อิสระเต็ม pipeline ต้องสร้าง ICP/SPHARM/features ใหม่ในแต่ละ fold
 
 ## ข้อจำกัดและการเก็บงานเดิม
 
@@ -223,4 +220,6 @@ baseline อ่าน canonical CSV ของ repository ตาม `Model/data_c
 - ไม่มีการยืนยันด้าน sensitivity/calibration/external validation สำหรับโมเดลใช้งานจริงจากงานแก้โค้ดนี้
 - เก็บสำเนา source/config ก่อนแก้ใน `maintenance_backup_20260918/`; ไม่ได้ reset การแก้ที่มีมาก่อน และผลทดลองใหม่อยู่ใน directory ใหม่
 - สคริปต์ `maintenance_*.py` เป็นบันทึกการย้ายโค้ดครั้งนี้ ไม่ใช่คำสั่งใช้งานประจำและไม่ควรรันซ้ำ
-- รายงานตรวจครั้งแรกอยู่ใน `AUDIT_REPORT_TH.md`; `audit_results.json` เป็นผลก่อนแก้ ส่วน `regression_summary.json` เป็นการตรวจ source ปัจจุบัน
+- รายงานตรวจครั้งแรกอยู่ใน `AUDIT_REPORT_TH.md`; `audit_results.json` เป็นผลก่อนแก้ ส่วน `regression_summary.json` จะถูกเขียนใหม่เมื่อรัน `verify_changes.py`
+- `ICP/output_left_hippocampus`, `ICP/output_right_hippocampus`, copied SPHARM result folders, root `ICP/icp_debug_log.txt` และ launcher ที่ชี้ไปยัง output เก่าถูกลบหลังสร้าง/ตรวจ reference bundle แล้ว
+- Historical outputs ของโมเดลและ training logs ใน `Model/` ยังคงเก็บไว้เพื่อเปรียบเทียบ; แยกจากผล rerun ใหม่ที่กำหนด output root ใหม่

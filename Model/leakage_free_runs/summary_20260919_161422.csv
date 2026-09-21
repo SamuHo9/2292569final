@@ -1,2 +1,0 @@
-Cohort,Side,Model,CV_BalancedAccuracy,CV_F1_Macro,Test_Accuracy,Test_BalancedAccuracy,Test_Sensitivity,Test_Specificity,Test_F1_Macro,Test_ROC_AUC,RunDir
-All_coef,left,ResNet,0.5,0.3905930470347649,0.64,0.5,0.0,1.0,0.39024390243902435,0.5540123456790123,C:\Users\IHCK\Desktop\17-9-2569\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\Model\leakage_free_runs\All_coef\left\ResNet\20260919_161420

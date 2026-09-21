@@ -1,2 +1,0 @@
-Cohort,Side,Model,CV_BalancedAccuracy,CV_F1_Macro,Test_Accuracy,Test_BalancedAccuracy,Test_Sensitivity,Test_Specificity,Test_F1_Macro,Test_ROC_AUC,RunDir
-All_coef,left,SVM,0.797744287322014,0.8112339215306056,0.8533333333333334,0.8287037037037037,0.7407407407407407,0.9166666666666666,0.8366013071895425,0.8888888888888888,C:\Users\IHCK\Desktop\17-9-2569\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\Model\leakage_free_runs\All_coef\left\SVM\20260919_160333

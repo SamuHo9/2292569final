@@ -1,190 +1,57 @@
-# Hippocampal Shape Analysis for Epilepsy Detection
+# Hippocampal Shape Analysis for Epilepsy Research
 
-Updated reliability workflow: see [IMPROVEMENTS_TH.md](IMPROVEMENTS_TH.md) for the fixes, verification results, training-reference migration, and remaining validation work. New training runs use a common original-subject split and write to `Model/validated_runs/`. Historical results and Desktop weights have not been replaced.
+โครงการนี้ประมวลผลภาพ MRI แบบ T1-weighted เพื่อสร้างรูปร่างฮิปโปแคมปัสซ้าย/ขวา สกัด SPHARM coefficients และ XYZ features แล้วฝึกโมเดลแยกกลุ่ม Healthy/TLE ระบบนี้เป็นเครื่องมือวิจัย ยังไม่ได้รับการยืนยันให้ใช้วินิจฉัยผู้ป่วยรายบุคคล
 
-A comprehensive, end-to-end medical imaging pipeline for the automated extraction, 3D shape parameterization, statistical morphological analysis, and machine-learning-based classification of the hippocampus from structural MRI scans. 
-
-This project aims to detect and lateralize **Temporal Lobe Epilepsy (TLE)** by identifying subtle morphometric (shape) changes and atrophy patterns in the hippocampus that are often invisible to the naked eye but statistically significant across populations.
-
----
-
-## 🏛️ Project Architecture & Directory Structure
-
-The repository is modularly designed, separating preprocessing, shape analysis, data augmentation, visualization, and machine learning into distinct components.
+## ภาพรวมของกระบวนการ
 
 ```text
-Hippocampal-Shape-Analysis-for-Epilepsy-Detection/
-│
-├── DesktopApp/         # Graphical User Interface (PyQt/PySide) for end-users
-├── FastSurfer/         # Deep Learning brain segmentation engine (external dependency integration)
-├── ICP/                # Group-wise Rigid Alignment via Iterative Closest Point
-├── SPHARM/             # Spherical Harmonics Parameterization (SPHARM-PDM) & Mesh Re-alignment
-├── Data_Processing/    # Feature Extraction (ML preparation) & Synthetic Data Augmentation
-├── Visualize/          # 3D Mesh Viewers and Statistical Data Plots (PLS-DA)
-├── Model/              # Machine Learning classification, Cross-Dataset Validation, and Reporting
-│
-├── run_pipeline.py     # Entry script: MRI Preprocessing (FastSurfer -> Extraction)
-├── run_everything.bat  # Master Batch Script: Full Shape Analysis Pipeline automation
-└── config.py           # Global configuration variables (Paths, Threads, Checkpoints)
+MRI T1 → preprocessing/segmentation ด้วย FastSurfer → hippocampus masks
+→ ICP alignment ด้วย reference คงที่ → SPHARM-PDM → ตรวจ mesh/labels/provenance
+→ coefficient และ XYZ features → train/validation/test ตามผู้ป่วย
+→ fold-local augmentation/PLS-DA → grouped CV/Optuna → held-out evaluation
+→ Desktop inference
 ```
 
----
+ขั้นตอนและคำสั่ง rerun ทั้งระบบอยู่ใน [RERUN_GUIDE_TH.md](RERUN_GUIDE_TH.md) ส่วนหน้าที่ของแต่ละโฟลเดอร์อยู่ใน [FOLDER_GUIDE_TH.md](FOLDER_GUIDE_TH.md)
 
-## ⚙️ Detailed Pipeline Workflow
+## ICP reference ที่สร้างจากรอบเดิม
 
-### Phase 1: Data Preprocessing & Segmentation (`run_pipeline.py`)
-The pipeline begins with raw patient MRI scans.
-1. **Automated Segmentation (FastSurfer):** Raw T1-weighted `.nii.gz` files are fed into FastSurferCNN. It utilizes a deep learning network to rapidly segment the entire brain into standard anatomical labels (DKT Atlas) in under a minute per subject.
-2. **Hippocampus Extraction (`extract_hippocampus.py`):** The pipeline isolates Label `17` (Left Hippocampus) and Label `53` (Right Hippocampus).
-3. **Morphological Cleaning:** Extracted regions undergo a 3D binary closing operation (mathematical morphology) to fill internal holes and smooth rough boundaries caused by voxelization.
-4. **Organized Output:** Masks are saved neatly into `left_hippocampus` and `right_hippocampus` folders, ready for shape analysis.
+ไฟล์ที่เก็บไว้ใน `ICP/references/legacy_groupwise_all_381_v1/` คือ mean shape ซ้าย/ขวาที่คัดลอกจากผล groupwise ICP เดิม จำนวน 381 รายต่อข้าง พร้อม metadata ที่ตรวจสอบ hash, scale และ grid แล้ว:
 
-### Phase 2: Shape Analysis via SlicerSALT (`run_everything.bat`)
-This phase relies on the **SlicerSALT** (Shape Analysis Toolbox) environment to perform robust geometric operations.
+| ข้าง | Template SHA-256 | Physical-to-normalized scale | Grid |
+|---|---|---:|---|
+| Left | `e5db3de875fed2b774ef297526ba8f600742695e35415b1ebbca9d8f0063a94d` | 0.030540622985912882 | 128³, spacing 0.015625 |
+| Right | `3f8c7896bca197a48955824eb37e90c91a3c48a6fc26b2ba893af7f216deb461` | 0.03180055903090514 | 128³, spacing 0.015625 |
 
-#### Step 2.1: Group-wise ICP Alignment (`ICP/ICP.py`)
-* **Problem:** Patients' heads are scanned at different angles and positions in the MRI machine.
-* **Solution:** The Iterative Closest Point (ICP) algorithm aligns all hippocampal masks in the dataset into a common, normalized physical coordinate space.
-* **Mechanism:** It uses a group-wise approach. It repeatedly aligns all subjects to a continuously updating "mean shape" (average template) until convergence is reached. It also checks for "pole flips" (ensuring the head and tail of the hippocampus point in the correct direction).
+Reference เหล่านี้สร้างจากผู้เข้าร่วมทั้งชุดเดิม ผลตรวจ IDs ยืนยันว่ารายชื่อปัจจุบันทั้ง **373/373 ซ้าย** และ **377/377 ขวา** อยู่ใน ICP reference เก่าแล้ว จึงใช้สำหรับ **ทำซ้ำ coordinate convention เดิม** เท่านั้น และห้ามใช้สร้าง test features เพื่ออ้าง held-out test แบบอิสระ ให้ใช้ขั้นตอน fit reference จาก training masks เท่านั้นใน RERUN guide
 
-#### Step 2.2: SPHARM-PDM Parameterization (`SPHARM/run_spharm_batch.py`)
-* **Problem:** Voxel-based masks cannot be compared point-by-point across different subjects because they have different surface topographies.
-* **Solution:** Spherical Harmonics Point Distribution Models (SPHARM-PDM).
-* **Mechanism:** The voxel masks are mapped onto a sphere and parameterized using spherical harmonic basis functions (similar to a Fourier transform, but for 3D surfaces). This generates a uniform 3D triangular mesh (VTK file) for every subject where Vertex `N` on Patient A corresponds exactly to the anatomical location of Vertex `N` on Patient B.
+การรันใหม่จะใช้ mean shape เก่าเป็น target คงที่และทำ pairwise ICP จึงไม่ได้รับประกันว่า transform/output จะตรงกับ groupwise run เก่าทุกไบต์ แต่ hash, scale, grid และ reference frame จะคงที่
 
-#### Step 2.3: Anatomical Re-alignment (`SPHARM/realign_spharm.py`)
-Even after ICP and SPHARM, meshes might have rotational phase shifts along the spherical parameterization. This script enforces strict anatomical alignment (anterior-posterior, superior-inferior, medial-lateral) using geometric landmarks (e.g., finding the furthest vertex to define the "tail").
+## รัน ICP ผ่าน Terminal
 
-### Phase 3: Statistical Analysis & Visualization (`Visualize/`)
-* **PLS-DA (`visualize_plsda.py`):** Partial Least Squares Discriminant Analysis is applied to the high-dimensional vertex data. It identifies the specific directions of shape variance that maximize the separation between healthy controls and epilepsy patients. 
-* **3D Visualizations:** Includes Python scripts using `pyvista` and `vtk` to render the 3D average shapes and overlay color maps showing areas of significant inward/outward deformation (atrophy/hypertrophy) associated with the disease.
+ใช้ Git Bash เรียก batch runner จากโฟลเดอร์ใดก็ได้; runner เปิด Slicer โดยตรง รอจนจบ แล้วตรวจจำนวนผลและ reference provenance:
 
-### Phase 4: Data Augmentation & Machine Learning (`Data_Processing/` & `Model/`)
-* **Feature Extraction (`extract_ml_features.py`):** Converts the complex 3D SPHARM VTK coordinates and SPHARM coefficients into structured 1D CSV vectors suitable for standard machine learning classifiers.
-* **Data Augmentation (`augment_plsda_interpolation.py`):** Medical datasets are often small. This script utilizes the latent space generated by PLS-DA to interpolate and generate *synthetic yet anatomically realistic* hippocampus shapes to balance the dataset and prevent ML overfitting.
-* **Model Training & Cross-Dataset Validation:** Trains classical ML models (e.g., SVM, Random Forest, Logistic Regression) to classify the disease. It strongly emphasizes robustness by training on one dataset (e.g., `Ds005602`) and validating on a completely unseen dataset (e.g., `Ds004469`).
-* **Statistical Reporting (`generate_report.py`):** Automatically compiles performance metrics, ROC curves, and P-value summaries into professional PDF reports (`Model_Test_Report.pdf`).
-
----
-
-## 💻 The Desktop Application (`DesktopApp/`)
-
-To make this complex pipeline accessible to clinicians and researchers without programming knowledge, a complete Desktop UI is provided.
-
-- **Built with:** PyQt/PySide
-- **Features:** 
-  - One-click dataset selection and execution.
-  - Interactive parameter tuning (e.g., adjusting ICP iterations, SPHARM degrees).
-  - Integrated 3D mesh viewer directly inside the application window.
-  - Real-time logging console to track pipeline progress.
-- **Execution:** Simply run `python DesktopApp/main.py`
-
----
-
-## 🚀 Getting Started & Execution
-
-### Prerequisites
-- **OS:** Windows (Pipeline heavily utilizes `.bat` scripts and Powershell)
-- **Python:** Python 3.10+ (required by the bundled FastSurfer); use a separate environment for the Desktop/training tools and SlicerSALT's own interpreter for its CLI modules.
-- **Dependencies:** `pip install -r requirements.txt` (includes `numpy`, `scipy`, `pandas`, `vtk`, `matplotlib`, `pyvista`, `scikit-learn`, `PyQt5`)
-- **External Software:** 
-  - **SlicerSALT (v6.0+):** Must be installed and configured in `run_everything.bat` (e.g., `C:\Program Files\SlicerSALT 6.0.0\SlicerSALT.exe`).
-  - **FastSurfer:** Must be cloned and checkpoints downloaded. Update the path in `config.py`.
-
-### Running the Full Pipeline
-
-**Step 1: Extract Hippocampus from MRI**
 ```bash
-python run_pipeline.py --input_dir /path/to/raw/mri/
-```
-*Output will be organized into `/output/left_hippocampus` and `/output/right_hippocampus`.*
-
-**Step 2: Shape Analysis (ICP + SPHARM + PLS-DA)**
-Double-click `run_everything.bat` or run it from the command line:
-```bash
-run_everything.bat
+bash ~/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection/ICP/run_icp_legacy_reference_batch.sh
 ```
 
-For an already completed ICP run, use the same production SPHARM command for either hemisphere:
+ใน workspace ปัจจุบัน input ซ้าย/ขวาถูกเลือกอัตโนมัติจาก `../merged_ds005602_ds004469/left_hippocampus` และ `../merged_ds005602_ds004469/right_hippocampus` (381 masks ต่อข้าง); ใช้ `--input-dir` เพื่อระบุโฟลเดอร์อื่น หรือ `--input-file` เพื่อรันไฟล์เดียว สคริปต์ตั้ง output ใหม่ใต้ `reruns/` ทุกครั้ง ตรวจ `icp_status.json`, aligned-file count และ reference hash/provenance แล้วเขียน `run_summary.json`. log อยู่ใน `icp_debug_log.txt` ของ job
 
-```bat
-SPHARM\run_spharm.bat left
-SPHARM\run_spharm.bat right
-```
+### ICP สำหรับการประเมิน train/test อย่างอิสระ
 
-Both commands use the shared batch implementation and validation settings; only the aligned input folder and the corresponding left/right SPHARM template differ.
-The frozen production values are recorded in `SPHARM/standard_production_config.json` so a rerun can be audited against the same contract.
+การประเมินงานวิจัยให้แบ่งผู้ป่วยก่อน ICP และ fit left/right references จาก **training masks เท่านั้น** จากนั้น align train และ test กับ reference ที่ตรึงไว้ ใช้ขั้นตอนในส่วน train/test ของ [RERUN_GUIDE_TH.md](RERUN_GUIDE_TH.md) อย่านำ legacy reference ด้านบนไปแทน
 
-To verify both hemispheres under the same artifact contract:
+## ส่วนประกอบหลัก
 
-```bat
-"C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe" SPHARM\verify_bilateral_outputs.py ^
-  --left_input_dir ICP\output_left_hippocampus\aligned_nifti ^
-  --left_output_dir ICP\output_left_hippocampus ^
-  --right_input_dir ICP\output_right_hippocampus\aligned_nifti ^
-  --right_output_dir ICP\output_right_hippocampus ^
-  --report bilateral_spharm_verification.json ^
-  --deep
-```
-The bilateral verifier compares side-independent subject IDs (so `left_..._lh` and `right_..._rh` are paired correctly), reports side-specific label differences separately, and exits nonzero when any required SPHARM artifact is missing.
-Feature extraction also requires each coefficient to have its `<subject>_processing.json` provenance contract; missing provenance is rejected.
+- `run_pipeline.py`, `extract_hippocampus.py`: preprocessing, segmentation orchestration และแยก hippocampus masks
+- `ICP/ICP.py`, `ICP/reference_contract.py`: mesh creation, fixed-reference alignment และสถานะ provenance
+- `ICP/run_icp_with_reference.py`: Python launcher สำหรับ batch ทีละข้างหรือ mask เดี่ยว
+- `ICP/run_icp_legacy_reference_batch.sh`: Git Bash runner สำหรับ preflight และ batch สองข้าง
+- `ICP/rerun_fixed_reference.py`: Git Bash/Python workflow สำหรับ train-only reference และ align train/test
+- `ICP/create_legacy_reference_from_previous_run.py`: ตรวจและสร้างสำเนา reference จากผล groupwise เดิม (รันแล้ว; output อยู่ใน `ICP/references/`)
+- `SPHARM/run_spharm_parallel.py`, `SPHARM/run_spharm_batch.py`: SPHARM-PDM ผ่าน SlicerSALT
+- `Data_Processing/`: สกัด features/labels/metadata
+- `Model/`: loaders, fold-local training, tuning และ evaluation
+- `DesktopApp/`: แอปสำหรับดูผลและ inference
 
-To create the flat dataset folders used by the Desktop App from the current
-SPHARM results, run this copy-only command from the project root:
-
-```bat
-"C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe" SPHARM\split_current_dataset.py
-```
-
-It discovers the complete Subject IDs directly from the current
-`ICP\output_left_hippocampus\spharm_results` and
-`ICP\output_right_hippocampus\spharm_results` folders. It assigns each Subject
-to one deterministic 80/20 split (seed `20260919`) and copies both available
-hemispheres into that same split. This avoids placing one patient in train on
-one side and test on the other. Existing files are never deleted. The current
-manifest is written to `SPHARM\split_data\current_split_manifest.json`; check
-artifact completeness with:
-
-```bat
-"C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe" SPHARM\verify_current_split.py
-```
-
-The completeness report is written to `SPHARM\split_data\current_split_completeness.json`.
-The verifier exits nonzero when a Subject lacks one of the required SPHARM
-artifacts, so failed SPHARM jobs cannot be mistaken for a complete training
-set.
-
-To materialize the dataset-specific train/test folders from that same
-patient-level assignment, run:
-
-```bat
-"C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe" SPHARM\create_dataset_train_test.py
-```
-
-This creates `Ds004469_Left`, `Ds004469_Right`, `Ds005602_Left`, and
-`Ds005602_Right`, each with `train` and `test` folders plus a `status.csv`.
-The summary is stored in `SPHARM\split_data\dataset_train_test_manifest.json`.
-
-A folder-picker will prompt you to select the directory containing your extracted hippocampi (e.g., the `left_hippocampus` folder). SlicerSALT will launch headlessly and process the entire batch.
-
-**Step 3: Machine Learning & Reporting**
-Use [`RERUN_GUIDE_TH.md`](RERUN_GUIDE_TH.md) as the single current run guide. The
-validated comparison run uses grouped 10-fold CV and Optuna, with the final command:
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File `
-  .\Model\run_optuna_leakage_free_all.ps1 `
-  --protocol all --cohort all --side all --model all --folds 10 --n_trials 10 `
-  --tune_epochs 20 --tune_patience 5 --final_epochs 40 `
-  --eval_seeds 42,123,2026 --device cuda --children_per_pair 8 `
-  --noise_scale 0.02 --pls_components 8 `
-  --output_root .\Model\optuna_runs_10fold_all
-```
-
----
-
-## 🔬 Scientific Context
-This project leverages structural MRI to quantify **Hippocampal Sclerosis**, the most common neuropathological finding in Drug-Resistant Temporal Lobe Epilepsy. By moving beyond simple volumetric measurements (measuring just the size/volume) and utilizing SPHARM-PDM, we can localize exactly *where* on the surface the atrophy is occurring, providing a much higher diagnostic yield and offering powerful predictive features for machine learning pipelines.
-## 🤝 Acknowledgements & Credits
-- **FastSurfer:** Deep learning based neuroimaging pipeline for fast and robust brain segmentation. [https://github.com/Deep-MI/FastSurfer](https://github.com/Deep-MI/FastSurfer).
-- **SlicerSALT:** Open-source platform for conducting 3D shape analysis of anatomical structures. [https://salt.slicer.org/](https://salt.slicer.org/).
+ข้อมูลเดิมใน `Model/` เก็บไว้เพื่อเทียบย้อนหลัง ผลเหล่านั้นไม่ถูกลบพร้อมไฟล์ ICP/SPHARM รุ่นเก่า และไม่ควรถือว่าเป็นผลจากการ rerun รอบใหม่

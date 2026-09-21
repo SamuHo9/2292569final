@@ -5,6 +5,8 @@ from pathlib import Path
 import numpy as np
 
 VERSION = 'fixed-training-reference-v1'
+LEGACY_GROUPWISE_VERSION = 'fixed-legacy-groupwise-reference-v1'
+SUPPORTED_VERSIONS = {VERSION, LEGACY_GROUPWISE_VERSION}
 
 
 def file_sha256(path):
@@ -28,7 +30,7 @@ def load_reference_contract(template):
     if not path.is_file():
         raise ValueError(f'Missing training-reference metadata: {path}. Build with ICP.py --fit_reference using training masks only. Legacy normalized templates cannot supply the original physical scale.')
     payload = json.loads(path.read_text(encoding='utf-8'))
-    if payload.get('version') != VERSION or payload.get('template_sha256') != file_sha256(template):
+    if payload.get('version') not in SUPPORTED_VERSIONS or payload.get('template_sha256') != file_sha256(template):
         raise ValueError('Reference template/metadata mismatch')
     scale = payload.get('physical_to_normalized_scale', 0)
     if not np.isfinite(scale) or scale <= 0:

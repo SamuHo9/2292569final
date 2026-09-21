@@ -1,0 +1,38 @@
+{
+    "version":  "fixed-legacy-groupwise-reference-v1",
+    "template_sha256":  "3f8c7896bca197a48955824eb37e90c91a3c48a6fc26b2ba893af7f216deb461",
+    "physical_to_normalized_scale":  0.03180055903090514,
+    "output_spacing":  0.015625,
+    "output_voxels":  128,
+    "reference_origin":  "legacy_all_subject_groupwise_mean",
+    "source_method":  "exploratory_groupwise_v1_frozen_mean_shape",
+    "source_subject_count":  381,
+    "source_subject_list_sha256":  "3ce646047a87ceaf8f13ee4502441acb8a5fa419cbe1a61c80c276c09e545263",
+    "source_status_sha256":  "44bd6627d0a66e57417e9b588ca36721f74dd7b912de4139b31281c21ad39934",
+    "source_history_sha256":  "210efb683366df0fd2cd62ae36a75f6e4cdac721e3770f3737a65becaf0eb849",
+    "source_transform_sha256":  "d7ca4e5f3c51555df75bc376550a303df7b75b771b986aa64668d2e9f78b78a9",
+    "source_template_sha256":  "3f8c7896bca197a48955824eb37e90c91a3c48a6fc26b2ba893af7f216deb461",
+    "source_aligned_nifti_sample_sha256":  "9abe214ebc222baefc6610da4012a3da48f5b2ebbe3c81891ef7f57eb10a73c6",
+    "source_grid":  [
+                        128,
+                        128,
+                        128
+                    ],
+    "source_spacing_xyz":  [
+                               0.015625,
+                               0.015625,
+                               0.015625
+                           ],
+    "physical_scale_derivation":  "median(mean(svd(T_i[:3,:3]))) across all old subjects; validated as common isotropic scale",
+    "independent_test_reference":  false,
+    "current_dataset_overlap":  {
+                                    "status_file":  "SPHARM/split_data/ALL_Right_file_status.csv",
+                                    "status_file_sha256":  "4dfd2b8c203541cf2461597924824c15028c8bf3a46fc9988d0350cd2906fe40",
+                                    "current_status_rows":  377,
+                                    "current_unique_subjects":  377,
+                                    "legacy_reference_subjects":  381,
+                                    "current_subjects_in_legacy_reference":  377,
+                                    "all_current_subjects_are_in_legacy_reference":  true,
+                                    "train_test_overlap_implication":  "Every subject in this current side status table was included in the old groupwise ICP reference."
+                                }
+}

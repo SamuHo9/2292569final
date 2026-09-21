@@ -3,12 +3,14 @@
 เอกสารนี้อธิบายว่าแต่ละโฟลเดอร์ในโปรเจกต์ใช้ทำอะไร อยู่ในขั้นตอนไหน และควรใช้เป็นผลลัพธ์หลัก
 หรือเป็นข้อมูลอ้างอิงเท่านั้น โดยยึด pipeline ปัจจุบันใน `RERUN_GUIDE_TH.md`
 
+อัปเดต 21 กันยายน 2026: ผล ICP/SPHARM รุ่นเก่าที่สร้างซ้ำได้ถูกลบหลังตรวจและเก็บ ICP reference bundle แล้ว โฟลเดอร์ผลรันใหม่ให้กำหนดแยกตาม run ห้ามเขียนทับหรือเอามาปนกับผลเก่าใน `Model/` รายการ cleanup อยู่ใน `CLEANUP_MANIFEST_20260921.json`
+
 ## แผนผังการไหลของข้อมูล
 
 ```text
 FastSurfer / MRI
     -> ICP
-    -> Templates + fixed reference
+    -> ICP fixed-reference bundle + isolated run output
     -> SPHARM
     -> SPHARM/split_data
     -> Data_Processing
@@ -23,7 +25,7 @@ FastSurfer / MRI
 |---|---|---|
 | `FastSurfer` | source และโมดูล segmentation สำหรับแปลง MRI เป็น brain/hippocampus masks | ใช้ใน preprocessing |
 | `ICP` | สร้าง mesh, align แต่ละ subject กับ fixed reference และเก็บสถานะ ICP/SPHARM ที่เกี่ยวข้อง | ใช้ใน pipeline |
-| `Templates` | fixed ICP และ SPHARM reference แยกซ้าย/ขวา | ต้องเก็บไว้ |
+| `Templates` | SPHARM templates แยกซ้าย/ขวา | เก็บไว้และตรวจ source ก่อนอ้าง held-out test |
 | `SPHARM` | รัน SPHARM-PDM, realignment, resampling, ตรวจ output และสร้าง split | ใช้ใน pipeline |
 | `Data_Processing` | แปลง SPHARM เป็น coefficient/XYZ features, สร้าง manifest และ dataset | ใช้ใน pipeline |
 | `Model` | data contract, model runners, training runtimes, datasets และผลประเมิน | ใช้ใน pipeline |
@@ -36,91 +38,50 @@ FastSurfer / MRI
 
 ## 2. `ICP`
 
-### `ICP\output_left_hippocampus`
+### `ICP\references\legacy_groupwise_all_381_v1`
 
-ผลการประมวลผลฝั่งซ้าย ประกอบด้วย `aligned_nifti`, `aligned_meshes`, `spharm_results`,
-`T_matrices.npy`, `mean_shape.ply`, `icp_status.json` และ log/status ของ SPHARM
+reference bundle ที่สร้างจาก mean shape ของ ICP groupwise เดิม ซ้าย/ขวาแยกกัน มี `mean_shape.ply`, sidecar `.json` และ `reference_manifest.json` ระบุ SHA-256, scale และ grid (128³, spacing 0.015625) ต้นทางคือรูปร่างทั้ง 381 คนต่อข้าง และตรวจยืนยันว่า ALL ปัจจุบันซ้าย 373/373 กับขวา 377/377 อยู่ใน reference นี้แล้ว จึงใช้ทำซ้ำ coordinate convention เดิม แต่ห้ามอ้าง independent held-out evaluation กับคนชุดนี้
 
-- `aligned_nifti`: mask หลัง ICP
-- `aligned_meshes`: mesh หลัง align
-- `spharm_results`: coefficient, VTK และ grid จาก SPHARM ของฝั่งซ้าย
-- `T_matrices.npy`: transformation matrix ของ ICP
-- `icp_convergence_history.json`: ประวัติ convergence
-- `spharm_verification*.json`: ผลตรวจความครบถ้วนของ SPHARM
+### Runner และไฟล์โค้ด
 
-### `ICP\output_right_hippocampus`
+- `ICP.py`: core; ต้องระบุโหมด `--reference_template`, `--fit_reference` หรือ `--exploratory_groupwise` ให้ชัด และรับ input เป็น directory หรือไฟล์เดียว
+- `run_icp_with_reference.py`: Python launcher สำหรับรัน legacy fixed reference ทีละข้าง/ทีละไฟล์ ตรวจ input/reference ก่อนเปิด Slicer และตรวจ output หลัง Slicer จบ
+- `run_icp_legacy_reference_batch.sh`: Git Bash runner สำหรับ preflight และรัน batch ซ้าย/ขวาใน run เดียวกัน
+- `reference_contract.py`: ตรวจ hash/version/physical scale/grid ของ ICP reference
+- `rerun_fixed_reference.py`, `prepare_mask_split.py`: ตัวช่วย Python สำหรับ Git Bash แบ่ง mask ตาม manifest แล้ว fit reference จาก train เท่านั้น
+- `create_legacy_reference_from_previous_run.py`: สร้าง/ตรวจ bundle จาก legacy outputs; รอบปัจจุบันสร้าง bundle ไว้แล้ว
+- `plot_icp_convergence.py`: plot groupwise history ถ้ามี
 
-ทำหน้าที่เหมือนฝั่งซ้าย แต่ใช้ fixed reference และ input ของ hippocampus ฝั่งขวาแยกกัน
-ไม่ควรนำไฟล์ซ้ายมาใส่รวมกับโฟลเดอร์นี้
-
-### `ICP\log`
-
-พื้นที่เก็บ log จากการรัน ICP รุ่นต่าง ๆ ใช้ตรวจปัญหา ไม่ใช่ dataset สำหรับ training
-
-### ไฟล์สำคัญใน `ICP`
-
-- `ICP.py`: runner หลักของ ICP
-- `reference_contract.py`: ตรวจ metadata และ physical scale ของ reference
-- `plot_icp_convergence.py`: plot convergence
-- `run_icp_only.bat`: เรียก ICP แยกจาก pipeline เต็ม
+ผลรันใหม่ไม่เขียนลง `ICP\output_left_hippocampus` หรือ `ICP\output_right_hippocampus`; ให้ใช้ output directory ใหม่ที่กำหนดในคำสั่ง runner เสมอ
 
 ## 3. `Templates`
 
-### `Templates\ICP`
-
-- `template_mean_left.ply`, `template_mean_left.vtk`: fixed reference ฝั่งซ้าย
-- `template_mean_right.ply`, `template_mean_right.vtk`: fixed reference ฝั่งขวา
-
 ### `Templates\SPHARM`
 
-- `template_spharm_left.vtk`, `template_spharm_left.coef`: reference ฝั่งซ้าย
-- `template_spharm_right.vtk`, `template_spharm_right.coef`: reference ฝั่งขวา
+- `template_spharm_left.vtk` และ `.coef`: SPHARM reference ของ hippocampus ซ้าย
+- `template_spharm_right.vtk` และ `.coef`: SPHARM reference ของ hippocampus ขวา
 
-reference เหล่านี้ทำให้ rerun ใช้ coordinate frame เดิม ไม่ขึ้นกับลำดับ subject ที่ป้อนเข้ามา
-ห้ามลบทิ้งหรือสร้างใหม่โดยไม่บันทึก manifest เพราะจะทำให้ผล ICP/SPHARM เปรียบเทียบกับรอบเดิมไม่ได้
+ไฟล์เหล่านี้เป็นคนละชั้นกับ ICP reference ใน `ICP\references` ใช้ template ให้ตรง hemisphere และบันทึก hash ใน processing metadata ที่มา/กลุ่มคนที่ใช้สร้าง SPHARM templates ยังต้องตรวจสอบก่อนรายงานว่า held-out test เป็นอิสระครบทุกขั้น
 
 ## 4. `SPHARM`
 
 ### ไฟล์คำสั่งหลัก
 
-- `run_spharm.bat`: entry point ที่ควรใช้จาก terminal; บังคับใช้ SlicerSALT/PythonSlicer
-- `run_spharm_parallel.py`: รัน SPHARM แบบแบ่ง worker
-- `run_spharm_batch.py`: batch processing ภายใน SlicerSALT
-- `resample_spharm_grid.py`: สร้าง/resample grid mesh
-- `realign_spharm.py`: จัด orientation/landmark ของ SPHARM mesh
-- `check_spharm_environment.py`: ตรวจ runtime
-- `verify_bilateral_outputs.py`: ตรวจ output ซ้าย/ขวา
+- `run_spharm_parallel.py`: orchestrator แบ่ง SPHARM workers; เรียกผ่าน SlicerSALT Python runtime
+- `run_spharm_batch.py`: worker ประมวลผลภายใน SlicerSALT
+- `resample_spharm_grid.py`, `realign_spharm.py`: resample และปรับแนว mesh
+- `check_spharm_environment.py`, `verify_spharm_outputs.py`, `verify_bilateral_outputs.py`: ตรวจ runtime/ความครบถ้วน/ความสอดคล้องของสองข้าง
+
+launcher รุ่นเก่าที่ hard-code ไปยัง `ICP\output_*` ถูกลบแล้ว ให้ใช้คำสั่งใน `RERUN_GUIDE_TH.md` ที่ส่ง input/output ชัดเจน
 
 ### `SPHARM\split_data`
 
-โฟลเดอร์ split หลักที่ตรวจสอบแล้ว มี:
+หลัง cleanup เก็บเฉพาะไฟล์ที่ขั้นตอนแบ่ง mask ต้องใช้อ้างอิง:
 
-- `ALL_Left`, `ALL_Right`
-- `Ds004469_Left`, `Ds004469_Right`
-- `Ds005602_Left`, `Ds005602_Right`
-- `ALL_Left_file_status.csv`, `ALL_Right_file_status.csv`
-- `current_split_manifest.json`
-- `current_split_completeness.json`
-- `dataset_subsets_manifest.json`
-- `dataset_train_test_manifest.json`
+- `ALL_Left_file_status.csv`, `ALL_Right_file_status.csv`: label/cohort รายข้าง
+- `current_split_manifest.json`: patient-level train/test assignment
 
-status tables เป็นแหล่งอ้างอิงว่าไฟล์ใดเป็นปกติ/ป่วยและอยู่ cohort ใด ส่วน manifest ใช้ตรวจว่า
-copy และ split ครบ ไม่ได้ใช้เป็น model weights
-
-### `SPHARM\split_data_current`
-
-พื้นที่สำหรับ split แบบ current ที่ script รองรับ ปัจจุบันไม่มี output หลักที่ใช้ใน Optuna
-หากจะสร้าง split ใหม่ให้ใช้ `split_current_dataset.py` และตรวจ manifest ก่อนนำไป feature extraction
-
-### `SPHARM\split_data_train_test_current`
-
-พื้นที่สำหรับ materialize train/test folders จาก current split ปัจจุบันไม่มีผล final ของ Optuna
-ใช้เฉพาะเมื่อจำเป็นต้องสร้างโครงสร้าง folder สำหรับงาน downstream รุ่นที่ต้องการไฟล์แยกโฟลเดอร์
-
-### `SPHARM\output_left_new`
-
-พื้นที่ output/repair จากรอบก่อน ใช้เป็นข้อมูลอ้างอิงหรือเปรียบเทียบเท่านั้น เว้นแต่มี manifest ระบุ
-ชัดเจนว่าเป็น input ของรอบปัจจุบัน ไม่ควรใช้แทน `ICP\output_*\spharm_results` โดยอัตโนมัติ
+โฟลเดอร์ผล SPHARM ที่ copy ไว้ใน `ALL_Left`, `ALL_Right`, `Ds004469_*`, `Ds005602_*` และรายงาน completeness รุ่นก่อนถูกลบเพื่อลดความสับสน เมื่อ rerun ให้สร้าง SPHARM outputs ภายใต้ `$RunRoot` ใหม่และ verify ก่อนสร้าง features
 
 ## 5. `Data_Processing`
 
@@ -185,7 +146,7 @@ cohort coefficient ของข้อมูล Ds005602 ชุดปัจจุ
 - `leakage_free_pointnet_plsda_training.py`: PointNet PLS-DA
 - `leakage_free_plsda_classifier.py`: direct PLS-DA classifier
 - `optuna_leakage_free_all.py`: orchestrate tuning, winner selection และ final runs
-- `run_optuna_leakage_free_all.ps1`: ตั้งค่า runtime และเรียก Optuna จาก PowerShell
+- `optuna_leakage_free_all.py`: entry point สำหรับ Optuna; เรียกผ่าน PythonSlicer พร้อมตั้ง training `PYTHONPATH` ตาม RERUN guide
 - `verify_leakage_free_pipeline.py`: preflight dataset และ model interface
 - `audit_*.py`: ตรวจ summary/output ของ runner รุ่น leakage-free
 
@@ -299,27 +260,30 @@ DesktopApp ไม่ได้ใช้แทนการ train; ใช้ model 
 
 คำสั่งรัน:
 
-```powershell
-$Project = "C:\Users\IHCK\Desktop\17-9-2569\Hippocampal-Shape-Analysis-for-Epilepsy-Detection"
-$Model = Join-Path $Project "Model"
-$env:PYTHONPATH = "$Project;$Model;$(Join-Path $Model '_training_site')"
-$PythonSlicer = "C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe"
-& $PythonSlicer -W ignore::DeprecationWarning -m unittest discover -s (Join-Path $Project "tests") -v
+```bash
+cd ~/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection || exit 1
+set -euo pipefail
+PROJECT_ROOT="$(pwd)"
+MODEL_ROOT="$PROJECT_ROOT/Model"
+PYTHON_SLICER="/c/Program Files/SlicerSALT 6.0.0/bin/PythonSlicer.exe"
+export PYTHONPATH="$(cygpath -m "$PROJECT_ROOT");$(cygpath -m "$MODEL_ROOT");$(cygpath -m "$MODEL_ROOT/_training_site")"
+"$PYTHON_SLICER" -W ignore::DeprecationWarning -m unittest discover -s "$PROJECT_ROOT/tests" -v
 ```
 
-ผลล่าสุด: 26 tests ผ่าน (`OK`)
+ผลล่าสุด 21 กันยายน 2026: 32 tests ผ่าน (`OK`), syntax 7,945 Python files ผ่าน
 
 ## 15. ควรใช้โฟลเดอร์ไหนในแต่ละงาน
 
 | งาน | โฟลเดอร์หลัก |
 |---|---|
 | ตรวจ MRI/segmentation | `FastSurfer`, `run_pipeline.py`, `ICP` |
-| ตรวจ ICP | `ICP\output_left_hippocampus`, `ICP\output_right_hippocampus`, `Templates\ICP` |
-| รัน SPHARM | `SPHARM`, `Templates\SPHARM`, `ICP\output_*\aligned_nifti` |
-| ตรวจ split | `SPHARM\split_data` และ manifest ในโฟลเดอร์เดียวกัน |
+| ตรวจ/รัน ICP เดิมซ้ำ | `ICP\references\legacy_groupwise_all_381_v1`, `ICP\run_icp_legacy_reference_batch.sh`, output directory ใหม่ |
+| ทำ ICP สำหรับ train/test | `ICP\rerun_fixed_reference.py`, `ICP\prepare_mask_split.py`, split manifests/status ที่เก็บใน `SPHARM\split_data` |
+| รัน SPHARM | `SPHARM\run_spharm_parallel.py`, `Templates\SPHARM`, `aligned_nifti` ใน output ของ run ใหม่ |
+| ตรวจ split | `SPHARM\split_data\current_split_manifest.json` และ ALL side status CSV สองไฟล์ |
 | สร้าง coefficient dataset | `Data_Processing`, `Model\All_coef*` |
 | สร้าง raw XYZ input | `Model\Output_Dataset` |
-| รัน model เปรียบเทียบ | `Model\run_optuna_leakage_free_all.ps1` |
+| รัน model เปรียบเทียบ | `Model\optuna_leakage_free_all.py` ผ่าน PythonSlicer ตามคำสั่ง Git Bash ใน RERUN guide |
 | ตรวจ tuning/final | `Model\optuna_runs_10fold_all` |
 | ทำ inference | `DesktopApp`, model artifact และ feature contract |
 | ทำกราฟ/รายงาน | `Visualize`, `Model_Results_Excel` |
@@ -329,8 +293,8 @@ $PythonSlicer = "C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe"
 
 ควรเก็บ:
 
-- `Templates`
-- raw/current datasets และ manifest
+- `Templates\SPHARM` และ `ICP\references\legacy_groupwise_all_381_v1`
+- raw MRI/masks และ `SPHARM\split_data\current_split_manifest.json` พร้อม `ALL_Left_file_status.csv`, `ALL_Right_file_status.csv`
 - `_training_site`, `_training_cuda_site`
 - `Model\optuna_runs_10fold_all`
 - source code ที่ระบุใน `RERUN_GUIDE_TH.md`
@@ -340,10 +304,8 @@ $PythonSlicer = "C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe"
 
 - `Model\All_Augment_tain`, `Model\Ds004469`, `Model\Ds005602`
 - `Model\Legacy_*_READONLY`
-- `SPHARM\output_left_new`
+- ผล ICP/SPHARM ที่อยู่ใน run output เก่าและไม่มี reference/provenance ที่ต้องใช้
 - `Model_Evaluation_and_Benchmarks\results_csv`
 - smoke output หรือ summary ที่ไม่ได้อยู่ใน `optuna_runs_10fold_all`
 
-ก่อนลบโฟลเดอร์ใด ๆ ให้ตรวจว่าไม่มี manifest, dataset หรือ output ที่ต้องใช้สำหรับการ rerun
-และอย่าลบ runtime หรือ fixed reference โดยไม่สร้างทดแทนพร้อมตรวจผลใหม่
-
+ผล model และ training logs ใน `Model/` ยังเก็บไว้เพื่อเทียบย้อนหลัง ไม่ได้ลบในการ cleanup รอบนี้ เพราะยังไม่มีผล rerun รุ่นใหม่มาแทน ส่วนรายชื่อ launchers ที่ยกเลิกและรายการไฟล์/ผลเก่าที่ลบอยู่ใน `CHANGELOG_DETAILED_TH.md`

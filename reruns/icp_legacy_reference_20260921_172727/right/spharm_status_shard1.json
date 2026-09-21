@@ -1,0 +1,326 @@
+{
+  "total": 76,
+  "failed": 1,
+  "subjects": [
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-04001_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-04015_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-04165_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-04173_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-04204_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-04216_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-109_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-143_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-164_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-176_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-196_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-215_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-229_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-251_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-265_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-273_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-27974_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-29096_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-29_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-320_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-337_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-347_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-35272_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-358_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-36737_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-37149_hippocampus_rh_aligned.nii.gz",
+      "success": false
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-379_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-390_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4003_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4008_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4013_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4018_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4022_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4027_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4032_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4037_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4042_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4047_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4052_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4057_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4062_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4067_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4072_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4077_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4081_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4086_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4090_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4095_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-4100_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-423_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-43_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-450_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-46_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-68_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_Healthy_sub-85_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-101_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-126_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-153_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-193_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-219_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-246_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-271_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-2_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-317_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-324_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-334_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-346_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-362_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-374_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-385_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-402_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-413_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-432_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-455_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-64_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    },
+    {
+      "input": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti\\right_TLE_sub-82_hippocampus_rh_aligned.nii.gz",
+      "success": true
+    }
+  ],
+  "input_dir": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti",
+  "output_dir": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right",
+  "mode": "PRODUCTION",
+  "config": {
+    "num_iter": 1000,
+    "subdiv": 10,
+    "degree": 12
+  },
+  "reference_template": "C:/Users/IHCK/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection/Templates/SPHARM/template_spharm_right.vtk",
+  "reference_sha256": "efc2252d5b08ab26fdc5c4084d46828c86ad153081ef398673af69126f0cb1d0",
+  "required_outputs": [
+    "_SPHARM.coef",
+    "_SPHARM.vtk",
+    "_SPHARM_grid.vtk",
+    "_SPHARM_ellalign.coef"
+  ]
+}

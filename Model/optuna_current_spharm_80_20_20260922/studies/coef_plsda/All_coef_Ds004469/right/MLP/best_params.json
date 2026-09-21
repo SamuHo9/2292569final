@@ -1,0 +1,18 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "All_coef_Ds004469",
+  "side": "right",
+  "model": "MLP",
+  "folds": 10,
+  "seed": 42,
+  "n_trials_requested": 10,
+  "n_trials_completed": 6,
+  "best_trial": 2,
+  "best_oof_balanced_accuracy": 0.579004329004329,
+  "best_params": {
+    "lr": 0.0016967533607196547,
+    "weight_decay": 7.068974950624607e-06,
+    "batch_size": 32,
+    "dropout": 0.3099025726528951
+  }
+}

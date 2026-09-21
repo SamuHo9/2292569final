@@ -1,0 +1,53 @@
+{
+  "input_dir": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right\\aligned_nifti",
+  "output_dir": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727\\right",
+  "total_inputs": 381,
+  "complete": 377,
+  "failed": 4,
+  "deep_geometry_check": true,
+  "required_suffixes": [
+    "_SPHARM.coef",
+    "_SPHARM.vtk",
+    "_SPHARM_grid.vtk",
+    "_SPHARM_ellalign.coef"
+  ],
+  "missing": [
+    {
+      "subject": "right_Healthy_sub-37149_hippocampus_rh_aligned",
+      "missing": [
+        "_SPHARM.coef",
+        "_SPHARM.vtk",
+        "_SPHARM_grid.vtk",
+        "_SPHARM_ellalign.coef"
+      ]
+    },
+    {
+      "subject": "right_TLE_sub-203_hippocampus_rh_aligned",
+      "missing": [
+        "_SPHARM.coef",
+        "_SPHARM.vtk",
+        "_SPHARM_grid.vtk",
+        "_SPHARM_ellalign.coef"
+      ]
+    },
+    {
+      "subject": "right_TLE_sub-405_hippocampus_rh_aligned",
+      "missing": [
+        "_SPHARM.coef",
+        "_SPHARM.vtk",
+        "_SPHARM_grid.vtk",
+        "_SPHARM_ellalign.coef"
+      ]
+    },
+    {
+      "subject": "right_TLE_sub-419_hippocampus_rh_aligned",
+      "missing": [
+        "_SPHARM.coef",
+        "_SPHARM.vtk",
+        "_SPHARM_grid.vtk",
+        "_SPHARM_ellalign.coef"
+      ]
+    }
+  ],
+  "invalid_geometry": []
+}

@@ -1,7 +1,57 @@
-test_all_training_entry_points_use_contract_and_parse (test_pipeline_regressions.DataContractTests) ... ok
+{
+  "schema": "pre_icp_patient_split_v1",
+  "generated_at_utc": "2026-09-21T05:50:27.223180+00:00",
+  "policy": "reused_existing_patient_level_train_test_assignments",
+  "source_split_manifest": "C:\\Users\\IHCK\\AppData\\Local\\Temp\\tmphbarm2d7\\current_split_manifest.json",
+  "source_split_manifest_sha256": "c0abd2f6a4cb1f42004e4bae0567133c0ef58e3cea4998b4be0dbe6b259f5f77",
+  "status_tables": {
+    "left": {
+      "path": "C:\\Users\\IHCK\\AppData\\Local\\Temp\\tmphbarm2d7\\left_status.csv",
+      "sha256": "5b93a73f7e39bc1169fbe16bd39f8f3dcf35e405f6fc7e3f1829b0c229223edb"
+    },
+    "right": {
+      "path": "C:\\Users\\IHCK\\AppData\\Local\\Temp\\tmphbarm2d7\\right_status.csv",
+      "sha256": "cef606f22aba58599beabd920e7b7e970cd5c4c5c643aefef28a9230919c416e"
+    }
+  },
+  "sources": {
+    "left": "C:\\Users\\IHCK\\AppData\\Local\\Temp\\tmphbarm2d7\\left_source",
+    "right": "C:\\Users\\IHCK\\AppData\\Local\\Temp\\tmphbarm2d7\\right_source"
+  },
+  "output_root": "C:\\Users\\IHCK\\AppData\\Local\\Temp\\tmphbarm2d7\\fresh_run",
+  "assignments_total": 5,
+  "side_counts": {
+    "left": {
+      "train": 2,
+      "test": 2,
+      "excluded_unstatused": 1
+    },
+    "right": {
+      "train": 2,
+      "test": 2,
+      "excluded_unstatused": 0
+    }
+  },
+  "excluded_masks": {
+    "left": [
+      {
+        "subject_id": "sub-0005",
+        "filename": "lh_sub-0005_hippocampus.nii.gz",
+        "reason": "subject has no audited status row for this side"
+      }
+    ],
+    "right": []
+  }
+}
+Prepared input manifest: C:\Users\IHCK\AppData\Local\Temp\tmphbarm2d7\fresh_run\pre_icp_split_manifest.json
+test_built_root_loads_in_coefficient_and_pointnet_loaders (test_fixed_reference_rerun.FixedReferenceModelInputTests) ... ok
+test_recovered_references_are_hash_valid_and_marked_non_independent (test_fixed_reference_rerun.LegacyIcpReferenceBundleTests) ... ok
+test_missing_required_mask_fails_before_staging (test_fixed_reference_rerun.PreIcpMaskSplitTests) ... ok
+test_stages_copies_with_shared_subject_split_and_explicit_labels (test_fixed_reference_rerun.PreIcpMaskSplitTests) ... ok
 test_archived_reports_stop_before_overwriting_historical_evidence (test_pipeline_regressions.DataContractTests) ... ok
 test_augmentation_is_local_to_fit_and_same_class (test_pipeline_regressions.DataContractTests) ... ok
 test_explicit_label_metadata_overrides_filename_heuristics (test_pipeline_regressions.DataContractTests) ... ok
+test_legacy_training_entry_points_are_removed_and_current_runners_parse (test_pipeline_regressions.DataContractTests) ... ok
 test_mixed_feature_provenance_is_rejected (test_pipeline_regressions.DataContractTests) ... ok
 test_real_cohorts_match_xyz_coefficients_and_have_disjoint_subjects (test_pipeline_regressions.DataContractTests) ... ok
 test_unknown_and_preaugmented_labels_are_rejected (test_pipeline_regressions.DataContractTests) ... ok
@@ -20,12 +70,26 @@ test_missing_extra_and_duplicate_columns_rejected (test_pipeline_regressions.Pre
 test_new_features_require_compatible_model_before_loading_weights (test_pipeline_regressions.PredictorSchemaTests) ... ok
 test_nonfinite_and_wrong_width_rejected (test_pipeline_regressions.PredictorSchemaTests) ... ok
 test_reordered_named_columns_and_series_preserve_values (test_pipeline_regressions.PredictorSchemaTests) ... ok
+test_exploratory_groupwise_requires_explicit_opt_in (test_pipeline_regressions.ReferenceTests) ... usage: ICP.py [-h] [--input_dir INPUT_DIR | --input_file INPUT_FILE]
+              [--output_dir OUTPUT_DIR]
+              [--reference_template REFERENCE_TEMPLATE] [--fit_reference]
+              [--exploratory_groupwise] [--output_spacing OUTPUT_SPACING]
+              [--output_voxels OUTPUT_VOXELS]
+              [--max_iterations MAX_ITERATIONS] [--tolerance TOLERANCE]
+              [--pairwise_iterations PAIRWISE_ITERATIONS]
+              [--pairwise_tolerance PAIRWISE_TOLERANCE]
+              [--pairwise_landmarks PAIRWISE_LANDMARKS]
+              [--interpolation INTERPOLATION]
+              [--invert_transform {auto,yes,no}]
+ICP.py: error: Choose exactly one of --reference_template, --fit_reference, or --exploratory_groupwise
+ok
 test_fixed_alignment_not_affected_by_other_subjects (test_pipeline_regressions.ReferenceTests) ... ok
 test_legacy_template_without_physical_scale_rejected (test_pipeline_regressions.ReferenceTests) ... ok
 test_reference_argument_parsed (test_pipeline_regressions.ReferenceTests) ... ok
 test_reference_metadata_preserves_scale_and_detects_tampering (test_pipeline_regressions.ReferenceTests) ... ok
+test_single_file_input_requires_existing_volume_and_output (test_pipeline_regressions.ReferenceTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 26 tests in 33.692s
+Ran 32 tests in 66.700s
 
 OK

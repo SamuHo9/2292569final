@@ -10,7 +10,8 @@ except ImportError:  # SlicerSALT's headless Python has no Tk runtime.
     tk = None
     filedialog = None
 import numpy as np
-from feature_metadata import load_labels, write_feature_manifest, validate_feature_contracts
+from feature_metadata import (load_labels, load_dataset_labels,
+                              write_feature_manifest, validate_feature_contracts)
 
 
 # =============================================================================
@@ -91,6 +92,7 @@ def main():
                         help='Coefficient variant to extract. Use the same variant for train/test; default is SPHARM_ellalign.')
     args = parser.parse_args()
     labels = load_labels(args.labels_csv)
+    dataset_labels = load_dataset_labels(args.labels_csv)
 
     spharm_dir = args.spharm_dir
     if not spharm_dir:
@@ -185,7 +187,10 @@ def main():
     print(f"Number of SPHARM coefficients per subject: {num_coeffs} (total {num_coeffs * 3} values)")
 
     # 3. สร้างหัวตาราง (Header)
-    header = ["Subject", "Group", "Class", "BinaryClass"] + [f"Coef_{i+1}" for i in range(num_coeffs * 3)]
+    header = ["Subject", "Group", "Class", "BinaryClass"]
+    if dataset_labels is not None:
+        header.append("Dataset")
+    header += [f"Coef_{i+1}" for i in range(num_coeffs * 3)]
 
     # ตั้งชื่อไฟล์เอาท์พุตตามโฟลเดอร์ที่เลือก เพื่อไม่ให้เขียนทับกัน
     folder_basename = os.path.basename(spharm_dir.rstrip("\\/"))
@@ -211,6 +216,8 @@ def main():
                 if subject_name not in labels:
                     raise ValueError(f'Missing explicit label for {subject_name}')
                 group_name, group_label, binary_class = labels[subject_name]
+            if dataset_labels is not None and subject_name not in dataset_labels:
+                raise ValueError(f'Missing explicit Dataset membership for {subject_name}')
 
             # โหลดสัมประสิทธิ์
             coeffs = parse_coef(filepath)
@@ -221,6 +228,8 @@ def main():
 
             # ประกอบข้อมูลแถว
             row = [subject_name, group_name, group_label, binary_class]
+            if dataset_labels is not None:
+                row.append(dataset_labels[subject_name])
             row.extend(["{:.8f}".format(val) for val in flat_coeffs])
             writer.writerow(row)
 
