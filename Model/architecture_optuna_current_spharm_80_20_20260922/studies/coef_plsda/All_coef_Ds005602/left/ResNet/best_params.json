@@ -1,0 +1,23 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "All_coef_Ds005602",
+  "side": "left",
+  "model": "ResNet",
+  "folds": 10,
+  "n_trials_requested": 10,
+  "n_trials_completed": 3,
+  "best_trial": 2,
+  "best_oof_balanced_accuracy_0_5": 0.6157635467980296,
+  "best_params": {
+    "lr": 0.0027051668818999287,
+    "weight_decay": 0.001260466458564947,
+    "batch_size": 8,
+    "dropout": 0.4687496940092467,
+    "activation": "gelu",
+    "pls_components": 12,
+    "base_channels": 64,
+    "kernel_size": 5,
+    "residual_blocks": 1,
+    "pool_size": 4
+  }
+}

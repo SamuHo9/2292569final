@@ -1,0 +1,22 @@
+{
+  "test_default_0_5": {
+    "accuracy": 0.5161290322580645,
+    "balanced_accuracy": 0.474780701754386,
+    "sensitivity": 0.2916666666666667,
+    "specificity": 0.6578947368421053,
+    "f1_macro": 0.4715909090909091,
+    "threshold": 0.5,
+    "roc_auc": 0.4945175438596492,
+    "pr_auc": 0.3759205329820676
+  },
+  "test_tuned_oof_threshold": {
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.4616228070175439,
+    "sensitivity": 0.2916666666666667,
+    "specificity": 0.631578947368421,
+    "f1_macro": 0.45935302390998595,
+    "threshold": 0.475,
+    "roc_auc": 0.4945175438596492,
+    "pr_auc": 0.3759205329820676
+  }
+}

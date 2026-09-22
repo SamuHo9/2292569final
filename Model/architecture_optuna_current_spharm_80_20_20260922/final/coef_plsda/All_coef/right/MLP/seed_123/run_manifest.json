@@ -1,0 +1,46 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "",
+  "side": "right",
+  "model": "MLP",
+  "architecture_search": true,
+  "architecture_params": {
+    "lr": 0.0018832519048593583,
+    "weight_decay": 0.0003113095956122125,
+    "batch_size": 8,
+    "dropout": 0.23007332881069884,
+    "activation": "relu",
+    "pls_components": 2,
+    "mlp_depth": 2,
+    "mlp_width": 32,
+    "hidden_widths": [
+      32,
+      32
+    ]
+  },
+  "threshold_source": "training_oof_only",
+  "threshold": 0.41000000000000003,
+  "folds": 10,
+  "seed": 123,
+  "train_rows": 302,
+  "test_rows": 75,
+  "data_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922",
+  "test_used_during_tuning": false,
+  "augmentation_applied_to_test": false,
+  "augmentation_applied_to_validation": false,
+  "pls_da_fit_scope": "training_data_only",
+  "augmentation": {
+    "augmentation_protocol": "fold-local-plsda-augmentation-v1",
+    "pls_fit_scope": "training_fold_only",
+    "pls_components": 2,
+    "children_per_pair": 8,
+    "original_train_n": 302,
+    "synthetic_train_n": 138,
+    "fit_train_n": 440,
+    "original_class_0": 220,
+    "original_class_1": 82,
+    "fit_class_0": 220,
+    "fit_class_1": 220
+  },
+  "elapsed_seconds": 6.22
+}

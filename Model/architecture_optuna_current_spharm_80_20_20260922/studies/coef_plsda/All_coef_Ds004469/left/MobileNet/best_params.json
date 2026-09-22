@@ -1,0 +1,23 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "All_coef_Ds004469",
+  "side": "left",
+  "model": "MobileNet",
+  "folds": 10,
+  "n_trials_requested": 10,
+  "n_trials_completed": 5,
+  "best_trial": 5,
+  "best_oof_balanced_accuracy_0_5": 0.6248012718600954,
+  "best_params": {
+    "lr": 0.001558428978238547,
+    "weight_decay": 0.003840300419098858,
+    "batch_size": 8,
+    "dropout": 0.27084311545050255,
+    "activation": "gelu",
+    "pls_components": 24,
+    "width_multiplier": 1.5,
+    "depth_multiplier": 2,
+    "kernel_size": 3,
+    "pool_size": 4
+  }
+}

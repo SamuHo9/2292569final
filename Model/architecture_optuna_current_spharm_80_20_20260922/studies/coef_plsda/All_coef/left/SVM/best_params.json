@@ -1,0 +1,22 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "All_coef",
+  "side": "left",
+  "model": "SVM",
+  "folds": 10,
+  "n_trials_requested": 10,
+  "n_trials_completed": 7,
+  "best_trial": 6,
+  "best_oof_balanced_accuracy_0_5": 0.8401127668143376,
+  "best_params": {
+    "lr": 0.00010239273411172726,
+    "weight_decay": 0.00011040511903162256,
+    "batch_size": 8,
+    "dropout": 0.2350460685614512,
+    "activation": "relu",
+    "pls_components": 8,
+    "kernel": "linear",
+    "C": 0.0016646452049870533,
+    "gamma_mode": "scale"
+  }
+}

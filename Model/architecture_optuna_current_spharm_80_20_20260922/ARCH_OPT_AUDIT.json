@@ -1,0 +1,27 @@
+{
+  "run_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\architecture_optuna_current_spharm_80_20_20260922",
+  "studies": 36,
+  "final_seed_runs": 108,
+  "models": [
+    "MLP",
+    "MobileNet",
+    "ResNet",
+    "ResNetAE",
+    "SVM",
+    "SqueezeNet"
+  ],
+  "cohorts": [
+    "All_coef",
+    "All_coef_Ds004469",
+    "All_coef_Ds005602"
+  ],
+  "sides": [
+    "left",
+    "right"
+  ],
+  "test_used_during_tuning": false,
+  "threshold_source": "training_oof_only",
+  "failures": 0,
+  "test_balanced_accuracy_tuned_mean": 0.6099425996355821,
+  "test_accuracy_tuned_mean": 0.7121704051721972
+}

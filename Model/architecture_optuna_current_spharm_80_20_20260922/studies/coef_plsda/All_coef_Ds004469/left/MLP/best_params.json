@@ -1,0 +1,26 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "All_coef_Ds004469",
+  "side": "left",
+  "model": "MLP",
+  "folds": 10,
+  "n_trials_requested": 10,
+  "n_trials_completed": 6,
+  "best_trial": 5,
+  "best_oof_balanced_accuracy_0_5": 0.5461049284578696,
+  "best_params": {
+    "lr": 0.00011128194768838959,
+    "weight_decay": 0.00035127047262708476,
+    "batch_size": 32,
+    "dropout": 0.19971689165954998,
+    "activation": "gelu",
+    "pls_components": 12,
+    "mlp_depth": 3,
+    "mlp_width": 128,
+    "hidden_widths": [
+      128,
+      128,
+      128
+    ]
+  }
+}

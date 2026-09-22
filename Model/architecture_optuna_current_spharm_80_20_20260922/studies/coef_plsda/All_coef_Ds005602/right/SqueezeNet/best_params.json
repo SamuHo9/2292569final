@@ -1,0 +1,24 @@
+{
+  "protocol": "coef_plsda",
+  "cohort": "All_coef_Ds005602",
+  "side": "right",
+  "model": "SqueezeNet",
+  "folds": 10,
+  "n_trials_requested": 10,
+  "n_trials_completed": 6,
+  "best_trial": 4,
+  "best_oof_balanced_accuracy_0_5": 0.50858521918025,
+  "best_params": {
+    "lr": 0.00021775224101934097,
+    "weight_decay": 2.031980983842497e-06,
+    "batch_size": 32,
+    "dropout": 0.4232481518257668,
+    "activation": "gelu",
+    "pls_components": 16,
+    "squeeze_width": 32,
+    "fire_blocks": 4,
+    "squeeze_ratio": 2,
+    "kernel_size": 3,
+    "pool_size": 8
+  }
+}

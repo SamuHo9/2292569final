@@ -1,0 +1,10 @@
+{
+  "source_run_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\optuna_current_spharm_80_20_20260922",
+  "data_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922",
+  "protocol": "coef_plsda",
+  "folds": 10,
+  "seed": 42,
+  "threshold_source": "training_oof_only",
+  "test_used_to_choose_threshold": false,
+  "groups": 6
+}
