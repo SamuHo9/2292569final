@@ -1,0 +1,10 @@
+{
+  "run_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\pointnet_optuna_current_spharm_80_20_20260922",
+  "protocol": "pointnet_raw",
+  "studies": 6,
+  "final_seed_runs": 18,
+  "test_used_during_tuning": false,
+  "failures": 0,
+  "test_balanced_accuracy_mean": 0.619801421775106,
+  "test_accuracy_mean": 0.6959064594548465
+}

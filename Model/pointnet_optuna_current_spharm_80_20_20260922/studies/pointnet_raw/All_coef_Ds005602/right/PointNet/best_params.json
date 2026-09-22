@@ -1,0 +1,18 @@
+{
+  "protocol": "pointnet_raw",
+  "cohort": "All_coef_Ds005602",
+  "side": "right",
+  "model": "PointNet",
+  "folds": 10,
+  "seed": 42,
+  "n_trials_requested": 10,
+  "n_trials_completed": 4,
+  "best_trial": 0,
+  "best_oof_balanced_accuracy": 0.8564646304795063,
+  "best_params": {
+    "lr": 0.0003574712922600243,
+    "weight_decay": 0.006351221010640704,
+    "batch_size": 8,
+    "dropout": 0.17799726016810133
+  }
+}

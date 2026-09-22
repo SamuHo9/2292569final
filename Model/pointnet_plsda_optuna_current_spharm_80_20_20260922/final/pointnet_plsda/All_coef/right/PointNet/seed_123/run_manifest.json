@@ -1,0 +1,35 @@
+{
+  "protocol": "optuna-pointnet_plsda-v1",
+  "source_protocol": "original-coef-no-pls-v1",
+  "cohort": "ALL",
+  "side": "right",
+  "model": "PointNet",
+  "feature_kind": "xyz",
+  "optuna_best_params": {
+    "lr": 0.00012184186502221769,
+    "weight_decay": 0.0029154431891537554,
+    "batch_size": 16,
+    "dropout": 0.5849549260809972
+  },
+  "optuna_best_oof_balanced_accuracy": 0.8317627494456763,
+  "optuna_trials": 10,
+  "folds": 10,
+  "seed": 123,
+  "test_evaluation": "single_final_model_no_fold_ensemble",
+  "train_rows": 302,
+  "test_rows": 75,
+  "features": [
+    "normalized_xyz_3x1002"
+  ],
+  "data_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922",
+  "train_feature_sha256": "67094ce22c35785fffb78405b2b983a608134d03dc040299b7911935a5529573",
+  "test_feature_sha256": "24c1f786c57b7fc7c2275606a3634341bf1731f0a37424df540254cc65acc705",
+  "patient_overlap": false,
+  "device": "cuda",
+  "elapsed_seconds": 9.37,
+  "augmentation_applied_to_test": false,
+  "augmentation_applied_to_validation": false,
+  "children_per_pair": 8,
+  "pls_da_fit_scope": "training_data_only",
+  "pls_components_requested": 8
+}

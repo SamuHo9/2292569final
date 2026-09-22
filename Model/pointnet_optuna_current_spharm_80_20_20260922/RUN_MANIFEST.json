@@ -1,0 +1,27 @@
+{
+  "protocols": [
+    "pointnet_raw"
+  ],
+  "cohorts": [
+    "All_coef",
+    "All_coef_Ds004469",
+    "All_coef_Ds005602"
+  ],
+  "sides": [
+    "left",
+    "right"
+  ],
+  "data_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922",
+  "folds_requested": 10,
+  "trials_per_study": 10,
+  "tuning_objective": "grouped out-of-fold balanced accuracy",
+  "test_used_during_tuning": false,
+  "test_evaluation": "single model per seed",
+  "eval_seeds": [
+    42,
+    123,
+    2026
+  ],
+  "device": "cuda",
+  "failures": []
+}

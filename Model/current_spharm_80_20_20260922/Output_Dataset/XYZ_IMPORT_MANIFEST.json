@@ -1,0 +1,106 @@
+{
+  "schema": "current_spharm_xyz_pointnet_inputs_v1",
+  "protocol": "original-xyz-no-pls-v1",
+  "source_coefficient_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922",
+  "source_vtk_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\reruns\\icp_legacy_reference_20260921_172727",
+  "mesh_variant": "ellalign",
+  "pls_da_applied_before_training": false,
+  "records": [
+    {
+      "dataset": "All_coef",
+      "source_dataset": "ALL",
+      "side": "left",
+      "split": "train",
+      "rows": 295,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\ALL_Left_train_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef",
+      "source_dataset": "ALL",
+      "side": "left",
+      "split": "test",
+      "rows": 74,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\ALL_Left_test_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef",
+      "source_dataset": "ALL",
+      "side": "right",
+      "split": "train",
+      "rows": 302,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\ALL_Right_train_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef",
+      "source_dataset": "ALL",
+      "side": "right",
+      "split": "test",
+      "rows": 75,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\ALL_Right_test_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef_Ds004469",
+      "source_dataset": "Ds004469",
+      "side": "left",
+      "split": "train",
+      "rows": 54,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\Ds004469_Left_train_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef_Ds004469",
+      "source_dataset": "Ds004469",
+      "side": "left",
+      "split": "test",
+      "rows": 12,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\Ds004469_Left_test_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef_Ds004469",
+      "source_dataset": "Ds004469",
+      "side": "right",
+      "split": "train",
+      "rows": 53,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\Ds004469_Right_train_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef_Ds004469",
+      "source_dataset": "Ds004469",
+      "side": "right",
+      "split": "test",
+      "rows": 12,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\Ds004469_Right_test_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef_Ds005602",
+      "source_dataset": "Ds005602",
+      "side": "left",
+      "split": "train",
+      "rows": 241,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\Ds005602_Left_train_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef_Ds005602",
+      "source_dataset": "Ds005602",
+      "side": "left",
+      "split": "test",
+      "rows": 62,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\Ds005602_Left_test_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef_Ds005602",
+      "source_dataset": "Ds005602",
+      "side": "right",
+      "split": "train",
+      "rows": 249,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\Ds005602_Right_train_xyz_coords.csv"
+    },
+    {
+      "dataset": "All_coef_Ds005602",
+      "source_dataset": "Ds005602",
+      "side": "right",
+      "split": "test",
+      "rows": 63,
+      "path": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\Output_Dataset\\Ds005602_Right_test_xyz_coords.csv"
+    }
+  ]
+}

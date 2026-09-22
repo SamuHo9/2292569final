@@ -1,0 +1,18 @@
+{
+  "protocol": "pointnet_plsda",
+  "cohort": "All_coef",
+  "side": "right",
+  "model": "PointNet",
+  "folds": 10,
+  "seed": 42,
+  "n_trials_requested": 10,
+  "n_trials_completed": 5,
+  "best_trial": 1,
+  "best_oof_balanced_accuracy": 0.8317627494456763,
+  "best_params": {
+    "lr": 0.00012184186502221769,
+    "weight_decay": 0.0029154431891537554,
+    "batch_size": 16,
+    "dropout": 0.5849549260809972
+  }
+}
