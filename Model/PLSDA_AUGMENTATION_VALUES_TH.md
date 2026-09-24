@@ -26,3 +26,38 @@
 - PointNet PLS-DA: สร้างกลับมาเป็น normalized XYZ ขนาด `3 × 1002`
 
 ค่า loading/score ของ PLS-DA ไม่ใช่ตัวเลขเดียว แต่เป็นพารามิเตอร์ของ PLS model ที่ fit แยกต่อ dataset, side และ fold ไฟล์ CSV รายละเอียดอยู่ที่ `PLSDA_AUGMENTATION_COUNTS.csv`
+
+## ตำแหน่งค่าที่ใช้เลือก n_components
+
+ไม่มีค่า n_components เดียวที่ดีที่สุดสำหรับทุก dataset และทุก model การเลือก architecture-optimized ใช้ OOF balanced accuracy จาก training เท่านั้น โดยค่า n_components ของ best trial อยู่ที่:
+
+- `Model/architecture_optuna_current_spharm_80_20_20260922/ARCH_OPT_TUNING_SUMMARY.csv` ในคอลัมน์ `BestParams` และ key `pls_components`
+- `Model/architecture_optuna_current_spharm_80_20_20260922/ARCH_OPT_WINNERS_BY_COHORT_SIDE.csv` สำหรับโมเดลที่ชนะในแต่ละ cohort/side
+- `studies/coef_plsda/<cohort>/<side>/<model>/best_params.json` สำหรับ best trial ราย study
+- `studies/coef_plsda/<cohort>/<side>/<model>/trials.csv` สำหรับค่า n_components ของทุก Optuna trial
+
+สำหรับ fixed baseline และ PointNet PLS-DA กำหนด n_components เป็น 8 ในคำสั่งและ manifest ไม่ได้ค้นหา n_components แยกด้วย Optuna
+
+## ค่าอะไรถูกบันทึกและอะไรยังไม่ได้บันทึก
+
+มีการบันทึกแล้ว:
+
+- จำนวน PLS components ใน `best_params.json`, `threshold.json` และ `run_manifest.json`
+- จำนวน synthetic ต่อ fold ใน `threshold.json` และ `PLSDA_AUGMENTATION_COUNTS.csv`
+- จำนวน train ก่อน/หลัง augmentation และจำนวนของแต่ละ class ใน `threshold.json` และ `run_manifest.json`
+- OOF prediction ใน `best_oof_predictions.csv`
+- test prediction และ metric ใน `test_predictions.csv` และ `metrics.json`
+- Optuna objective และ hyperparameter ใน `trials.csv`
+
+ยังไม่ได้บันทึกเป็นไฟล์ในรอบเดิม:
+
+- scaler mean และ standard deviation ที่ใช้ก่อน fit PLS-DA
+- PLS x_weights, x_loadings, y_loadings และ score matrix ของทุก fold
+- รายชื่อ parent pairs ที่ถูกเลือกในแต่ละ class
+- ค่า feature จริงของ synthetic rows แต่ละแถว
+
+ค่ากลุ่มหลังถูกสร้างในหน่วยความจำภายใน `leakage_free_plsda_training.py` และ `leakage_free_pointnet_plsda_training.py` แล้วถูกใช้ train model ต่อทันที จึงไม่สามารถอ่านค่ารายตัวกลับจาก `metrics.json` หรือ `test_predictions.csv` ได้
+
+ไฟล์ `scaler.pkl` ที่อยู่ใน final model เป็น scaler ของ classifier หลัง augmentation ไม่ใช่ scaler ที่ใช้ภายใน PLS-DA ส่วน SVM เก็บ classifier scaler ไว้ภายใน `model.pkl` เช่นเดียวกัน
+
+หากต้องการรายงานค่า loading/score หรือ synthetic feature รายตัว ต้องเพิ่ม export ในฟังก์ชัน PLS-DA แล้ว rerun ด้วย protocol และ seed เดิม จึงจะได้ artifact ที่ตรวจสอบย้อนกลับได้ครบทุก fold
