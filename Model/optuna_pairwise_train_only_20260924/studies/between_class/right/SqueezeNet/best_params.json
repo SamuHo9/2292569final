@@ -1,0 +1,13 @@
+{
+  "protocol": "between_class",
+  "side": "right",
+  "model": "SqueezeNet",
+  "folds": 10,
+  "best_value_oof_balanced_accuracy": 0.5060975609756098,
+  "best_params": {
+    "lr": 0.0003574712922600243,
+    "weight_decay": 0.006351221010640704,
+    "batch_size": 8,
+    "dropout": 0.16239780813448107
+  }
+}

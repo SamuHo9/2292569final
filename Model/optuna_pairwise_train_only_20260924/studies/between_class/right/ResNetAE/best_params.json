@@ -1,0 +1,14 @@
+{
+  "protocol": "between_class",
+  "side": "right",
+  "model": "ResNetAE",
+  "folds": 10,
+  "best_value_oof_balanced_accuracy": 0.6454545454545455,
+  "best_params": {
+    "lr": 0.0003574712922600243,
+    "weight_decay": 0.006351221010640704,
+    "batch_size": 8,
+    "dropout": 0.16239780813448107,
+    "recon_weight": 0.011900590783184251
+  }
+}

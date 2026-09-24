@@ -1,0 +1,13 @@
+{
+  "protocol": "within_class",
+  "side": "right",
+  "model": "ResNet",
+  "folds": 10,
+  "best_value_oof_balanced_accuracy": 0.7108647450110864,
+  "best_params": {
+    "lr": 0.00011240768803005555,
+    "weight_decay": 0.004337920697490943,
+    "batch_size": 16,
+    "dropout": 0.3080272084711243
+  }
+}

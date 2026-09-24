@@ -1,0 +1,12 @@
+{
+  "test": {
+    "accuracy": 0.8266666666666667,
+    "balanced_accuracy": 0.7704545454545455,
+    "sensitivity": 0.65,
+    "specificity": 0.8909090909090909,
+    "f1_macro": 0.7747747747747749,
+    "threshold": 0.5,
+    "roc_auc": 0.87,
+    "pr_auc": 0.661506664554032
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "protocol": "within_class",
+  "side": "left",
+  "model": "SVM",
+  "folds": 10,
+  "best_value_oof_balanced_accuracy": 0.7815142972211035,
+  "best_params": {
+    "gamma_mode": "auto",
+    "C": 1.1400863701127328
+  }
+}

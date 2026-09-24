@@ -1,0 +1,5 @@
+Protocol,Side,Model,Folds,TrialsRequested,TrialsCompleted,BestOOFBalancedAccuracy,BestParams,Study
+between_class,left,MLP,10,10,10,0.8440646395489328,"{""batch_size"": 32, ""dropout"": 0.4233589392465845, ""lr"": 0.0007896186801026692, ""weight_decay"": 4.809461967501575e-06}",between_class_left_MLP
+between_class,right,MLP,10,10,10,0.8516075388026607,"{""batch_size"": 32, ""dropout"": 0.3099025726528951, ""lr"": 0.0016967533607196547, ""weight_decay"": 7.068974950624607e-06}",between_class_right_MLP
+within_class,left,MLP,10,10,10,0.8514901329037454,"{""batch_size"": 8, ""dropout"": 0.4579309401710595, ""lr"": 0.000642033033629786, ""weight_decay"": 5.4880470007660465e-06}",within_class_left_MLP
+within_class,right,SVM,10,10,10,0.8470620842572063,"{""C"": 0.14618962793704965, ""gamma_mode"": ""auto""}",within_class_right_SVM

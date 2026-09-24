@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-09-24T07:09:03.918498+00:00",
+  "protocol": "optuna-pairwise-train-only-v1",
+  "augmentation_protocol": "between_class",
+  "dataset": "All_coef",
+  "side": "left",
+  "model": "MobileNet",
+  "seed": 42,
+  "train_csv": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\All_coef\\left\\All_coef_Left_train_coef_features.csv",
+  "test_csv": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\All_coef\\left\\All_coef_Left_test_coef_features.csv",
+  "train_rows_original": 295,
+  "train_rows_after_pairwise_augmentation": 1040,
+  "test_rows": 74,
+  "validation_created_for_final_fit": false,
+  "optuna_cv_used_for_selection": true,
+  "pls_da_applied_to_model_input": false,
+  "additional_augmentation_during_final_fit": false,
+  "best_params": {
+    "lr": 0.0007641361869233315,
+    "weight_decay": 0.0048696409415209,
+    "batch_size": 16,
+    "dropout": 0.23013213230530574
+  },
+  "final_epochs": 20,
+  "device": "cuda",
+  "test_metrics": {
+    "accuracy": 0.5945945945945946,
+    "balanced_accuracy": 0.5200320512820513,
+    "sensitivity": 0.2692307692307692,
+    "specificity": 0.7708333333333334,
+    "f1_macro": 0.5148601398601399,
+    "threshold": 0.5,
+    "roc_auc": 0.5568910256410257,
+    "pr_auc": 0.4051345647726845
+  },
+  "elapsed_seconds": 17.644
+}

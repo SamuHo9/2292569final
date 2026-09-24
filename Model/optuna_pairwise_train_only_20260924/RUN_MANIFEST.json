@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-09-24T08:26:21.966387+00:00",
+  "data_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922",
+  "output_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\optuna_pairwise_train_only_20260924",
+  "protocols": [
+    "between_class",
+    "within_class"
+  ],
+  "sides": [
+    "left",
+    "right"
+  ],
+  "models": [
+    "SVM",
+    "MLP",
+    "ResNet",
+    "ResNetAE",
+    "MobileNet",
+    "SqueezeNet"
+  ],
+  "folds_requested": 10,
+  "trials_per_study": 10,
+  "tune_epochs": 3,
+  "tune_patience": 2,
+  "final_epochs": 20,
+  "seed_for_folds_and_sampler": 42,
+  "eval_seeds": [
+    42,
+    123,
+    2026
+  ],
+  "device": "cuda",
+  "augmentation_inside_each_cv_fold": true,
+  "test_used_during_tuning": false,
+  "validation_rows_in_final_fit": 0,
+  "pls_da_used": false,
+  "failures": [],
+  "tuning_summary": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\optuna_pairwise_train_only_20260924\\OPTUNA_TUNING_SUMMARY.csv",
+  "final_summary": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\optuna_pairwise_train_only_20260924\\OPTUNA_FINAL_SUMMARY.csv"
+}

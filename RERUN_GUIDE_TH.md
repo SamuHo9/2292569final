@@ -309,3 +309,32 @@ $env:PYTHONPATH="$PWD\Model\_training_cuda_site;$PWD\Model\_training_site"
 ค่าที่ใช้เท่ากันทุกโมเดล: neural models ใช้ AdamW, learning rate `0.001`, weight decay `0.001`, batch size `32`, dropout `0.25`; SVM ใช้ RBF `C=1.0`, `gamma=scale` และปิด probability calibration ภายในเพื่อไม่สร้าง validation เพิ่ม ผลอยู่ใน `Model/pairwise_preaugmented_training_20260924` โดยมี `PAIRWISE_TRAIN_SUMMARY.csv`, `MODEL_SUMMARY_BY_PROTOCOL_SIDE.csv`, `BEST_BY_PROTOCOL_SIDE.csv` และโฟลเดอร์ย่อย `protocol/side/model/seed_<seed>` ซึ่งเก็บ model artifact, training log, test predictions, metrics และ manifest
 
 ผลนี้เป็นการทดลองวิจัย ไม่ใช่เครื่องมือวินิจฉัยโรคที่ผ่านการยืนยันทางคลินิก การเปลี่ยน ICP reference/geometry ทำให้ต้องสร้าง features และฝึก weights ใหม่ ห้ามนำ weights เก่ามาปะกับ feature ชุดนี้
+
+## 9. Optuna สำหรับ pairwise augmentation แบบ train-only
+
+ถ้าต้องการหาค่าพารามิเตอร์ที่เหมาะสมโดยไม่ใช้ held-out test ในการเลือกโมเดล ให้ใช้ `Model/optuna_pairwise_train_only.py` สคริปต์นี้เริ่มจาก `Model/current_spharm_80_20_20260922/All_coef` ซึ่งเป็น train/test ต้นฉบับของ All ซ้ายและขวา แล้วทำงานแยกต่อ protocol (`between_class`, `within_class`), ข้าง (`left`, `right`) และโมเดลทั้ง 6 ตัว
+
+การเลือกค่าใช้ grouped 10-fold CV ภายใน train เท่านั้น แต่ละ fold จะ fit scaler และสร้าง pairwise synthetic rows ใหม่จาก training fold ของตัวเอง ส่วน validation fold ใช้เฉพาะแถวต้นฉบับและไม่ถูก augment; held-out test ไม่ถูกอ่านระหว่าง tuning เมื่อได้ค่าที่ดีที่สุดแล้ว จึงสร้าง augmentation จาก train ทั้งชุดอีกครั้ง, fit โมเดลสุดท้ายโดยไม่มี validation เพิ่ม และประเมิน test ด้วย seed `42,123,2026` การทดลองนี้ไม่ใช้ PLS-DA และไม่ augment ซ้ำจากไฟล์ pre-augmented
+
+รันจาก root โปรเจกต์ด้วย PythonSlicer:
+
+```powershell
+$env:PYTHONPATH="$PWD\Model\_training_cuda_site;$PWD\Model\_training_site"
+& 'C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe' .\Model\optuna_pairwise_train_only.py `
+  --data-root .\Model\current_spharm_80_20_20260922 `
+  --output-root .\Model\optuna_pairwise_train_only_20260924 `
+  --protocol all --side all --model all `
+  --folds 10 --n-trials 10 --tune-epochs 3 --tune-patience 2 `
+  --final-epochs 20 --seed 42 --eval-seeds 42,123,2026 --device cuda
+```
+
+ผลอยู่ที่ `Model/optuna_pairwise_train_only_20260924`:
+
+- `OPTUNA_TUNING_SUMMARY.csv` สรุป 24 studies (2 protocols × 2 sides × 6 models), 10 trials ต่อ study และค่า OOF balanced accuracy ที่ใช้เลือก
+- `OPTUNA_FINAL_SUMMARY.csv` ผล test ของ final model ครบ 72 runs (24 model configurations × 3 seeds)
+- `OPTUNA_WINNERS_BY_PROTOCOL_SIDE.csv` ผู้ชนะของแต่ละ protocol/side ซึ่งเลือกจาก OOF balanced accuracy เท่านั้น
+- `OPTUNA_WINNER_TEST_MEANS.csv` ค่า test เฉลี่ยของผู้ชนะทั้งสาม seed สำหรับรายงาน
+- `studies/<protocol>/<side>/<model>/` ค่า trial และ `best_params.json`
+- `final/<protocol>/<side>/<model>/seed_<seed>/` model artifact, scaler, training log, predictions, metrics และ manifest
+
+ผลที่รันแล้วตรวจผ่านครบ 24/24 studies และ 72/72 final runs โดย manifest ยืนยันว่า final fit ไม่มี validation เพิ่ม, ไม่มี augmentation ซ้ำ และไม่มี PLS-DA ใน model input

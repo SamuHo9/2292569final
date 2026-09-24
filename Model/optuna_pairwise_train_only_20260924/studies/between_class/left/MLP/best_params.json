@@ -1,0 +1,13 @@
+{
+  "protocol": "between_class",
+  "side": "left",
+  "model": "MLP",
+  "folds": 10,
+  "best_value_oof_balanced_accuracy": 0.8440646395489328,
+  "best_params": {
+    "lr": 0.0007896186801026692,
+    "weight_decay": 4.809461967501575e-06,
+    "batch_size": 32,
+    "dropout": 0.4233589392465845
+  }
+}
