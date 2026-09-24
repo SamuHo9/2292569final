@@ -293,4 +293,19 @@ $env:PYTHONPATH="$PWD\Model\_training_cuda_site;$PWD\Model\_training_site"
 
 รายละเอียดและตารางสรุปอยู่ที่ `Model/augment_all_pairwise_80_20_20260924/README_TH.md` และ `SUMMARY.csv` ชุด train นี้เป็น pre-augmented fixed split สำหรับการทดลอง 80/20 ตาม protocol นี้ หากจะทำ grouped cross-validation ต้องย้ายการจับคู่และการ fit scaler เข้าไปภายใน training fold เพื่อไม่ให้ข้อมูลสังเคราะห์รั่วข้าม fold
 
+## 8. เทรนโมเดลจากชุด pairwise นี้
+
+ใช้ `Model/train_pairwise_preaugmented.py` เมื่อมีไฟล์ pairwise ในโฟลเดอร์ที่ระบุในข้อ 7 สคริปต์จะอ่าน train/test ตาม protocol และข้างที่ตรงกัน, ไม่ augment ซ้ำ, ไม่สร้าง validation และรันโมเดล coefficient ทั้ง 6 ตัวแยกกัน:
+
+```powershell
+$env:PYTHONPATH="$PWD\Model\_training_cuda_site;$PWD\Model\_training_site"
+& 'C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe' Model\train_pairwise_preaugmented.py `
+  --data-root Model\augment_all_pairwise_80_20_20260924 `
+  --output-root Model\pairwise_preaugmented_training_20260924 `
+  --protocol all --side all --model all `
+  --seeds 42,123,2026 --epochs 20 --device cuda
+```
+
+ค่าที่ใช้เท่ากันทุกโมเดล: neural models ใช้ AdamW, learning rate `0.001`, weight decay `0.001`, batch size `32`, dropout `0.25`; SVM ใช้ RBF `C=1.0`, `gamma=scale` และปิด probability calibration ภายในเพื่อไม่สร้าง validation เพิ่ม ผลอยู่ใน `Model/pairwise_preaugmented_training_20260924` โดยมี `PAIRWISE_TRAIN_SUMMARY.csv`, `MODEL_SUMMARY_BY_PROTOCOL_SIDE.csv`, `BEST_BY_PROTOCOL_SIDE.csv` และโฟลเดอร์ย่อย `protocol/side/model/seed_<seed>` ซึ่งเก็บ model artifact, training log, test predictions, metrics และ manifest
+
 ผลนี้เป็นการทดลองวิจัย ไม่ใช่เครื่องมือวินิจฉัยโรคที่ผ่านการยืนยันทางคลินิก การเปลี่ยน ICP reference/geometry ทำให้ต้องสร้าง features และฝึก weights ใหม่ ห้ามนำ weights เก่ามาปะกับ feature ชุดนี้

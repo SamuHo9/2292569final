@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-09-24T06:29:08.449864+00:00",
+  "data_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\augment_all_pairwise_80_20_20260924",
+  "output_root": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\pairwise_preaugmented_training_20260924",
+  "protocols": [
+    "between_class",
+    "within_class"
+  ],
+  "sides": [
+    "left",
+    "right"
+  ],
+  "models": [
+    "SVM",
+    "MLP",
+    "ResNet",
+    "ResNetAE",
+    "MobileNet",
+    "SqueezeNet"
+  ],
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "epochs": 20,
+  "device": "cuda",
+  "validation_created": false,
+  "additional_augmentation_during_training": false,
+  "pls_da_used": false,
+  "optimizer_neural": "AdamW",
+  "summary": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\pairwise_preaugmented_training_20260924\\PAIRWISE_TRAIN_SUMMARY.csv",
+  "failures": [],
+  "run_count": 72
+}

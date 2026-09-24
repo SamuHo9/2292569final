@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-09-24T06:27:14.009687+00:00",
+  "protocol": "pairwise-balanced-train-only-v1",
+  "augmentation_protocol": "within_class",
+  "dataset": "All_coef",
+  "side": "left",
+  "model": "ResNet",
+  "seed": 42,
+  "train_csv": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\augment_all_pairwise_80_20_20260924\\within_class\\left\\train\\All_coef_Left_train_coef_features.csv",
+  "test_csv": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\augment_all_pairwise_80_20_20260924\\within_class\\left\\test\\All_coef_Left_test_coef_features.csv",
+  "train_rows": 1040,
+  "test_rows": 74,
+  "features": 507,
+  "validation_created": false,
+  "validation_rows": 0,
+  "additional_augmentation_during_training": false,
+  "pls_da_applied_to_model_input": false,
+  "train_class_counts": {
+    "0": 520,
+    "1": 520
+  },
+  "test_class_counts": {
+    "0": 48,
+    "1": 26
+  },
+  "device": "cuda",
+  "model_settings": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "batch_size": 32,
+    "dropout": 0.25,
+    "reconstruction_weight": null,
+    "epochs": 20,
+    "scaler_fit_scope": "augmented training rows only"
+  },
+  "elapsed_seconds": 6.058,
+  "test_metrics_file": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\pairwise_preaugmented_training_20260924\\within_class\\left\\ResNet\\seed_42\\metrics.json"
+}

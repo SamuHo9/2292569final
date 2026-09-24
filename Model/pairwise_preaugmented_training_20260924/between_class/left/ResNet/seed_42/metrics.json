@@ -1,0 +1,30 @@
+{
+  "test": {
+    "accuracy": 0.6621621621621622,
+    "balanced_accuracy": 0.5897435897435898,
+    "sensitivity": 0.34615384615384615,
+    "specificity": 0.8333333333333334,
+    "f1_macro": 0.5902547065337762,
+    "threshold": 0.5,
+    "roc_auc": 0.6041666666666667,
+    "pr_auc": 0.48137374934502153,
+    "confusion_matrix": [
+      [
+        40,
+        8
+      ],
+      [
+        17,
+        9
+      ]
+    ]
+  },
+  "train_class_counts": {
+    "0": 520,
+    "1": 520
+  },
+  "test_class_counts": {
+    "0": 48,
+    "1": 26
+  }
+}
