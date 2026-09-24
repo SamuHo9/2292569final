@@ -1,0 +1,54 @@
+{
+  "created_utc": "2026-09-24T05:51:27.551076+00:00",
+  "protocol": "pairwise-balanced-train-only-v1",
+  "augmentation_protocol": "within_class",
+  "dataset": "All_coef",
+  "side": "left",
+  "seed": 42,
+  "children_per_pair": 8,
+  "validation_rows": 0,
+  "validation_created": false,
+  "pls_da_applied_to_model_input": false,
+  "pairing_space": "507-D coefficient space after train-only standardization",
+  "scaler_fit_scope": "original training rows only",
+  "train_only_augmentation": true,
+  "test_untouched": true,
+  "feature_contract": {
+    "version": "spharm-feature-v1",
+    "icp_mode": "fixed_reference",
+    "icp_geometry_version": "fixed-legacy-groupwise-reference-v1",
+    "icp_reference_sha256": "e5db3de875fed2b774ef297526ba8f600742695e35415b1ebbca9d8f0063a94d",
+    "spharm_template": "C:/Users/IHCK/Desktop/17-9-2569/Hippocampal-Shape-Analysis-for-Epilepsy-Detection/Templates/SPHARM/template_spharm_left.vtk",
+    "spharm_template_sha256": "610caaa2a0ea0f56ae64891b5ff1541364e42055c7d3892dcd52fc541dc1ecd6",
+    "num_iterations": 1000,
+    "subdiv_level": 10,
+    "spharm_degree": 12,
+    "grid_theta": 4.5,
+    "grid_phi": 4.5,
+    "coefficient_variant": "ellalign"
+  },
+  "split": "train",
+  "input_train_csv": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\current_spharm_80_20_20260922\\All_coef\\left\\All_coef_Left_train_coef_features.csv",
+  "output_csv": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\augment_all_pairwise_80_20_20260924\\within_class\\left\\train\\All_coef_Left_train_coef_features.csv",
+  "input_train_sha256": "b694532ea97ade96416b25e0fb193f4cc8f26bf3776dca87b8f93f6c18ba0008",
+  "output_sha256": "5d01824022772b85500fad49b7b1c27cc0ac7e17905fc51b835a32de5b6b3641",
+  "original_train_rows": 295,
+  "output_train_rows": 1040,
+  "synthetic_rows": 745,
+  "class_counts_original": {
+    "0": 191,
+    "1": 104
+  },
+  "class_counts_output": {
+    "0": 520,
+    "1": 520
+  },
+  "pair_count": 94,
+  "pair_ids_reused": false,
+  "artifacts": {
+    "synthetic_rows": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\augment_all_pairwise_80_20_20260924\\within_class\\left\\synthetic_rows.csv",
+    "synthetic_manifest": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\augment_all_pairwise_80_20_20260924\\within_class\\left\\synthetic_manifest.csv",
+    "pair_manifest": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\augment_all_pairwise_80_20_20260924\\within_class\\left\\pair_manifest.csv",
+    "scaler_stats": "C:\\Users\\IHCK\\Desktop\\17-9-2569\\Hippocampal-Shape-Analysis-for-Epilepsy-Detection\\Model\\augment_all_pairwise_80_20_20260924\\within_class\\left\\scaler_stats.csv"
+  }
+}

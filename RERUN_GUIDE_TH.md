@@ -259,4 +259,38 @@ export MPLCONFIGDIR="$(cygpath -w "$PROJECT_ROOT/Model/_mplconfig")"
 
 SPHARM template ที่เก็บใน `Templates/SPHARM` ถูกใช้แบบคงที่และมีการบันทึก hash แต่ repository ยังไม่มีบันทึกแหล่งที่มาหรือรายชื่อผู้เข้าร่วมที่ใช้สร้าง template จึงยังยืนยันไม่ได้ว่า template นี้เป็นอิสระจากผู้เข้าร่วมใน held-out test หรือไม่ ก่อนรายงานว่า pipeline ทั้งชุดเป็นการทดสอบอิสระ ต้องตรวจสอบที่มาของ template ด้วย
 
+## 7. ทางเลือกใหม่: pairwise augmentation แบบไม่มี validation (เฉพาะ All ซ้าย/ขวา)
+
+ส่วนนี้เป็น protocol แยกจาก PLS-DA และใช้เมื่อกำหนดให้แบ่งข้อมูล 80/20 ที่มีอยู่แล้ว, ไม่สร้าง validation และ augment เฉพาะ train เท่านั้น ตัวตั้งต้นคือ `Model/current_spharm_80_20_20260922/All_coef` ซึ่งเป็น coefficient `ellalign` 507 มิติที่ไม่มี synthetic rows และมี train/test แยกแล้ว ห้ามนำ test เข้าไป fit scaler, จับคู่ หรือสร้างลูกสังเคราะห์
+
+สคริปต์คือ `Data_Processing/augment_all_pairwise_balanced.py` และสร้างสองวิธี:
+
+1. `between_class`: จับคู่แถว class 0 กับ class 1 ที่ใกล้กันที่สุดใน coefficient space หลัง standardize ด้วย train เท่านั้น แบบหนึ่งต่อหนึ่ง จึงไม่ใช้คู่เดิมซ้ำ คู่หนึ่งสร้างได้สูงสุด 8 ลูก โดย alpha `0.10, 0.20, 0.30, 0.40` ติดป้ายตาม endpoint class 0 และ alpha `0.60, 0.70, 0.80, 0.90` ติดป้ายตาม endpoint class 1 ทำให้ label เป็นคลาสของ endpoint ที่ใกล้กว่า
+2. `within_class`: จับคู่เฉพาะแถวในคลาสเดียวกันแบบหนึ่งต่อหนึ่ง คู่หนึ่งสร้างได้สูงสุด 8 ลูกด้วย alpha เดียวกัน และใช้ label ของคลาสนั้น
+
+จำนวนลูกถูกเลือกให้จำนวนสองคลาสสุดท้ายเท่ากันและมีขนาดมากที่สุดภายใต้ข้อจำกัดคู่ไม่ซ้ำ/ไม่เกิน 8 ลูกต่อคู่ คู่สุดท้ายของบางคลาสอาจสร้างน้อยกว่า 8 ลูกเพื่อให้ยอดสองคลาสเท่ากันพอดี สคริปต์ไม่ใช้ PLS-DA, ไม่สร้าง validation และบันทึก `pair_manifest.csv`, `synthetic_manifest.csv`, `scaler_stats.csv` และ JSON manifest เพื่อให้ตรวจสอบย้อนกลับได้
+
+รันจาก root โปรเจกต์ด้วย PythonSlicer:
+
+```powershell
+$env:PYTHONPATH="$PWD\Model\_training_cuda_site;$PWD\Model\_training_site"
+& 'C:\Program Files\SlicerSALT 6.0.0\bin\PythonSlicer.exe' Data_Processing\augment_all_pairwise_balanced.py `
+  --data-root Model\current_spharm_80_20_20260922 `
+  --output-root Model\augment_all_pairwise_80_20_20260924 `
+  --protocol all --side all --children-per-pair 8 --seed 42
+```
+
+ผลที่สร้างและใช้เป็น input ของการเทรน/ทดสอบอยู่ในโฟลเดอร์ต่อไปนี้:
+
+| วิธี | ข้าง | train | test |
+|---|---|---|---|
+| `between_class` | left | `Model/augment_all_pairwise_80_20_20260924/between_class/left/train/All_coef_Left_train_coef_features.csv` | `Model/augment_all_pairwise_80_20_20260924/between_class/left/test/All_coef_Left_test_coef_features.csv` |
+| `between_class` | right | `Model/augment_all_pairwise_80_20_20260924/between_class/right/train/All_coef_Right_train_coef_features.csv` | `Model/augment_all_pairwise_80_20_20260924/between_class/right/test/All_coef_Right_test_coef_features.csv` |
+| `within_class` | left | `Model/augment_all_pairwise_80_20_20260924/within_class/left/train/All_coef_Left_train_coef_features.csv` | `Model/augment_all_pairwise_80_20_20260924/within_class/left/test/All_coef_Left_test_coef_features.csv` |
+| `within_class` | right | `Model/augment_all_pairwise_80_20_20260924/within_class/right/train/All_coef_Right_train_coef_features.csv` | `Model/augment_all_pairwise_80_20_20260924/within_class/right/test/All_coef_Right_test_coef_features.csv` |
+
+ผลที่ตรวจแล้ว: All ซ้ายทั้งสองวิธีมี train เดิม `191/104` และได้ train สุดท้าย `520/520` รวม 1,040 แถว; All ขวามี train เดิม `220/82` และได้ train สุดท้าย `410/410` รวม 820 แถว ส่วน test ยังคงซ้าย 74 แถว (`48/26`) และขวา 75 แถว (`55/20`) พร้อม SHA-256 เดิมทุกไฟล์ การตรวจอัตโนมัติยืนยันว่า `validation_rows=0`, ค่า feature เป็น finite, pair ID ไม่ซ้ำ, ลูกต่อคู่ไม่เกิน 8 และไม่มี subject เดิมข้าม train/test
+
+รายละเอียดและตารางสรุปอยู่ที่ `Model/augment_all_pairwise_80_20_20260924/README_TH.md` และ `SUMMARY.csv` ชุด train นี้เป็น pre-augmented fixed split สำหรับการทดลอง 80/20 ตาม protocol นี้ หากจะทำ grouped cross-validation ต้องย้ายการจับคู่และการ fit scaler เข้าไปภายใน training fold เพื่อไม่ให้ข้อมูลสังเคราะห์รั่วข้าม fold
+
 ผลนี้เป็นการทดลองวิจัย ไม่ใช่เครื่องมือวินิจฉัยโรคที่ผ่านการยืนยันทางคลินิก การเปลี่ยน ICP reference/geometry ทำให้ต้องสร้าง features และฝึก weights ใหม่ ห้ามนำ weights เก่ามาปะกับ feature ชุดนี้
